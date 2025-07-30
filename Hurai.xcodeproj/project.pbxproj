@@ -6,17 +6,34 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
+		72F8F2032E3AC1AA00070291 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F1FF2E3AC1AA00070291 /* ContentView.swift */; };
+		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
+		72F8F2142E3AC2CC00070291 /* TempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2132E3AC2CC00070291 /* TempModel.swift */; };
+		72F8F2162E3AC2D800070291 /* TempUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2152E3AC2D800070291 /* TempUseCase.swift */; };
+		72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2172E3AC2E100070291 /* TempComponents.swift */; };
+		72F8F21A2E3AC2E900070291 /* TempStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2192E3AC2E900070291 /* TempStyle.swift */; };
+		72F8F21C2E3AC2F300070291 /* TempViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F21B2E3AC2F300070291 /* TempViewModel.swift */; };
+		72F8F21E2E3AC2F900070291 /* TempExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F21D2E3AC2F900070291 /* TempExtension.swift */; };
+		72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F21F2E3AC30000070291 /* TempConstant.swift */; };
+		72F8F2222E3AC30D00070291 /* TempFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2212E3AC30D00070291 /* TempFont.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		72180A582E3A5FB7007338DF /* Hurai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hurai.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		72F8F1FF2E3AC1AA00070291 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
+		72F8F2132E3AC2CC00070291 /* TempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempModel.swift; sourceTree = "<group>"; };
+		72F8F2152E3AC2D800070291 /* TempUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUseCase.swift; sourceTree = "<group>"; };
+		72F8F2172E3AC2E100070291 /* TempComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempComponents.swift; sourceTree = "<group>"; };
+		72F8F2192E3AC2E900070291 /* TempStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempStyle.swift; sourceTree = "<group>"; };
+		72F8F21B2E3AC2F300070291 /* TempViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewModel.swift; sourceTree = "<group>"; };
+		72F8F21D2E3AC2F900070291 /* TempExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempExtension.swift; sourceTree = "<group>"; };
+		72F8F21F2E3AC30000070291 /* TempConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConstant.swift; sourceTree = "<group>"; };
+		72F8F2212E3AC30D00070291 /* TempFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempFont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		72180A5A2E3A5FB7007338DF /* Hurai */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Hurai;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		72180A552E3A5FB7007338DF /* Frameworks */ = {
@@ -32,7 +49,7 @@
 		72180A4F2E3A5FB7007338DF = {
 			isa = PBXGroup;
 			children = (
-				72180A5A2E3A5FB7007338DF /* Hurai */,
+				72F8F2012E3AC1AA00070291 /* Hurai */,
 				72180A592E3A5FB7007338DF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +60,136 @@
 				72180A582E3A5FB7007338DF /* Hurai.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		72F8F2012E3AC1AA00070291 /* Hurai */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F2092E3AC1D500070291 /* App */,
+				72F8F2072E3AC1C400070291 /* Domain */,
+				72F8F2062E3AC1BC00070291 /* Presentation */,
+				72F8F2082E3AC1CA00070291 /* Supporting */,
+				72F8F2052E3AC1B000070291 /* Resources */,
+				72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */,
+			);
+			path = Hurai;
+			sourceTree = "<group>";
+		};
+		72F8F2052E3AC1B000070291 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F2102E3AC24C00070291 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		72F8F2062E3AC1BC00070291 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F20C2E3AC21600070291 /* Components */,
+				72F8F20D2E3AC22000070291 /* Styles */,
+				72F8F20E2E3AC22600070291 /* Views */,
+				72F8F20F2E3AC22A00070291 /* ViewModels */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		72F8F2072E3AC1C400070291 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F20A2E3AC20300070291 /* Models */,
+				72F8F20B2E3AC20B00070291 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		72F8F2082E3AC1CA00070291 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F2112E3AC25200070291 /* Extensions */,
+				72F8F2122E3AC26200070291 /* Constants */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		72F8F2092E3AC1D500070291 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F2002E3AC1AA00070291 /* HuraiApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		72F8F20A2E3AC20300070291 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F2132E3AC2CC00070291 /* TempModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		72F8F20B2E3AC20B00070291 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F2152E3AC2D800070291 /* TempUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		72F8F20C2E3AC21600070291 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F2172E3AC2E100070291 /* TempComponents.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		72F8F20D2E3AC22000070291 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F2192E3AC2E900070291 /* TempStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		72F8F20E2E3AC22600070291 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F1FF2E3AC1AA00070291 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		72F8F20F2E3AC22A00070291 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F21B2E3AC2F300070291 /* TempViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		72F8F2102E3AC24C00070291 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F2212E3AC30D00070291 /* TempFont.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		72F8F2112E3AC25200070291 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F21D2E3AC2F900070291 /* TempExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		72F8F2122E3AC26200070291 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F21F2E3AC30000070291 /* TempConstant.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +206,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				72180A5A2E3A5FB7007338DF /* Hurai */,
 			);
 			name = Hurai;
 			packageProductDependencies = (
@@ -109,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +264,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72F8F2142E3AC2CC00070291 /* TempModel.swift in Sources */,
+				72F8F21E2E3AC2F900070291 /* TempExtension.swift in Sources */,
+				72F8F2222E3AC30D00070291 /* TempFont.swift in Sources */,
+				72F8F21C2E3AC2F300070291 /* TempViewModel.swift in Sources */,
+				72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */,
+				72F8F2032E3AC1AA00070291 /* ContentView.swift in Sources */,
+				72F8F21A2E3AC2E900070291 /* TempStyle.swift in Sources */,
+				72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */,
+				72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */,
+				72F8F2162E3AC2D800070291 /* TempUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
