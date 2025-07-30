@@ -1,6 +1,6 @@
 ---
 name: "Pull Request 템플릿"
-about: "작업 내용과 논의사항을 포함한 PR 작성 템플릿"
+about: "PR 작성 템플릿"
 title: "[태그] #이슈번호 간단한 요약"
 labels: ''
 assignees: ''
