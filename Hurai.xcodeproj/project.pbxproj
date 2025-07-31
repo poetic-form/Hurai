@@ -33,6 +33,7 @@
 		72F8F21D2E3AC2F900070291 /* TempExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempExtension.swift; sourceTree = "<group>"; };
 		72F8F21F2E3AC30000070291 /* TempConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConstant.swift; sourceTree = "<group>"; };
 		72F8F2212E3AC30D00070291 /* TempFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempFont.swift; sourceTree = "<group>"; };
+		72F8F23B2E3B817900070291 /* Hurai.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hurai.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +66,7 @@
 		72F8F2012E3AC1AA00070291 /* Hurai */ = {
 			isa = PBXGroup;
 			children = (
+				72F8F23B2E3B817900070291 /* Hurai.entitlements */,
 				72F8F2092E3AC1D500070291 /* App */,
 				72F8F2072E3AC1C400070291 /* Domain */,
 				72F8F2062E3AC1BC00070291 /* Presentation */,
@@ -406,6 +408,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Hurai/Hurai.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7FD4JN9V32;
@@ -439,6 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Hurai/Hurai.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7FD4JN9V32;
