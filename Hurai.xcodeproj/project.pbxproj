@@ -28,6 +28,12 @@
 		72F8F2772E3D403900070291 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72F8F2642E3D401E00070291 /* ManagedSettings.framework */; };
 		72F8F2792E3D403900070291 /* ManagedSettingsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72F8F2782E3D403900070291 /* ManagedSettingsUI.framework */; };
 		72F8F2812E3D403900070291 /* ShieldConfigurationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 72F8F2762E3D403900070291 /* ShieldConfigurationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		72F8F2862E3D40CE00070291 /* DiscourageInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2402E3D1C2E00070291 /* DiscourageInfoStore.swift */; };
+		72F8F2872E3D40DA00070291 /* NotificationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2462E3D300100070291 /* NotificationUseCase.swift */; };
+		72F8F2882E3D40DA00070291 /* NotificationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2462E3D300100070291 /* NotificationUseCase.swift */; };
+		72F8F28E2E3D40F300070291 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F28A2E3D40F300070291 /* DeviceActivityMonitorExtension.swift */; };
+		72F8F2942E3D40F400070291 /* ShieldActionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2912E3D40F400070291 /* ShieldActionExtension.swift */; };
+		72F8F2992E3D40FE00070291 /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2972E3D40FE00070291 /* ShieldConfigurationExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,58 +99,16 @@
 		72F8F2642E3D401E00070291 /* ManagedSettings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettings.framework; path = System/Library/Frameworks/ManagedSettings.framework; sourceTree = SDKROOT; };
 		72F8F2762E3D403900070291 /* ShieldConfigurationExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShieldConfigurationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F8F2782E3D403900070291 /* ManagedSettingsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettingsUI.framework; path = System/Library/Frameworks/ManagedSettingsUI.framework; sourceTree = SDKROOT; };
+		72F8F2892E3D40F300070291 /* DeviceActivityMonitorExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeviceActivityMonitorExtension.entitlements; sourceTree = "<group>"; };
+		72F8F28A2E3D40F300070291 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
+		72F8F28B2E3D40F300070291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72F8F28F2E3D40F400070291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72F8F2902E3D40F400070291 /* ShieldActionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldActionExtension.entitlements; sourceTree = "<group>"; };
+		72F8F2912E3D40F400070291 /* ShieldActionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldActionExtension.swift; sourceTree = "<group>"; };
+		72F8F2952E3D40FE00070291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72F8F2962E3D40FE00070291 /* ShieldConfigurationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldConfigurationExtension.entitlements; sourceTree = "<group>"; };
+		72F8F2972E3D40FE00070291 /* ShieldConfigurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		72F8F25D2E3D400200070291 /* Exceptions for "DeviceActivityMonitorExtension" folder in "DeviceActivityMonitorExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 72F8F24D2E3D400200070291 /* DeviceActivityMonitorExtension */;
-		};
-		72F8F26E2E3D401E00070291 /* Exceptions for "ShieldActionExtension" folder in "ShieldActionExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 72F8F2622E3D401E00070291 /* ShieldActionExtension */;
-		};
-		72F8F2822E3D403900070291 /* Exceptions for "ShieldConfigurationExtension" folder in "ShieldConfigurationExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 72F8F2752E3D403900070291 /* ShieldConfigurationExtension */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		72F8F2522E3D400200070291 /* DeviceActivityMonitorExtension */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				72F8F25D2E3D400200070291 /* Exceptions for "DeviceActivityMonitorExtension" folder in "DeviceActivityMonitorExtension" target */,
-			);
-			path = DeviceActivityMonitorExtension;
-			sourceTree = "<group>";
-		};
-		72F8F2662E3D401E00070291 /* ShieldActionExtension */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				72F8F26E2E3D401E00070291 /* Exceptions for "ShieldActionExtension" folder in "ShieldActionExtension" target */,
-			);
-			path = ShieldActionExtension;
-			sourceTree = "<group>";
-		};
-		72F8F27A2E3D403900070291 /* ShieldConfigurationExtension */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				72F8F2822E3D403900070291 /* Exceptions for "ShieldConfigurationExtension" folder in "ShieldConfigurationExtension" target */,
-			);
-			path = ShieldConfigurationExtension;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		72180A552E3A5FB7007338DF /* Frameworks */ = {
@@ -186,9 +150,9 @@
 			isa = PBXGroup;
 			children = (
 				72F8F2012E3AC1AA00070291 /* Hurai */,
-				72F8F2522E3D400200070291 /* DeviceActivityMonitorExtension */,
-				72F8F2662E3D401E00070291 /* ShieldActionExtension */,
-				72F8F27A2E3D403900070291 /* ShieldConfigurationExtension */,
+				72F8F28C2E3D40F300070291 /* DeviceActivityMonitorExtension */,
+				72F8F2922E3D40F400070291 /* ShieldActionExtension */,
+				72F8F2982E3D40FE00070291 /* ShieldConfigurationExtension */,
 				72F8F24F2E3D400200070291 /* Frameworks */,
 				72180A592E3A5FB7007338DF /* Products */,
 			);
@@ -349,6 +313,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		72F8F28C2E3D40F300070291 /* DeviceActivityMonitorExtension */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F2892E3D40F300070291 /* DeviceActivityMonitorExtension.entitlements */,
+				72F8F28A2E3D40F300070291 /* DeviceActivityMonitorExtension.swift */,
+				72F8F28B2E3D40F300070291 /* Info.plist */,
+			);
+			path = DeviceActivityMonitorExtension;
+			sourceTree = "<group>";
+		};
+		72F8F2922E3D40F400070291 /* ShieldActionExtension */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F28F2E3D40F400070291 /* Info.plist */,
+				72F8F2902E3D40F400070291 /* ShieldActionExtension.entitlements */,
+				72F8F2912E3D40F400070291 /* ShieldActionExtension.swift */,
+			);
+			path = ShieldActionExtension;
+			sourceTree = "<group>";
+		};
+		72F8F2982E3D40FE00070291 /* ShieldConfigurationExtension */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F2952E3D40FE00070291 /* Info.plist */,
+				72F8F2962E3D40FE00070291 /* ShieldConfigurationExtension.entitlements */,
+				72F8F2972E3D40FE00070291 /* ShieldConfigurationExtension.swift */,
+			);
+			path = ShieldConfigurationExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -387,9 +381,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				72F8F2522E3D400200070291 /* DeviceActivityMonitorExtension */,
-			);
 			name = DeviceActivityMonitorExtension;
 			packageProductDependencies = (
 			);
@@ -409,9 +400,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				72F8F2662E3D401E00070291 /* ShieldActionExtension */,
-			);
 			name = ShieldActionExtension;
 			packageProductDependencies = (
 			);
@@ -430,9 +418,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				72F8F27A2E3D403900070291 /* ShieldConfigurationExtension */,
 			);
 			name = ShieldConfigurationExtension;
 			packageProductDependencies = (
@@ -544,6 +529,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72F8F2872E3D40DA00070291 /* NotificationUseCase.swift in Sources */,
+				72F8F28E2E3D40F300070291 /* DeviceActivityMonitorExtension.swift in Sources */,
+				72F8F2862E3D40CE00070291 /* DiscourageInfoStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +539,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72F8F2942E3D40F400070291 /* ShieldActionExtension.swift in Sources */,
+				72F8F2882E3D40DA00070291 /* NotificationUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +548,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72F8F2992E3D40FE00070291 /* ShieldConfigurationExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
