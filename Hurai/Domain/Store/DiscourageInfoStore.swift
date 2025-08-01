@@ -12,7 +12,7 @@ import SwiftUI
 final class DiscourageInfoStore: ObservableObject {
     static let shared = DiscourageInfoStore()
     
-    @AppStorage("selections") private var selections: FamilyActivitySelection = FamilyActivitySelection()
+    @AppStorage("selections", store: UserDefaults(suiteName: "group.poeticform.Hurai")) private var selections: FamilyActivitySelection = FamilyActivitySelection()
     
     @AppStorage("goalTime") private var goalTime: Int = 0
     private init() { }
