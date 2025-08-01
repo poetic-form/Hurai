@@ -10,14 +10,15 @@
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2032E3AC1AA00070291 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F1FF2E3AC1AA00070291 /* ContentView.swift */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
-		72F8F2142E3AC2CC00070291 /* TempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2132E3AC2CC00070291 /* TempModel.swift */; };
 		72F8F2162E3AC2D800070291 /* TempUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2152E3AC2D800070291 /* TempUseCase.swift */; };
 		72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2172E3AC2E100070291 /* TempComponents.swift */; };
 		72F8F21A2E3AC2E900070291 /* TempStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2192E3AC2E900070291 /* TempStyle.swift */; };
 		72F8F21C2E3AC2F300070291 /* TempViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F21B2E3AC2F300070291 /* TempViewModel.swift */; };
-		72F8F21E2E3AC2F900070291 /* TempExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F21D2E3AC2F900070291 /* TempExtension.swift */; };
 		72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F21F2E3AC30000070291 /* TempConstant.swift */; };
 		72F8F2222E3AC30D00070291 /* TempFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2212E3AC30D00070291 /* TempFont.swift */; };
+		72F8F23F2E3D1AAA00070291 /* AppStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F23E2E3D1AAA00070291 /* AppStateStore.swift */; };
+		72F8F2412E3D1C2E00070291 /* DiscourageInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2402E3D1C2E00070291 /* DiscourageInfoStore.swift */; };
+		72F8F2432E3D1F2900070291 /* FamilyActivitySelection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2422E3D1F2900070291 /* FamilyActivitySelection+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,15 +26,16 @@
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F1FF2E3AC1AA00070291 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
-		72F8F2132E3AC2CC00070291 /* TempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempModel.swift; sourceTree = "<group>"; };
 		72F8F2152E3AC2D800070291 /* TempUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUseCase.swift; sourceTree = "<group>"; };
 		72F8F2172E3AC2E100070291 /* TempComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempComponents.swift; sourceTree = "<group>"; };
 		72F8F2192E3AC2E900070291 /* TempStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempStyle.swift; sourceTree = "<group>"; };
 		72F8F21B2E3AC2F300070291 /* TempViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewModel.swift; sourceTree = "<group>"; };
-		72F8F21D2E3AC2F900070291 /* TempExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempExtension.swift; sourceTree = "<group>"; };
 		72F8F21F2E3AC30000070291 /* TempConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConstant.swift; sourceTree = "<group>"; };
 		72F8F2212E3AC30D00070291 /* TempFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempFont.swift; sourceTree = "<group>"; };
 		72F8F23B2E3B817900070291 /* Hurai.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hurai.entitlements; sourceTree = "<group>"; };
+		72F8F23E2E3D1AAA00070291 /* AppStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateStore.swift; sourceTree = "<group>"; };
+		72F8F2402E3D1C2E00070291 /* DiscourageInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscourageInfoStore.swift; sourceTree = "<group>"; };
+		72F8F2422E3D1F2900070291 /* FamilyActivitySelection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FamilyActivitySelection+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +101,7 @@
 		72F8F2072E3AC1C400070291 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				72F8F20A2E3AC20300070291 /* Models */,
+				72F8F20A2E3AC20300070291 /* Store */,
 				72F8F20B2E3AC20B00070291 /* UseCases */,
 			);
 			path = Domain;
@@ -122,12 +124,13 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		72F8F20A2E3AC20300070291 /* Models */ = {
+		72F8F20A2E3AC20300070291 /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				72F8F2132E3AC2CC00070291 /* TempModel.swift */,
+				72F8F23E2E3D1AAA00070291 /* AppStateStore.swift */,
+				72F8F2402E3D1C2E00070291 /* DiscourageInfoStore.swift */,
 			);
-			path = Models;
+			path = Store;
 			sourceTree = "<group>";
 		};
 		72F8F20B2E3AC20B00070291 /* UseCases */ = {
@@ -181,7 +184,7 @@
 		72F8F2112E3AC25200070291 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				72F8F21D2E3AC2F900070291 /* TempExtension.swift */,
+				72F8F2422E3D1F2900070291 /* FamilyActivitySelection+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -266,16 +269,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72F8F2142E3AC2CC00070291 /* TempModel.swift in Sources */,
-				72F8F21E2E3AC2F900070291 /* TempExtension.swift in Sources */,
+				72F8F23F2E3D1AAA00070291 /* AppStateStore.swift in Sources */,
 				72F8F2222E3AC30D00070291 /* TempFont.swift in Sources */,
 				72F8F21C2E3AC2F300070291 /* TempViewModel.swift in Sources */,
 				72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */,
 				72F8F2032E3AC1AA00070291 /* ContentView.swift in Sources */,
 				72F8F21A2E3AC2E900070291 /* TempStyle.swift in Sources */,
+				72F8F2412E3D1C2E00070291 /* DiscourageInfoStore.swift in Sources */,
 				72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */,
 				72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */,
 				72F8F2162E3AC2D800070291 /* TempUseCase.swift in Sources */,
+				72F8F2432E3D1F2900070291 /* FamilyActivitySelection+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +423,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,7 +457,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
