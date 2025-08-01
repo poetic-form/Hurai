@@ -20,6 +20,7 @@
 		72F8F2432E3D1F2900070291 /* FamilyActivitySelection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2422E3D1F2900070291 /* FamilyActivitySelection+Extension.swift */; };
 		72F8F2452E3D23FE00070291 /* AppLockUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2442E3D23FE00070291 /* AppLockUseCase.swift */; };
 		72F8F2472E3D300100070291 /* NotificationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2462E3D300100070291 /* NotificationUseCase.swift */; };
+		72F8F2492E3D379E00070291 /* DeviceActivityUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2482E3D379E00070291 /* DeviceActivityUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		72F8F2422E3D1F2900070291 /* FamilyActivitySelection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FamilyActivitySelection+Extension.swift"; sourceTree = "<group>"; };
 		72F8F2442E3D23FE00070291 /* AppLockUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockUseCase.swift; sourceTree = "<group>"; };
 		72F8F2462E3D300100070291 /* NotificationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUseCase.swift; sourceTree = "<group>"; };
+		72F8F2482E3D379E00070291 /* DeviceActivityUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			children = (
 				72F8F2442E3D23FE00070291 /* AppLockUseCase.swift */,
 				72F8F2462E3D300100070291 /* NotificationUseCase.swift */,
+				72F8F2482E3D379E00070291 /* DeviceActivityUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72F8F2472E3D300100070291 /* NotificationUseCase.swift in Sources */,
+				72F8F2492E3D379E00070291 /* DeviceActivityUseCase.swift in Sources */,
 				72F8F23F2E3D1AAA00070291 /* AppStateStore.swift in Sources */,
 				72F8F2222E3AC30D00070291 /* TempFont.swift in Sources */,
 				72F8F21C2E3AC2F300070291 /* TempViewModel.swift in Sources */,
