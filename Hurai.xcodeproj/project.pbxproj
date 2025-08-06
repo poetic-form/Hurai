@@ -17,7 +17,6 @@
 		72F8F2222E3AC30D00070291 /* TempFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2212E3AC30D00070291 /* TempFont.swift */; };
 		72F8F23F2E3D1AAA00070291 /* AppStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F23E2E3D1AAA00070291 /* AppStateStore.swift */; };
 		72F8F2412E3D1C2E00070291 /* DiscourageInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2402E3D1C2E00070291 /* DiscourageInfoStore.swift */; };
-		72F8F2432E3D1F2900070291 /* FamilyActivitySelection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2422E3D1F2900070291 /* FamilyActivitySelection+Extension.swift */; };
 		72F8F2452E3D23FE00070291 /* AppLockUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2442E3D23FE00070291 /* AppLockUseCase.swift */; };
 		72F8F2472E3D300100070291 /* NotificationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2462E3D300100070291 /* NotificationUseCase.swift */; };
 		72F8F2492E3D379E00070291 /* DeviceActivityUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2482E3D379E00070291 /* DeviceActivityUseCase.swift */; };
@@ -89,7 +88,6 @@
 		72F8F23B2E3B817900070291 /* Hurai.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hurai.entitlements; sourceTree = "<group>"; };
 		72F8F23E2E3D1AAA00070291 /* AppStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateStore.swift; sourceTree = "<group>"; };
 		72F8F2402E3D1C2E00070291 /* DiscourageInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscourageInfoStore.swift; sourceTree = "<group>"; };
-		72F8F2422E3D1F2900070291 /* FamilyActivitySelection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FamilyActivitySelection+Extension.swift"; sourceTree = "<group>"; };
 		72F8F2442E3D23FE00070291 /* AppLockUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockUseCase.swift; sourceTree = "<group>"; };
 		72F8F2462E3D300100070291 /* NotificationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUseCase.swift; sourceTree = "<group>"; };
 		72F8F2482E3D379E00070291 /* DeviceActivityUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityUseCase.swift; sourceTree = "<group>"; };
@@ -290,7 +288,6 @@
 		72F8F2112E3AC25200070291 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				72F8F2422E3D1F2900070291 /* FamilyActivitySelection+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -521,7 +518,6 @@
 				72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */,
 				72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */,
 				72F8F2452E3D23FE00070291 /* AppLockUseCase.swift in Sources */,
-				72F8F2432E3D1F2900070291 /* FamilyActivitySelection+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
