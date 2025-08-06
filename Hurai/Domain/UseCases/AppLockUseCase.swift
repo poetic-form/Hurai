@@ -12,6 +12,8 @@ import ManagedSettings
 class AppLockUseCase {
     let store: ManagedSettingsStore = ManagedSettingsStore()
     
+    init() { }
+    
     func lockApps(apps: FamilyActivitySelection) {
         store.shield.applications = apps.applicationTokens
         store.shield.webDomains = apps.webDomainTokens

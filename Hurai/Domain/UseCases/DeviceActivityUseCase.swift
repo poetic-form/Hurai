@@ -12,6 +12,8 @@ import FamilyControls
 class DeviceActivityUseCase {
     let center = DeviceActivityCenter()
     
+    init() { }
+    
     func createSchedule() -> DeviceActivitySchedule {
         let calendar: Calendar = Calendar.current
         
