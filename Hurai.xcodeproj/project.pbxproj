@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72233D692E433376005109D1 /* FlipMotionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D682E433376005109D1 /* FlipMotionUseCase.swift */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2032E3AC1AA00070291 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F1FF2E3AC1AA00070291 /* ContentView.swift */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
@@ -77,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		72180A582E3A5FB7007338DF /* Hurai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hurai.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		72233D682E433376005109D1 /* FlipMotionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipMotionUseCase.swift; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F1FF2E3AC1AA00070291 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				72F8F2442E3D23FE00070291 /* AppLockUseCase.swift */,
 				72F8F2462E3D300100070291 /* NotificationUseCase.swift */,
 				72F8F2482E3D379E00070291 /* DeviceActivityUseCase.swift */,
+				72233D682E433376005109D1 /* FlipMotionUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				72F8F21C2E3AC2F300070291 /* TempViewModel.swift in Sources */,
 				72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */,
 				72F8F2032E3AC1AA00070291 /* ContentView.swift in Sources */,
+				72233D692E433376005109D1 /* FlipMotionUseCase.swift in Sources */,
 				72F8F21A2E3AC2E900070291 /* TempStyle.swift in Sources */,
 				72F8F2412E3D1C2E00070291 /* DiscourageInfoStore.swift in Sources */,
 				72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */,
