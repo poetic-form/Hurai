@@ -11,6 +11,8 @@ import UserNotifications
 class NotificationUseCase {
     let center = UNUserNotificationCenter.current()
     
+    init() { }
+    
     func requestNotificationAuthorization() {
         center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {
