@@ -9,7 +9,7 @@ import SwiftUI
 import FamilyControls
 
 struct HomeView: View {
-    @StateObject private var viewModel = HomeViewModel()
+    @EnvironmentObject private var viewModel: HomeViewModel
     
     var body: some View {
         VStack(spacing: 50) {

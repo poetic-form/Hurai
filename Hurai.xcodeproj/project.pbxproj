@@ -13,6 +13,7 @@
 		72233D6F2E4342F9005109D1 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D6E2E4342F9005109D1 /* SettingView.swift */; };
 		72233D712E4344AD005109D1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D702E4344AD005109D1 /* HomeViewModel.swift */; };
 		72233D732E434F46005109D1 /* ThresholdPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D722E434F46005109D1 /* ThresholdPickerView.swift */; };
+		72233D752E4733F9005109D1 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D742E4733F9005109D1 /* SettingViewModel.swift */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
 		72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2172E3AC2E100070291 /* TempComponents.swift */; };
@@ -88,6 +89,7 @@
 		72233D6E2E4342F9005109D1 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		72233D702E4344AD005109D1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		72233D722E434F46005109D1 /* ThresholdPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdPickerView.swift; sourceTree = "<group>"; };
+		72233D742E4733F9005109D1 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
 		72F8F2172E3AC2E100070291 /* TempComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempComponents.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			children = (
 				72F8F21B2E3AC2F300070291 /* TempViewModel.swift */,
 				72233D702E4344AD005109D1 /* HomeViewModel.swift */,
+				72233D742E4733F9005109D1 /* SettingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				72F8F23F2E3D1AAA00070291 /* AppStateStore.swift in Sources */,
 				72F8F2222E3AC30D00070291 /* TempFont.swift in Sources */,
 				72F8F21C2E3AC2F300070291 /* TempViewModel.swift in Sources */,
+				72233D752E4733F9005109D1 /* SettingViewModel.swift in Sources */,
 				72233D6F2E4342F9005109D1 /* SettingView.swift in Sources */,
 				72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */,
 				72233D692E433376005109D1 /* FlipMotionUseCase.swift in Sources */,
