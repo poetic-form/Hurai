@@ -6,10 +6,43 @@
 //
 
 import SwiftUI
+import FamilyControls
 
 struct HomeView: View {
+    @StateObject private var viewModel = HomeViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 50) {
+            Button("앱 선택") {
+                viewModel.showSelectionPicker = true
+            }
+            
+            List {
+                ForEach(Array(viewModel.selections.applicationTokens), id: \.self) { app in
+                    Label(app)
+                }
+                
+                ForEach(Array(viewModel.selections.webDomainTokens), id: \.self) { web in
+                    Label(web)
+                }
+            }
+            .frame(height: 300)
+            
+            Text(viewModel.threshold.description)
+            
+            Button("목표 시간 설정") {
+                viewModel.showThresholdPicker = true
+            }
+            
+            Button("측정 시작") {
+                viewModel.action()
+            }
+        }
+        .familyActivityPicker(isPresented: $viewModel.showSelectionPicker, selection: viewModel.selectionsBinding)
+        .sheet(isPresented: $viewModel.showThresholdPicker) {
+            ThresholdPickerView()
+                .environmentObject(viewModel)
+        }
     }
 }
 

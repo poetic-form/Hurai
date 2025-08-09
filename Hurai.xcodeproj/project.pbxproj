@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		72233D692E433376005109D1 /* FlipMotionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D682E433376005109D1 /* FlipMotionUseCase.swift */; };
+		72233D6B2E4342DE005109D1 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D6A2E4342DE005109D1 /* RootView.swift */; };
+		72233D6D2E4342F0005109D1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D6C2E4342F0005109D1 /* HomeView.swift */; };
+		72233D6F2E4342F9005109D1 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D6E2E4342F9005109D1 /* SettingView.swift */; };
+		72233D712E4344AD005109D1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D702E4344AD005109D1 /* HomeViewModel.swift */; };
+		72233D732E434F46005109D1 /* ThresholdPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D722E434F46005109D1 /* ThresholdPickerView.swift */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
-		72F8F2032E3AC1AA00070291 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F1FF2E3AC1AA00070291 /* ContentView.swift */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
 		72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2172E3AC2E100070291 /* TempComponents.swift */; };
 		72F8F21A2E3AC2E900070291 /* TempStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2192E3AC2E900070291 /* TempStyle.swift */; };
@@ -79,8 +83,12 @@
 /* Begin PBXFileReference section */
 		72180A582E3A5FB7007338DF /* Hurai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hurai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72233D682E433376005109D1 /* FlipMotionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipMotionUseCase.swift; sourceTree = "<group>"; };
+		72233D6A2E4342DE005109D1 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		72233D6C2E4342F0005109D1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		72233D6E2E4342F9005109D1 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		72233D702E4344AD005109D1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		72233D722E434F46005109D1 /* ThresholdPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdPickerView.swift; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		72F8F1FF2E3AC1AA00070291 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
 		72F8F2172E3AC2E100070291 /* TempComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempComponents.swift; sourceTree = "<group>"; };
 		72F8F2192E3AC2E900070291 /* TempStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempStyle.swift; sourceTree = "<group>"; };
@@ -267,7 +275,10 @@
 		72F8F20E2E3AC22600070291 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				72F8F1FF2E3AC1AA00070291 /* ContentView.swift */,
+				72233D6A2E4342DE005109D1 /* RootView.swift */,
+				72233D6C2E4342F0005109D1 /* HomeView.swift */,
+				72233D6E2E4342F9005109D1 /* SettingView.swift */,
+				72233D722E434F46005109D1 /* ThresholdPickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				72F8F21B2E3AC2F300070291 /* TempViewModel.swift */,
+				72233D702E4344AD005109D1 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -510,18 +522,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				72F8F2472E3D300100070291 /* NotificationUseCase.swift in Sources */,
+				72233D6D2E4342F0005109D1 /* HomeView.swift in Sources */,
 				72F8F2492E3D379E00070291 /* DeviceActivityUseCase.swift in Sources */,
+				72233D712E4344AD005109D1 /* HomeViewModel.swift in Sources */,
 				72F8F23F2E3D1AAA00070291 /* AppStateStore.swift in Sources */,
 				72F8F2222E3AC30D00070291 /* TempFont.swift in Sources */,
 				72F8F21C2E3AC2F300070291 /* TempViewModel.swift in Sources */,
+				72233D6F2E4342F9005109D1 /* SettingView.swift in Sources */,
 				72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */,
-				72F8F2032E3AC1AA00070291 /* ContentView.swift in Sources */,
 				72233D692E433376005109D1 /* FlipMotionUseCase.swift in Sources */,
 				72F8F21A2E3AC2E900070291 /* TempStyle.swift in Sources */,
 				72F8F2412E3D1C2E00070291 /* DiscourageInfoStore.swift in Sources */,
+				72233D6B2E4342DE005109D1 /* RootView.swift in Sources */,
 				72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */,
 				72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */,
 				72F8F2452E3D23FE00070291 /* AppLockUseCase.swift in Sources */,
+				72233D732E434F46005109D1 /* ThresholdPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
