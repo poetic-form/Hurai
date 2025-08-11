@@ -37,15 +37,25 @@ struct HomeView: View {
             Button("측정 시작") {
                 viewModel.action()
             }
+            
+            Button("미션뷰") {
+                viewModel.showMissionView = true
+            }
         }
         .familyActivityPicker(isPresented: $viewModel.showSelectionPicker, selection: viewModel.selectionsBinding)
         .sheet(isPresented: $viewModel.showThresholdPicker) {
             ThresholdPickerView()
                 .environmentObject(viewModel)
         }
+        .fullScreenCover(isPresented: $viewModel.showMissionView) {
+            Button("닫기") {
+                viewModel.showMissionView = false
+            }
+        }
     }
 }
 
 #Preview {
     HomeView()
+        .environmentObject(HomeViewModel())
 }

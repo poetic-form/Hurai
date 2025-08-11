@@ -13,9 +13,11 @@ import ManagedSettings
 class HomeViewModel: ObservableObject {
     let store: DiscourageInfoStore = .init()
     let usecase: DeviceActivityUseCase = .init()
+    let applock: AppLockUseCase = .init()
     
     @Published var showSelectionPicker: Bool = false
     @Published var showThresholdPicker: Bool = false
+    @Published var showMissionView: Bool = false
    
     var selections:FamilyActivitySelection {
         get { store.selections }
@@ -42,6 +44,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func action() {
+        usecase.stopMonitoring()
         usecase.startMonitoring(apps: self.selections, threshold: DateComponents(minute: self.threshold))
         print(self.threshold)
     }
