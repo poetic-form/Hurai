@@ -10,6 +10,10 @@ import DeviceActivity
 // Optionally override any of the functions below.
 // Make sure that your class name matches the NSExtensionPrincipalClass in your Info.plist.
 class DeviceActivityMonitorExtension: DeviceActivityMonitor {
+    let notificationUseCase: NotificationUseCase = .init()
+    let appLockUseCase: AppLockUseCase = .init()
+    let store: DiscourageInfoStore = .init()
+    
     override func intervalDidStart(for activity: DeviceActivityName) {
         super.intervalDidStart(for: activity)
         
@@ -26,6 +30,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         super.eventDidReachThreshold(event, activity: activity)
         
         // Handle the event reaching its threshold.
+        appLockUseCase.lockApps(apps: store.selections)
     }
     
     override func intervalWillStartWarning(for activity: DeviceActivityName) {
@@ -44,5 +49,6 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         super.eventWillReachThresholdWarning(event, activity: activity)
         
         // Handle the warning before the event reaches its threshold.
+        notificationUseCase.scheduleNotification(title: "경고", body: "1분 남았습니다")
     }
 }
