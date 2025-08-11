@@ -49,6 +49,6 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         super.eventWillReachThresholdWarning(event, activity: activity)
         
         // Handle the warning before the event reaches its threshold.
-        notificationUseCase.scheduleNotification(title: "경고", body: "1분 남았습니다")
+        notificationUseCase.warningNotification(title: "경고", body: "1분 남았습니다")
     }
 }

@@ -47,11 +47,6 @@ struct HomeView: View {
             ThresholdPickerView()
                 .environmentObject(viewModel)
         }
-        .fullScreenCover(isPresented: $viewModel.showMissionView) {
-            Button("닫기") {
-                viewModel.showMissionView = false
-            }
-        }
     }
 }
 

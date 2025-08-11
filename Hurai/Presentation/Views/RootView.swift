@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct RootView: View {
+    @State private var showMissionView: Bool = false
+    
     var body: some View {
+        Button("misson") {
+            showMissionView = true
+        }
+        
         TabView {
             HomeView()
                 .tabItem {
@@ -18,6 +24,16 @@ struct RootView: View {
                 .tabItem {
                     Image(systemName: "gear")
                 }
+        }
+        .onOpenURL { url in
+            if(url.scheme == "hurai" && url.host == "mission") {
+                showMissionView = true
+            }
+        }
+        .fullScreenCover(isPresented: $showMissionView) {
+            Button("닫기") {
+                showMissionView = false
+            }
         }
     }
 }
