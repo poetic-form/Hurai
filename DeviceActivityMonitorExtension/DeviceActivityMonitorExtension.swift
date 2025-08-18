@@ -24,6 +24,8 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         super.intervalDidEnd(for: activity)
         
         // Handle the end of the interval.
+        
+        appLockUseCase.unlockAllApps()
     }
     
     override func eventDidReachThreshold(_ event: DeviceActivityEvent.Name, activity: DeviceActivityName) {

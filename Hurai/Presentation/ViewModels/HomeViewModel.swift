@@ -18,6 +18,9 @@ class HomeViewModel: ObservableObject {
     @Published var showSelectionPicker: Bool = false
     @Published var showThresholdPicker: Bool = false
     @Published var showMissionView: Bool = false
+    
+    @Published var startInderval: Date = .now
+    @Published var endInderval: Date = .now + 30
    
     var selections:FamilyActivitySelection {
         get { store.selections }
@@ -43,9 +46,7 @@ class HomeViewModel: ObservableObject {
         )
     }
     
-    func action() {
-        usecase.stopMonitoring()
-        usecase.startMonitoring(apps: self.selections, threshold: DateComponents(minute: self.threshold))
-        print(self.threshold)
+    func originMonitoring() {
+        usecase.originStartMonitoring(start: startInderval, end: endInderval, apps: store.selections, threshold: DateComponents(minute: threshold))
     }
 }

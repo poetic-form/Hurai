@@ -31,9 +31,7 @@ struct RootView: View {
             }
         }
         .fullScreenCover(isPresented: $showMissionView) {
-            Button("닫기") {
-                showMissionView = false
-            }
+            MissionView(showMissionView: $showMissionView)
         }
     }
 }

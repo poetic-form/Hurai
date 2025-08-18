@@ -26,20 +26,26 @@ struct HomeView: View {
                     Label(web)
                 }
             }
-            .frame(height: 300)
             
             Text(viewModel.threshold.description)
+            
+            DatePicker("시작", selection: $viewModel.startInderval, displayedComponents: .hourAndMinute)
+            
+            DatePicker("끝", selection: $viewModel.endInderval, displayedComponents: .hourAndMinute)
             
             Button("목표 시간 설정") {
                 viewModel.showThresholdPicker = true
             }
             
+            Text("\(String(describing: viewModel.usecase.center.schedule(for: .origin)?.nextInterval))")
+            Text("\(viewModel.usecase.center.activities)")
+            
             Button("측정 시작") {
-                viewModel.action()
+                viewModel.originMonitoring()
             }
             
-            Button("미션뷰") {
-                viewModel.showMissionView = true
+            Button("측정 종료") {
+                viewModel.usecase.stopMonitoring(name: .init("totalSelectionsUsage"))
             }
         }
         .familyActivityPicker(isPresented: $viewModel.showSelectionPicker, selection: viewModel.selectionsBinding)
