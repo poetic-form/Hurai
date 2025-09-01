@@ -18,11 +18,11 @@ struct HomeView: View {
             }
             
             List {
-                ForEach(Array(viewModel.selections.applicationTokens), id: \.self) { app in
+                ForEach(Array(viewModel.selections.applicationTokens).sorted(by: { $0.rawValue < $1.rawValue} ), id: \.self) { app in
                     Label(app)
                 }
                 
-                ForEach(Array(viewModel.selections.webDomainTokens), id: \.self) { web in
+                ForEach(Array(viewModel.selections.webDomainTokens).sorted(by: { $0.rawValue < $1.rawValue} ), id: \.self) { web in
                     Label(web)
                 }
             }
@@ -59,4 +59,24 @@ struct HomeView: View {
 #Preview {
     HomeView()
         .environmentObject(HomeViewModel())
+}
+
+extension Token: @retroactive RawRepresentable {
+    public init?(rawValue: String) {
+        guard let data = rawValue.data(using: .utf8),
+              let result = try? JSONDecoder().decode(Token.self, from: data)
+        else {
+            return nil
+        }
+        self = result
+    }
+
+    public var rawValue: String {
+        guard let data = try? JSONEncoder().encode(self),
+              let result = String(data: data, encoding: .utf8)
+        else {
+            return "[]"
+        }
+        return result
+    }
 }
