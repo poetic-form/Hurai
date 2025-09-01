@@ -10,10 +10,13 @@ import FamilyControls
 import SwiftUI
 
 final class DiscourageInfoStore: ObservableObject {
-    @AppStorage("selections", store: UserDefaults(suiteName: "group.poeticform.Hurai"))
+    @AppStorage("selections", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var selections: FamilyActivitySelection = FamilyActivitySelection(includeEntireCategory: true)
     
-    @AppStorage("goalTime") var threshold: Int = 0
+    @AppStorage("threshold") var threshold: Int = 0
+    
+    @AppStorage("times", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var times: TimeInterval = 1
     
     init() { }
 }

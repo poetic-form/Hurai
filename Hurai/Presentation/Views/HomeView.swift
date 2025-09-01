@@ -7,12 +7,13 @@
 
 import SwiftUI
 import FamilyControls
+import ManagedSettings
 
 struct HomeView: View {
     @EnvironmentObject private var viewModel: HomeViewModel
-    
+    @State var showAlert: Bool = false
     var body: some View {
-        VStack(spacing: 50) {
+        VStack(spacing: 10) {
             Button("앱 선택") {
                 viewModel.showSelectionPicker = true
             }
@@ -27,32 +28,39 @@ struct HomeView: View {
                 }
             }
             
-            Text(viewModel.threshold.description)
-            
-            DatePicker("시작", selection: $viewModel.startInderval, displayedComponents: .hourAndMinute)
-            
-            DatePicker("끝", selection: $viewModel.endInderval, displayedComponents: .hourAndMinute)
-            
-            Button("목표 시간 설정") {
-                viewModel.showThresholdPicker = true
+            List {
+                DatePicker("start interval", selection: $viewModel.startInterval, displayedComponents: .hourAndMinute)
+                
+                DatePicker("end interval", selection: $viewModel.endInterval, displayedComponents: .hourAndMinute)
+                
+                Picker("threshold", selection: $viewModel.threshold) {
+                    ForEach(2...60, id: \.self) { index in
+                        Text("\(index)분")
+                            .tag(index)
+                    }
+                }
+                .pickerStyle(.menu)
             }
+            .scrollDisabled(true)
             
-            Text("\(String(describing: viewModel.usecase.center.schedule(for: .origin)?.nextInterval))")
-            Text("\(viewModel.usecase.center.activities)")
-            
-            Button("측정 시작") {
+            Button("start monitoring") {
+                viewModel.usecase.center.stopMonitoring()
                 viewModel.originMonitoring()
+                showAlert = true
             }
-            
-            Button("측정 종료") {
-                viewModel.usecase.stopMonitoring(name: .init("totalSelectionsUsage"))
-            }
+            .buttonStyle(.bordered)
         }
         .familyActivityPicker(isPresented: $viewModel.showSelectionPicker, selection: viewModel.selectionsBinding)
         .sheet(isPresented: $viewModel.showThresholdPicker) {
             ThresholdPickerView()
                 .environmentObject(viewModel)
         }
+        .alert("start monitoring", isPresented: $showAlert, actions: {
+            Button("OK") {
+                showAlert = false
+            }
+        })
+        .padding()
     }
 }
 

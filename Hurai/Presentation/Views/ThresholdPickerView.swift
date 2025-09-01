@@ -13,9 +13,9 @@ struct ThresholdPickerView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Picker("목표 시간 설정", selection: viewModel.thresholdBinding) {
-                    ForEach(0...10, id: \.self) { index in
-                        Text("\(index)분")
+                Picker("목표 시간 설정", selection: $viewModel.threshold) {
+                    ForEach(2...60, id: \.self) { index in
+                        Text("\(index)분").tag(index)
                     }
                 }
                 .pickerStyle(.wheel)

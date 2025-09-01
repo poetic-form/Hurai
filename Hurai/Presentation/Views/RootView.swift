@@ -9,18 +9,17 @@ import SwiftUI
 
 struct RootView: View {
     @State private var showMissionView: Bool = false
+    @EnvironmentObject var viewModel: HomeViewModel
+    @AppStorage("times", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var times: TimeInterval = 1
     
     var body: some View {
-        Button("misson") {
-            showMissionView = true
-        }
-        
         TabView {
             HomeView()
                 .tabItem {
                     Image(systemName: "house")
                 }
-            SettingView()
+            SettingView(showMissionView: $showMissionView)
                 .tabItem {
                     Image(systemName: "gear")
                 }

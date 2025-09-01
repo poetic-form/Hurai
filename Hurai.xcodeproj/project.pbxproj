@@ -17,6 +17,10 @@
 		72233D762E4737DE005109D1 /* AppLockUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2442E3D23FE00070291 /* AppLockUseCase.swift */; };
 		72233D782E4744B5005109D1 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D772E4744B5005109D1 /* MissionView.swift */; };
 		72233D7A2E4A7EC7005109D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D792E4A7EC7005109D1 /* AppDelegate.swift */; };
+		72233D802E549907005109D1 /* DeviceActivityUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2482E3D379E00070291 /* DeviceActivityUseCase.swift */; };
+		72233D822E549FC0005109D1 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72233D812E549FC0005109D1 /* Config.xcconfig */; };
+		72233D852E54A124005109D1 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72233D812E549FC0005109D1 /* Config.xcconfig */; };
+		72233D862E55F9CF005109D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
 		72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2172E3AC2E100070291 /* TempComponents.swift */; };
@@ -96,6 +100,7 @@
 		72233D772E4744B5005109D1 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 		72233D792E4A7EC7005109D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72233D7B2E4A8B08005109D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		72233D812E549FC0005109D1 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
 		72F8F2172E3AC2E100070291 /* TempComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempComponents.swift; sourceTree = "<group>"; };
@@ -231,7 +236,6 @@
 		72F8F2082E3AC1CA00070291 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				72F8F2112E3AC25200070291 /* Extensions */,
 				72F8F2122E3AC26200070291 /* Constants */,
 			);
 			path = Supporting;
@@ -242,6 +246,7 @@
 			children = (
 				72F8F2002E3AC1AA00070291 /* HuraiApp.swift */,
 				72233D792E4A7EC7005109D1 /* AppDelegate.swift */,
+				72233D812E549FC0005109D1 /* Config.xcconfig */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -310,13 +315,6 @@
 				72F8F2212E3AC30D00070291 /* TempFont.swift */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		72F8F2112E3AC25200070291 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		72F8F2122E3AC26200070291 /* Constants */ = {
@@ -501,6 +499,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72233D822E549FC0005109D1 /* Config.xcconfig in Resources */,
 				72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +508,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72233D852E54A124005109D1 /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +523,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72233D862E55F9CF005109D1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +563,7 @@
 			files = (
 				72F8F2872E3D40DA00070291 /* NotificationUseCase.swift in Sources */,
 				72F8F28E2E3D40F300070291 /* DeviceActivityMonitorExtension.swift in Sources */,
+				72233D802E549907005109D1 /* DeviceActivityUseCase.swift in Sources */,
 				72233D762E4737DE005109D1 /* AppLockUseCase.swift in Sources */,
 				72F8F2862E3D40CE00070291 /* DiscourageInfoStore.swift in Sources */,
 			);
@@ -607,6 +609,7 @@
 /* Begin XCBuildConfiguration section */
 		72180A612E3A5FB8007338DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72233D812E549FC0005109D1 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -671,6 +674,7 @@
 		};
 		72180A622E3A5FB8007338DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72233D812E549FC0005109D1 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
