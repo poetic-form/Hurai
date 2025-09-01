@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct HuraiApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject private var homeVM: HomeViewModel = HomeViewModel()
+    @StateObject private var settingVM: SettingViewModel = SettingViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environmentObject(homeVM)
+                .environmentObject(settingVM)
         }
     }
 }

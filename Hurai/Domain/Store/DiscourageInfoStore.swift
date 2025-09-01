@@ -10,10 +10,13 @@ import FamilyControls
 import SwiftUI
 
 final class DiscourageInfoStore: ObservableObject {
-    @AppStorage("selections", store: UserDefaults(suiteName: "group.poeticform.Hurai"))
-    private var selections: FamilyActivitySelection = FamilyActivitySelection(includeEntireCategory: true)
+    @AppStorage("selections", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var selections: FamilyActivitySelection = FamilyActivitySelection(includeEntireCategory: true)
     
-    @AppStorage("goalTime") private var threshold: Int = 0
+    @AppStorage("threshold") var threshold: Int = 0
+    
+    @AppStorage("times", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var times: TimeInterval = 1
     
     init() { }
 }
@@ -35,5 +38,14 @@ extension FamilyActivitySelection: @retroactive RawRepresentable {
             return "[]"
         }
         return result
+    }
+}
+
+extension Bundle {
+    var appGroupName: String {
+        guard let value = Bundle.main.infoDictionary?["APP_GROUP_NAME"] as? String else {
+            fatalError("APP_NAME not set in Info.plist")
+        }
+        return value
     }
 }

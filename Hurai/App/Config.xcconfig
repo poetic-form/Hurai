@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  Hurai
+//
+//  Created by Sihyeong Lee on 8/19/25.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+APP_GROUP_NAME = group.poeticform.Hurai
