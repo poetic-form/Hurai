@@ -31,7 +31,10 @@ struct RootView: View {
             }
         }
         .fullScreenCover(isPresented: $showMissionView) {
-            MissionView(showMissionView: $showMissionView)
+            MissionView(
+                showMissionView: $showMissionView,
+                usecase: .init(requiredHoldDuration: 3 * times)
+            )
         }
     }
 }

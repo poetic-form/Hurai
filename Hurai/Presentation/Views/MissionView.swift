@@ -47,6 +47,7 @@ struct SuccessView: View {
             .pickerStyle(.wheel)
             
             Button("약속하기") {
+                times += 1
                 viewModel.applock.unlockAllApps()
                 viewModel.originMonitoring()
                 showMissionView = false
