@@ -38,7 +38,7 @@ class DeviceActivityService {
         )
     }
     
-    func originStartMonitoring(start: Date, end: Date, apps: FamilyActivitySelection, threshold: DateComponents) {
+    func startMonitoring(start: Date, end: Date, apps: FamilyActivitySelection, threshold: DateComponents) {
         let schedule: DeviceActivitySchedule = createSchedule(start: start, end: end, repeats: true)
         
         let events: [DeviceActivityEvent.Name: DeviceActivityEvent] = [

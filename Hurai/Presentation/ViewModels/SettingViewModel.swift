@@ -9,17 +9,15 @@ import Foundation
 import SwiftUI
 
 class SettingViewModel: ObservableObject {
-    let store: AppStateStore = .init()
+    let storage: AppInfo = .init()
     
-    var isInRestMode:Bool {
-        get { store.isInRestMode }
-        set { store.isInRestMode = newValue }
+    @Published var isOnPause: Bool = false
+    
+    init() {
+        isOnPause = storage.isOnPause
     }
     
-    var isInRestModeBinding: Binding<Bool> {
-        Binding(
-            get: { self.store.isInRestMode },
-            set: { self.store.isInRestMode = $0 }
-        )
+    func updateIsOnPause() {
+        storage.isOnPause = isOnPause
     }
 }
