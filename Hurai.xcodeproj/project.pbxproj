@@ -14,10 +14,10 @@
 		72233D712E4344AD005109D1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D702E4344AD005109D1 /* HomeViewModel.swift */; };
 		72233D732E434F46005109D1 /* ThresholdPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D722E434F46005109D1 /* ThresholdPickerView.swift */; };
 		72233D752E4733F9005109D1 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D742E4733F9005109D1 /* SettingViewModel.swift */; };
-		72233D762E4737DE005109D1 /* AppLockUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2442E3D23FE00070291 /* AppLockUseCase.swift */; };
+		72233D762E4737DE005109D1 /* AppLockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2442E3D23FE00070291 /* AppLockService.swift */; };
 		72233D782E4744B5005109D1 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D772E4744B5005109D1 /* MissionView.swift */; };
 		72233D7A2E4A7EC7005109D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D792E4A7EC7005109D1 /* AppDelegate.swift */; };
-		72233D802E549907005109D1 /* DeviceActivityUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2482E3D379E00070291 /* DeviceActivityUseCase.swift */; };
+		72233D802E549907005109D1 /* DeviceActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2482E3D379E00070291 /* DeviceActivityService.swift */; };
 		72233D822E549FC0005109D1 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72233D812E549FC0005109D1 /* Config.xcconfig */; };
 		72233D852E54A124005109D1 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72233D812E549FC0005109D1 /* Config.xcconfig */; };
 		72233D862E55F9CF005109D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
@@ -32,9 +32,9 @@
 		72F8F21C2E3AC2F300070291 /* TempViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F21B2E3AC2F300070291 /* TempViewModel.swift */; };
 		72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F21F2E3AC30000070291 /* TempConstant.swift */; };
 		72F8F2222E3AC30D00070291 /* TempFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2212E3AC30D00070291 /* TempFont.swift */; };
-		72F8F2452E3D23FE00070291 /* AppLockUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2442E3D23FE00070291 /* AppLockUseCase.swift */; };
-		72F8F2472E3D300100070291 /* NotificationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2462E3D300100070291 /* NotificationUseCase.swift */; };
-		72F8F2492E3D379E00070291 /* DeviceActivityUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2482E3D379E00070291 /* DeviceActivityUseCase.swift */; };
+		72F8F2452E3D23FE00070291 /* AppLockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2442E3D23FE00070291 /* AppLockService.swift */; };
+		72F8F2472E3D300100070291 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2462E3D300100070291 /* NotificationService.swift */; };
+		72F8F2492E3D379E00070291 /* DeviceActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2482E3D379E00070291 /* DeviceActivityService.swift */; };
 		72F8F2512E3D400200070291 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72F8F2502E3D400200070291 /* DeviceActivity.framework */; };
 		72F8F2592E3D400200070291 /* DeviceActivityMonitorExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 72F8F24E2E3D400200070291 /* DeviceActivityMonitorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		72F8F2652E3D401E00070291 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72F8F2642E3D401E00070291 /* ManagedSettings.framework */; };
@@ -42,8 +42,8 @@
 		72F8F2772E3D403900070291 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72F8F2642E3D401E00070291 /* ManagedSettings.framework */; };
 		72F8F2792E3D403900070291 /* ManagedSettingsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72F8F2782E3D403900070291 /* ManagedSettingsUI.framework */; };
 		72F8F2812E3D403900070291 /* ShieldConfigurationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 72F8F2762E3D403900070291 /* ShieldConfigurationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		72F8F2872E3D40DA00070291 /* NotificationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2462E3D300100070291 /* NotificationUseCase.swift */; };
-		72F8F2882E3D40DA00070291 /* NotificationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2462E3D300100070291 /* NotificationUseCase.swift */; };
+		72F8F2872E3D40DA00070291 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2462E3D300100070291 /* NotificationService.swift */; };
+		72F8F2882E3D40DA00070291 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2462E3D300100070291 /* NotificationService.swift */; };
 		72F8F28E2E3D40F300070291 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F28A2E3D40F300070291 /* DeviceActivityMonitorExtension.swift */; };
 		72F8F2942E3D40F400070291 /* ShieldActionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2912E3D40F400070291 /* ShieldActionExtension.swift */; };
 		72F8F2992E3D40FE00070291 /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2972E3D40FE00070291 /* ShieldConfigurationExtension.swift */; };
@@ -112,9 +112,9 @@
 		72F8F21F2E3AC30000070291 /* TempConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConstant.swift; sourceTree = "<group>"; };
 		72F8F2212E3AC30D00070291 /* TempFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempFont.swift; sourceTree = "<group>"; };
 		72F8F23B2E3B817900070291 /* Hurai.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hurai.entitlements; sourceTree = "<group>"; };
-		72F8F2442E3D23FE00070291 /* AppLockUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockUseCase.swift; sourceTree = "<group>"; };
-		72F8F2462E3D300100070291 /* NotificationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUseCase.swift; sourceTree = "<group>"; };
-		72F8F2482E3D379E00070291 /* DeviceActivityUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityUseCase.swift; sourceTree = "<group>"; };
+		72F8F2442E3D23FE00070291 /* AppLockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockService.swift; sourceTree = "<group>"; };
+		72F8F2462E3D300100070291 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		72F8F2482E3D379E00070291 /* DeviceActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityService.swift; sourceTree = "<group>"; };
 		72F8F24E2E3D400200070291 /* DeviceActivityMonitorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DeviceActivityMonitorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F8F2502E3D400200070291 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
 		72F8F2632E3D401E00070291 /* ShieldActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShieldActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,9 +202,9 @@
 		72233D942E67116E005109D1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				72F8F2482E3D379E00070291 /* DeviceActivityUseCase.swift */,
-				72F8F2462E3D300100070291 /* NotificationUseCase.swift */,
-				72F8F2442E3D23FE00070291 /* AppLockUseCase.swift */,
+				72F8F2482E3D379E00070291 /* DeviceActivityService.swift */,
+				72F8F2462E3D300100070291 /* NotificationService.swift */,
+				72F8F2442E3D23FE00070291 /* AppLockService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -551,9 +551,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72F8F2472E3D300100070291 /* NotificationUseCase.swift in Sources */,
+				72F8F2472E3D300100070291 /* NotificationService.swift in Sources */,
 				72233D6D2E4342F0005109D1 /* HomeView.swift in Sources */,
-				72F8F2492E3D379E00070291 /* DeviceActivityUseCase.swift in Sources */,
+				72F8F2492E3D379E00070291 /* DeviceActivityService.swift in Sources */,
 				72233D712E4344AD005109D1 /* HomeViewModel.swift in Sources */,
 				72233D782E4744B5005109D1 /* MissionView.swift in Sources */,
 				72F8F2222E3AC30D00070291 /* TempFont.swift in Sources */,
@@ -568,7 +568,7 @@
 				72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */,
 				72233D922E6710FD005109D1 /* Extensions.swift in Sources */,
 				72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */,
-				72F8F2452E3D23FE00070291 /* AppLockUseCase.swift in Sources */,
+				72F8F2452E3D23FE00070291 /* AppLockService.swift in Sources */,
 				72233D732E434F46005109D1 /* ThresholdPickerView.swift in Sources */,
 				72233D8B2E671005005109D1 /* AppInfo.swift in Sources */,
 			);
@@ -578,11 +578,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72F8F2872E3D40DA00070291 /* NotificationUseCase.swift in Sources */,
+				72F8F2872E3D40DA00070291 /* NotificationService.swift in Sources */,
 				72233D932E6710FD005109D1 /* Extensions.swift in Sources */,
 				72F8F28E2E3D40F300070291 /* DeviceActivityMonitorExtension.swift in Sources */,
-				72233D802E549907005109D1 /* DeviceActivityUseCase.swift in Sources */,
-				72233D762E4737DE005109D1 /* AppLockUseCase.swift in Sources */,
+				72233D802E549907005109D1 /* DeviceActivityService.swift in Sources */,
+				72233D762E4737DE005109D1 /* AppLockService.swift in Sources */,
 				72233D8C2E671005005109D1 /* AppInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,7 +592,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72F8F2942E3D40F400070291 /* ShieldActionExtension.swift in Sources */,
-				72F8F2882E3D40DA00070291 /* NotificationUseCase.swift in Sources */,
+				72F8F2882E3D40DA00070291 /* NotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
