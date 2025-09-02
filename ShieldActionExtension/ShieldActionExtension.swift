@@ -11,13 +11,13 @@ import ManagedSettings
 // The system provides a default response for any functions that your subclass doesn't override.
 // Make sure that your class name matches the NSExtensionPrincipalClass in your Info.plist.
 class ShieldActionExtension: ShieldActionDelegate {
-    let notificationUseCase: NotificationUseCase = .init()
+    let notificationService: NotificationService = .init()
     
     override func handle(action: ShieldAction, for application: ApplicationToken, completionHandler: @escaping (ShieldActionResponse) -> Void) {
         // Handle the action as needed.
         switch action {
         case .primaryButtonPressed:
-            notificationUseCase.missionNotification(title: "후라이", body: "미션하러가기")
+            notificationService.missionNotification(title: "후라이", body: "미션하러가기")
             completionHandler(.defer)
         case .secondaryButtonPressed:
             completionHandler(.defer)
