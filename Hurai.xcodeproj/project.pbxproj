@@ -23,8 +23,8 @@
 		72233D862E55F9CF005109D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72233D8B2E671005005109D1 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D8A2E671005005109D1 /* AppInfo.swift */; };
 		72233D8C2E671005005109D1 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D8A2E671005005109D1 /* AppInfo.swift */; };
-		72233D8E2E671042005109D1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D8D2E671042005109D1 /* Extensions.swift */; };
-		72233D8F2E671042005109D1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D8D2E671042005109D1 /* Extensions.swift */; };
+		72233D922E6710FD005109D1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D912E6710FD005109D1 /* Extensions.swift */; };
+		72233D932E6710FD005109D1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D912E6710FD005109D1 /* Extensions.swift */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
 		72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2172E3AC2E100070291 /* TempComponents.swift */; };
@@ -103,7 +103,7 @@
 		72233D7B2E4A8B08005109D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		72233D812E549FC0005109D1 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		72233D8A2E671005005109D1 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
-		72233D8D2E671042005109D1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		72233D912E6710FD005109D1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
 		72F8F2172E3AC2E100070291 /* TempComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempComponents.swift; sourceTree = "<group>"; };
@@ -194,9 +194,19 @@
 		72233D902E67104B005109D1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				72233D8D2E671042005109D1 /* Extensions.swift */,
+				72233D912E6710FD005109D1 /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		72233D942E67116E005109D1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				72F8F2482E3D379E00070291 /* DeviceActivityUseCase.swift */,
+				72F8F2462E3D300100070291 /* NotificationUseCase.swift */,
+				72F8F2442E3D23FE00070291 /* AppLockUseCase.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		72F8F2012E3AC1AA00070291 /* Hurai */ = {
@@ -236,6 +246,7 @@
 		72F8F2072E3AC1C400070291 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				72233D942E67116E005109D1 /* Services */,
 				72F8F20A2E3AC20300070291 /* Store */,
 				72F8F20B2E3AC20B00070291 /* UseCases */,
 			);
@@ -272,9 +283,6 @@
 		72F8F20B2E3AC20B00070291 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				72F8F2442E3D23FE00070291 /* AppLockUseCase.swift */,
-				72F8F2462E3D300100070291 /* NotificationUseCase.swift */,
-				72F8F2482E3D379E00070291 /* DeviceActivityUseCase.swift */,
 				72233D682E433376005109D1 /* FlipMotionUseCase.swift */,
 			);
 			path = UseCases;
@@ -558,7 +566,7 @@
 				72F8F21A2E3AC2E900070291 /* TempStyle.swift in Sources */,
 				72233D6B2E4342DE005109D1 /* RootView.swift in Sources */,
 				72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */,
-				72233D8E2E671042005109D1 /* Extensions.swift in Sources */,
+				72233D922E6710FD005109D1 /* Extensions.swift in Sources */,
 				72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */,
 				72F8F2452E3D23FE00070291 /* AppLockUseCase.swift in Sources */,
 				72233D732E434F46005109D1 /* ThresholdPickerView.swift in Sources */,
@@ -571,7 +579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72F8F2872E3D40DA00070291 /* NotificationUseCase.swift in Sources */,
-				72233D8F2E671042005109D1 /* Extensions.swift in Sources */,
+				72233D932E6710FD005109D1 /* Extensions.swift in Sources */,
 				72F8F28E2E3D40F300070291 /* DeviceActivityMonitorExtension.swift in Sources */,
 				72233D802E549907005109D1 /* DeviceActivityUseCase.swift in Sources */,
 				72233D762E4737DE005109D1 /* AppLockUseCase.swift in Sources */,

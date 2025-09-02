@@ -8,7 +8,7 @@
 import Foundation
 import UserNotifications
 
-class NotificationUseCase {
+class NotificationService {
     let center = UNUserNotificationCenter.current()
     
     init() { }

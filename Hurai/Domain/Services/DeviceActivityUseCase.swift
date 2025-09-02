@@ -9,7 +9,7 @@ import Foundation
 import DeviceActivity
 import FamilyControls
 
-class DeviceActivityUseCase {
+class DeviceActivityService {
     let center = DeviceActivityCenter()
     
     init() { }
