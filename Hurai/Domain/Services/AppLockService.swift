@@ -9,7 +9,7 @@ import Foundation
 import FamilyControls
 import ManagedSettings
 
-class AppLockUseCase {
+class AppLockService {
     let store: ManagedSettingsStore = ManagedSettingsStore()
     
     init() { }

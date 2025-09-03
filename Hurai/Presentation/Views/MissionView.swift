@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct MissionView: View {
-    @Binding var showMissionView: Bool
-    @StateObject var usecase: FlipMotionUseCase
-    @State var isActive: Bool = false
-    @EnvironmentObject var viewModel: HomeViewModel
+    @EnvironmentObject var viewModel: MissionViewModel
+    @StateObject var flipMotionService: FlipMotionService
     
     var body: some View {
         NavigationStack {
-            Text("\((usecase.remainingDuration.rounded()))")
+            Text("\((flipMotionService.remainingDuration.rounded()))")
                 .onAppear {
                     UIApplication.shared.isIdleTimerDisabled = true
                 }
@@ -26,25 +24,27 @@ struct MissionView: View {
                 .frame(height: 100)
             
             Button("디버깅용 미션 완료 버튼") {
-                isActive = true
+                viewModel.isActive = true
             }
-            .navigationDestination(isPresented: $isActive) {
-                SuccessView(showMissionView: $showMissionView)
+            .navigationDestination(isPresented: $viewModel.isActive) {
+                SuccessView()
             }
         }
-        .onChange(of: usecase.hasMetHoldRequirement) { newValue in
+        .onChange(of: flipMotionService.hasMetHoldRequirement) { newValue in
             if newValue {
-                isActive = true
+                viewModel.isActive = true
             }
         }
     }
 }
 
 struct SuccessView: View {
-    @EnvironmentObject var viewModel: HomeViewModel
-    @Binding var showMissionView: Bool
-    @AppStorage("times", store: UserDefaults(suiteName: Bundle.main.appGroupName))
-    var times: TimeInterval = 1
+    @EnvironmentObject var viewModel: MissionViewModel
+    
+    @AppStorage("repeatCount", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var repeatCount: TimeInterval = 0
+    @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var registeredAt: Date = .now
     
     var body: some View {
         VStack {
@@ -58,18 +58,16 @@ struct SuccessView: View {
             .pickerStyle(.wheel)
             
             Button("약속하기") {
-                times += 1
-                viewModel.applock.unlockAllApps()
-                viewModel.usecase.center.stopMonitoring()
-                viewModel.originMonitoring()
-                showMissionView = false
+                repeatCount += 1
+                viewModel.appLockService.unlockAllApps()
+                viewModel.deviceActivityService.center.stopMonitoring()
+                viewModel.startMonitoring()
+                registeredAt = .now
+                viewModel.showMissionView = false
             }
         }
-        .onChange(of: viewModel.threshold) { value in
-            print(viewModel.store.times)
-        }
-        .onAppear {
-            print(viewModel.store.times)
+        .onChange(of: viewModel.threshold) { newValue in
+            viewModel.updateThreshold()
         }
         .navigationBarBackButtonHidden()
     }
