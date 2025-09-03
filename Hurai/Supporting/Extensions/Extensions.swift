@@ -7,6 +7,7 @@
 
 import Foundation
 import FamilyControls
+import ManagedSettings
 
 extension FamilyActivitySelection: @retroactive RawRepresentable {
     public init?(rawValue: String) {
@@ -54,5 +55,25 @@ extension Bundle {
             fatalError("APP_NAME not set in Info.plist")
         }
         return value
+    }
+}
+
+extension Token: @retroactive RawRepresentable {
+    public init?(rawValue: String) {
+        guard let data = rawValue.data(using: .utf8),
+              let result = try? JSONDecoder().decode(Token.self, from: data)
+        else {
+            return nil
+        }
+        self = result
+    }
+
+    public var rawValue: String {
+        guard let data = try? JSONEncoder().encode(self),
+              let result = String(data: data, encoding: .utf8)
+        else {
+            return "[]"
+        }
+        return result
     }
 }

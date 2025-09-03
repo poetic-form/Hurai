@@ -8,5 +8,6 @@
 import Foundation
 
 class MissionViewModel: BasicViewModel {
-    
+    @Published var showMissionView: Bool = false
+    @Published var isActive: Bool = false
 }

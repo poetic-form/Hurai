@@ -16,7 +16,12 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
     let appLockService: AppLockService = .init()
     let deviceActivityService: DeviceActivityService = .init()
     let storage: AppInfo = .init()
-   
+    
+    @AppStorage("repeatCount", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var repeatCount: TimeInterval = 0
+    @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var registeredAt: Date = .now
+    
     override func intervalDidStart(for activity: DeviceActivityName) {
         super.intervalDidStart(for: activity)
         
@@ -28,8 +33,8 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         
         // Handle the end of the interval.
         if let interval = deviceActivityService.center.schedule(for: .activity)?.nextInterval {
-            if !interval.contains(storage.registeredAt) {
-                storage.repeatCount = 1
+            if !interval.contains(registeredAt) {
+                repeatCount = 0
             }
         }
         

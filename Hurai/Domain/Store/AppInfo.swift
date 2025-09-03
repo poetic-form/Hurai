@@ -14,19 +14,13 @@ final class AppInfo {
     var selections: FamilyActivitySelection = FamilyActivitySelection(includeEntireCategory: true)
     
     @AppStorage("threshold")
-    var threshold: Int = 0
+    var threshold: Int = 2
    
     @AppStorage("startInterval")
     var startInterval: Date = .now
     
     @AppStorage("endInterval")
     var endInterval: Date = .now + 3600
-    
-    @AppStorage("repeatCount", store: UserDefaults(suiteName: Bundle.main.appGroupName))
-    var repeatCount: TimeInterval = 0
-    
-    @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
-    var registeredAt: Date = .now
     
     @AppStorage("isFirst")
     var isFirst: Bool = true

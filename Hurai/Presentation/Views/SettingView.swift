@@ -10,10 +10,15 @@ import FamilyControls
 
 struct SettingView: View {
     @EnvironmentObject var viewModel: SettingViewModel
-    @EnvironmentObject var homeViewModel: HomeViewModel
     @Binding var showMissionView: Bool
     @State var showAlert: Bool = false
-    let noti: NotificationUseCase = .init()
+    let noti: NotificationService = .init()
+    let appLockService: AppLockService = .init()
+    let deviceActivityService: DeviceActivityService = .init()
+    let storage: AppInfo = .init()
+    
+    @AppStorage("repeatCount", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var repeatCount: TimeInterval = 0
     
     // 권한 설정같은것도 추가하면 좋겟다 세팅에
     var formatter: DateIntervalFormatter {
@@ -25,15 +30,12 @@ struct SettingView: View {
         return formatter
     }
     
-    @AppStorage("times", store: UserDefaults(suiteName: Bundle.main.appGroupName))
-    var times: TimeInterval = 1
-    
     var body: some View {
         NavigationStack {
             List {
                 // 이 기능 정확히 할 필요 있음
                 Section(footer: Text("설명")) {
-                    Toggle("잠깐 쉴래요", isOn: viewModel.isInRestModeBinding)
+                    Toggle("잠깐 쉴래요", isOn: $viewModel.isOnPause)
                 }
                 
                 Section(header: Text("고객 지원")) {
@@ -67,29 +69,23 @@ struct SettingView: View {
                     }
                     
                     Button("앱 잠그기") {
-                        homeViewModel.applock.lockApps(apps: homeViewModel.selections)
+                        appLockService.lockApps(apps: storage.selections)
                     }
                     
                     Button("미션하러가기") {
                         showMissionView = true
                     }
                     
-                    Button("반복 카운트 초기화 (\(Int(times - 1)))") {
-                        times = 1
+                    Button("반복 카운트 초기화 (\(Int(repeatCount)))") {
+                        repeatCount = 0
                     }
                     
                     Button("설정 초기화") {
                         showAlert = true
                     }
-//                    
-//                    NavigationLink {
-//                        Text("\(homeViewModel.usecase.center.activities)")
-//                    } label: {
-//                        Text("모니터링중인 activities")
-//                    }
                     
                     NavigationLink {
-                        if let nextIntervalTime = homeViewModel.usecase.center.schedule(for: .activity)?.nextInterval {
+                        if let nextIntervalTime = deviceActivityService.center.schedule(for: .activity)?.nextInterval {
                             Text(formatter.string(from: nextIntervalTime) ?? "error")
                         }
                     } label: {
@@ -100,13 +96,16 @@ struct SettingView: View {
                 }
 
             }
-            .alert("stop monitoring", isPresented: $showAlert) {
-                Button(role: .destructive) {
-                    homeViewModel.usecase.center.stopMonitoring()
-                    homeViewModel.store.times = 1
-                } label: {
-                    Text("stop")
-                }
+        }
+        .onChange(of: viewModel.isOnPause) { newValue in
+            viewModel.updateIsOnPause()
+        }
+        .alert("stop monitoring", isPresented: $showAlert) {
+            Button(role: .destructive) {
+                deviceActivityService.center.stopMonitoring()
+                repeatCount = 0
+            } label: {
+                Text("stop")
             }
         }
     }

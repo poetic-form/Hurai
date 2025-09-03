@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct RootView: View {
-    @State private var showMissionView: Bool = false
-    @EnvironmentObject var viewModel: HomeViewModel
-    @AppStorage("times", store: UserDefaults(suiteName: Bundle.main.appGroupName))
-    var times: TimeInterval = 1
+    @EnvironmentObject var missionVM: MissionViewModel
+    
+    @AppStorage("repeatCount", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var repeatCount: TimeInterval = 0
     
     var body: some View {
         TabView {
@@ -19,20 +19,19 @@ struct RootView: View {
                 .tabItem {
                     Image(systemName: "house")
                 }
-            SettingView(showMissionView: $showMissionView)
+            SettingView(showMissionView: $missionVM.showMissionView)
                 .tabItem {
                     Image(systemName: "gear")
                 }
         }
         .onOpenURL { url in
             if(url.scheme == "hurai" && url.host == "mission") {
-                showMissionView = true
+                missionVM.showMissionView = true
             }
         }
-        .fullScreenCover(isPresented: $showMissionView) {
+        .fullScreenCover(isPresented: $missionVM.showMissionView) {
             MissionView(
-                showMissionView: $showMissionView,
-                usecase: .init(requiredHoldDuration: 3 * times)
+                usecase: .init(requiredHoldDuration: 3 * (repeatCount + 1))
             )
         }
     }
@@ -42,4 +41,5 @@ struct RootView: View {
     RootView()
         .environmentObject(HomeViewModel())
         .environmentObject(SettingViewModel())
+        .environmentObject(MissionViewModel())
 }

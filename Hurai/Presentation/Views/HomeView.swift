@@ -11,7 +11,10 @@ import ManagedSettings
 
 struct HomeView: View {
     @EnvironmentObject private var viewModel: HomeViewModel
-    @State var showAlert: Bool = false
+   
+    @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var registeredAt: Date = .now
+    
     var body: some View {
         VStack(spacing: 10) {
             Button("앱 선택") {
@@ -44,22 +47,24 @@ struct HomeView: View {
             .scrollDisabled(true)
             
             Button("start monitoring") {
-                viewModel.usecase.center.stopMonitoring()
-                viewModel.originMonitoring()
-                showAlert = true
+                viewModel.startMonitoring()
+                registeredAt = .now
             }
             .buttonStyle(.bordered)
         }
-        .familyActivityPicker(isPresented: $viewModel.showSelectionPicker, selection: viewModel.selectionsBinding)
-        .sheet(isPresented: $viewModel.showThresholdPicker) {
-            ThresholdPickerView()
-                .environmentObject(viewModel)
+        .familyActivityPicker(isPresented: $viewModel.showSelectionPicker, selection: $viewModel.selections)
+        .onChange(of: viewModel.selections) { newValue in
+            viewModel.updateSelections()
         }
-        .alert("start monitoring", isPresented: $showAlert, actions: {
-            Button("OK") {
-                showAlert = false
-            }
-        })
+        .onChange(of: viewModel.threshold) { newValue in
+            viewModel.updateThreshold()
+        }
+        .onChange(of: viewModel.startInterval) { newValue in
+            viewModel.updateStartInterval()
+        }
+        .onChange(of: viewModel.endInterval) { newValue in
+            viewModel.updateEndInterval()
+        }
         .padding()
     }
 }
@@ -67,24 +72,4 @@ struct HomeView: View {
 #Preview {
     HomeView()
         .environmentObject(HomeViewModel())
-}
-
-extension Token: @retroactive RawRepresentable {
-    public init?(rawValue: String) {
-        guard let data = rawValue.data(using: .utf8),
-              let result = try? JSONDecoder().decode(Token.self, from: data)
-        else {
-            return nil
-        }
-        self = result
-    }
-
-    public var rawValue: String {
-        guard let data = try? JSONEncoder().encode(self),
-              let result = String(data: data, encoding: .utf8)
-        else {
-            return "[]"
-        }
-        return result
-    }
 }

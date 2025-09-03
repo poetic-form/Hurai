@@ -17,14 +17,12 @@ class BasicViewModel: ObservableObject {
     @Published var threshold: Int
     @Published var startInterval: Date
     @Published var endInterval: Date
-    @Published var registeredAt: Date
     
     init() {
         selections = storage.selections
         threshold = storage.threshold
         startInterval = storage.startInterval
         endInterval = storage.endInterval
-        registeredAt = storage.registeredAt
     }
     
     func updateSelections() {
@@ -35,13 +33,12 @@ class BasicViewModel: ObservableObject {
         storage.threshold = threshold
     }
     
-    func updateInterval() {
+    func updateStartInterval() {
         storage.startInterval = startInterval
-        storage.endInterval = endInterval
     }
     
-    func updateRegisteredAt() {
-        storage.registeredAt = registeredAt
+    func updateEndInterval() {
+        storage.endInterval = endInterval
     }
     
     func startMonitoring() {
