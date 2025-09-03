@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		72233D692E433376005109D1 /* FlipMotionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D682E433376005109D1 /* FlipMotionUseCase.swift */; };
+		72233D692E433376005109D1 /* FlipMotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D682E433376005109D1 /* FlipMotionService.swift */; };
 		72233D6B2E4342DE005109D1 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D6A2E4342DE005109D1 /* RootView.swift */; };
 		72233D6D2E4342F0005109D1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D6C2E4342F0005109D1 /* HomeView.swift */; };
 		72233D6F2E4342F9005109D1 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D6E2E4342F9005109D1 /* SettingView.swift */; };
@@ -91,7 +91,7 @@
 
 /* Begin PBXFileReference section */
 		72180A582E3A5FB7007338DF /* Hurai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hurai.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		72233D682E433376005109D1 /* FlipMotionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipMotionUseCase.swift; sourceTree = "<group>"; };
+		72233D682E433376005109D1 /* FlipMotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipMotionService.swift; sourceTree = "<group>"; };
 		72233D6A2E4342DE005109D1 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		72233D6C2E4342F0005109D1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		72233D6E2E4342F9005109D1 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -202,6 +202,7 @@
 		72233D942E67116E005109D1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				72233D682E433376005109D1 /* FlipMotionService.swift */,
 				72F8F2482E3D379E00070291 /* DeviceActivityService.swift */,
 				72F8F2462E3D300100070291 /* NotificationService.swift */,
 				72F8F2442E3D23FE00070291 /* AppLockService.swift */,
@@ -248,7 +249,6 @@
 			children = (
 				72233D942E67116E005109D1 /* Services */,
 				72F8F20A2E3AC20300070291 /* Store */,
-				72F8F20B2E3AC20B00070291 /* UseCases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -278,14 +278,6 @@
 				72233D8A2E671005005109D1 /* AppInfo.swift */,
 			);
 			path = Store;
-			sourceTree = "<group>";
-		};
-		72F8F20B2E3AC20B00070291 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				72233D682E433376005109D1 /* FlipMotionUseCase.swift */,
-			);
-			path = UseCases;
 			sourceTree = "<group>";
 		};
 		72F8F20C2E3AC21600070291 /* Components */ = {
@@ -562,7 +554,7 @@
 				72233D752E4733F9005109D1 /* SettingViewModel.swift in Sources */,
 				72233D6F2E4342F9005109D1 /* SettingView.swift in Sources */,
 				72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */,
-				72233D692E433376005109D1 /* FlipMotionUseCase.swift in Sources */,
+				72233D692E433376005109D1 /* FlipMotionService.swift in Sources */,
 				72F8F21A2E3AC2E900070291 /* TempStyle.swift in Sources */,
 				72233D6B2E4342DE005109D1 /* RootView.swift in Sources */,
 				72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */,

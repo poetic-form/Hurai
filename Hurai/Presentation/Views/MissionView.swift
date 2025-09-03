@@ -9,11 +9,11 @@ import SwiftUI
 
 struct MissionView: View {
     @EnvironmentObject var viewModel: MissionViewModel
-    @StateObject var usecase: FlipMotionUseCase
+    @StateObject var flipMotionService: FlipMotionService
     
     var body: some View {
         NavigationStack {
-            Text("\((usecase.remainingDuration.rounded()))")
+            Text("\((flipMotionService.remainingDuration.rounded()))")
                 .onAppear {
                     UIApplication.shared.isIdleTimerDisabled = true
                 }
@@ -30,7 +30,7 @@ struct MissionView: View {
                 SuccessView()
             }
         }
-        .onChange(of: usecase.hasMetHoldRequirement) { newValue in
+        .onChange(of: flipMotionService.hasMetHoldRequirement) { newValue in
             if newValue {
                 viewModel.isActive = true
             }

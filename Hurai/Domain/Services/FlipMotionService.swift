@@ -8,7 +8,7 @@
 import Foundation
 import CoreMotion
 
-class FlipMotionUseCase: ObservableObject {
+class FlipMotionService: ObservableObject {
     let requiredHoldDuration: TimeInterval
     
     private let motionManager = CMMotionManager()

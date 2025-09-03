@@ -31,7 +31,7 @@ struct RootView: View {
         }
         .fullScreenCover(isPresented: $missionVM.showMissionView) {
             MissionView(
-                usecase: .init(requiredHoldDuration: 3 * (repeatCount + 1))
+                flipMotionService: .init(requiredHoldDuration: 3 * (repeatCount + 1))
             )
         }
     }
