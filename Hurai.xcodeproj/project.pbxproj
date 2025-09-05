@@ -35,10 +35,10 @@
 		72233DA82E6AB28A005109D1 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72233D9B2E6AB28A005109D1 /* Pretendard-ExtraBold.otf */; };
 		72233DA92E6AB28A005109D1 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72233D9F2E6AB28A005109D1 /* Pretendard-Regular.otf */; };
 		72233DAA2E6AB28A005109D1 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72233DA02E6AB28A005109D1 /* Pretendard-SemiBold.otf */; };
+		72233DAC2E6AB391005109D1 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DAB2E6AB391005109D1 /* View+Extension.swift */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
 		72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2172E3AC2E100070291 /* TempComponents.swift */; };
-		72F8F21A2E3AC2E900070291 /* TempStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2192E3AC2E900070291 /* TempStyle.swift */; };
 		72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F21F2E3AC30000070291 /* TempConstant.swift */; };
 		72F8F2452E3D23FE00070291 /* AppLockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2442E3D23FE00070291 /* AppLockService.swift */; };
 		72F8F2472E3D300100070291 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2462E3D300100070291 /* NotificationService.swift */; };
@@ -122,10 +122,10 @@
 		72233D9F2E6AB28A005109D1 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		72233DA02E6AB28A005109D1 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		72233DA12E6AB28A005109D1 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		72233DAB2E6AB391005109D1 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
 		72F8F2172E3AC2E100070291 /* TempComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempComponents.swift; sourceTree = "<group>"; };
-		72F8F2192E3AC2E900070291 /* TempStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempStyle.swift; sourceTree = "<group>"; };
 		72F8F21F2E3AC30000070291 /* TempConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConstant.swift; sourceTree = "<group>"; };
 		72F8F23B2E3B817900070291 /* Hurai.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hurai.entitlements; sourceTree = "<group>"; };
 		72F8F2442E3D23FE00070291 /* AppLockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockService.swift; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 		72F8F20D2E3AC22000070291 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				72F8F2192E3AC2E900070291 /* TempStyle.swift */,
+				72233DAB2E6AB391005109D1 /* View+Extension.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -581,13 +581,13 @@
 				72F8F2492E3D379E00070291 /* DeviceActivityService.swift in Sources */,
 				72233D962E671319005109D1 /* BasicViewModel.swift in Sources */,
 				72233D712E4344AD005109D1 /* HomeViewModel.swift in Sources */,
+				72233DAC2E6AB391005109D1 /* View+Extension.swift in Sources */,
 				72233D782E4744B5005109D1 /* MissionView.swift in Sources */,
 				72233D7A2E4A7EC7005109D1 /* AppDelegate.swift in Sources */,
 				72233D752E4733F9005109D1 /* SettingViewModel.swift in Sources */,
 				72233D6F2E4342F9005109D1 /* SettingView.swift in Sources */,
 				72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */,
 				72233D692E433376005109D1 /* FlipMotionService.swift in Sources */,
-				72F8F21A2E3AC2E900070291 /* TempStyle.swift in Sources */,
 				72233D6B2E4342DE005109D1 /* RootView.swift in Sources */,
 				72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */,
 				72233D922E6710FD005109D1 /* Extensions.swift in Sources */,

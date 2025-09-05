@@ -49,15 +49,6 @@ extension Date: @retroactive RawRepresentable {
     }
 }
 
-extension Bundle {
-    var appGroupName: String {
-        guard let value = Bundle.main.infoDictionary?["APP_GROUP_NAME"] as? String else {
-            fatalError("APP_NAME not set in Info.plist")
-        }
-        return value
-    }
-}
-
 extension Token: @retroactive RawRepresentable {
     public init?(rawValue: String) {
         guard let data = rawValue.data(using: .utf8),
@@ -75,5 +66,14 @@ extension Token: @retroactive RawRepresentable {
             return "[]"
         }
         return result
+    }
+}
+
+extension Bundle {
+    var appGroupName: String {
+        guard let value = Bundle.main.infoDictionary?["APP_GROUP_NAME"] as? String else {
+            fatalError("APP_NAME not set in Info.plist")
+        }
+        return value
     }
 }
