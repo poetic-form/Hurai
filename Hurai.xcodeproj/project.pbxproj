@@ -26,12 +26,20 @@
 		72233D932E6710FD005109D1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D912E6710FD005109D1 /* Extensions.swift */; };
 		72233D962E671319005109D1 /* BasicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D952E671319005109D1 /* BasicViewModel.swift */; };
 		72233D982E671AB6005109D1 /* MissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D972E671AB6005109D1 /* MissionViewModel.swift */; };
+		72233DA22E6AB28A005109D1 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72233DA12E6AB28A005109D1 /* Pretendard-Thin.otf */; };
+		72233DA32E6AB28A005109D1 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72233D9E2E6AB28A005109D1 /* Pretendard-Medium.otf */; };
+		72233DA42E6AB28A005109D1 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72233D992E6AB28A005109D1 /* Pretendard-Black.otf */; };
+		72233DA52E6AB28A005109D1 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72233D9D2E6AB28A005109D1 /* Pretendard-Light.otf */; };
+		72233DA62E6AB28A005109D1 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72233D9C2E6AB28A005109D1 /* Pretendard-ExtraLight.otf */; };
+		72233DA72E6AB28A005109D1 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72233D9A2E6AB28A005109D1 /* Pretendard-Bold.otf */; };
+		72233DA82E6AB28A005109D1 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72233D9B2E6AB28A005109D1 /* Pretendard-ExtraBold.otf */; };
+		72233DA92E6AB28A005109D1 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72233D9F2E6AB28A005109D1 /* Pretendard-Regular.otf */; };
+		72233DAA2E6AB28A005109D1 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72233DA02E6AB28A005109D1 /* Pretendard-SemiBold.otf */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
 		72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2172E3AC2E100070291 /* TempComponents.swift */; };
 		72F8F21A2E3AC2E900070291 /* TempStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2192E3AC2E900070291 /* TempStyle.swift */; };
 		72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F21F2E3AC30000070291 /* TempConstant.swift */; };
-		72F8F2222E3AC30D00070291 /* TempFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2212E3AC30D00070291 /* TempFont.swift */; };
 		72F8F2452E3D23FE00070291 /* AppLockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2442E3D23FE00070291 /* AppLockService.swift */; };
 		72F8F2472E3D300100070291 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2462E3D300100070291 /* NotificationService.swift */; };
 		72F8F2492E3D379E00070291 /* DeviceActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2482E3D379E00070291 /* DeviceActivityService.swift */; };
@@ -105,12 +113,20 @@
 		72233D912E6710FD005109D1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		72233D952E671319005109D1 /* BasicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewModel.swift; sourceTree = "<group>"; };
 		72233D972E671AB6005109D1 /* MissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewModel.swift; sourceTree = "<group>"; };
+		72233D992E6AB28A005109D1 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
+		72233D9A2E6AB28A005109D1 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		72233D9B2E6AB28A005109D1 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		72233D9C2E6AB28A005109D1 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		72233D9D2E6AB28A005109D1 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		72233D9E2E6AB28A005109D1 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		72233D9F2E6AB28A005109D1 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		72233DA02E6AB28A005109D1 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		72233DA12E6AB28A005109D1 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
 		72F8F2172E3AC2E100070291 /* TempComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempComponents.swift; sourceTree = "<group>"; };
 		72F8F2192E3AC2E900070291 /* TempStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempStyle.swift; sourceTree = "<group>"; };
 		72F8F21F2E3AC30000070291 /* TempConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConstant.swift; sourceTree = "<group>"; };
-		72F8F2212E3AC30D00070291 /* TempFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempFont.swift; sourceTree = "<group>"; };
 		72F8F23B2E3B817900070291 /* Hurai.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hurai.entitlements; sourceTree = "<group>"; };
 		72F8F2442E3D23FE00070291 /* AppLockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockService.swift; sourceTree = "<group>"; };
 		72F8F2462E3D300100070291 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -321,7 +337,15 @@
 		72F8F2102E3AC24C00070291 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				72F8F2212E3AC30D00070291 /* TempFont.swift */,
+				72233D992E6AB28A005109D1 /* Pretendard-Black.otf */,
+				72233D9A2E6AB28A005109D1 /* Pretendard-Bold.otf */,
+				72233D9B2E6AB28A005109D1 /* Pretendard-ExtraBold.otf */,
+				72233D9C2E6AB28A005109D1 /* Pretendard-ExtraLight.otf */,
+				72233D9D2E6AB28A005109D1 /* Pretendard-Light.otf */,
+				72233D9E2E6AB28A005109D1 /* Pretendard-Medium.otf */,
+				72233D9F2E6AB28A005109D1 /* Pretendard-Regular.otf */,
+				72233DA02E6AB28A005109D1 /* Pretendard-SemiBold.otf */,
+				72233DA12E6AB28A005109D1 /* Pretendard-Thin.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -509,6 +533,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				72233D822E549FC0005109D1 /* Config.xcconfig in Resources */,
+				72233DA22E6AB28A005109D1 /* Pretendard-Thin.otf in Resources */,
+				72233DA32E6AB28A005109D1 /* Pretendard-Medium.otf in Resources */,
+				72233DA42E6AB28A005109D1 /* Pretendard-Black.otf in Resources */,
+				72233DA52E6AB28A005109D1 /* Pretendard-Light.otf in Resources */,
+				72233DA62E6AB28A005109D1 /* Pretendard-ExtraLight.otf in Resources */,
+				72233DA72E6AB28A005109D1 /* Pretendard-Bold.otf in Resources */,
+				72233DA82E6AB28A005109D1 /* Pretendard-ExtraBold.otf in Resources */,
+				72233DA92E6AB28A005109D1 /* Pretendard-Regular.otf in Resources */,
+				72233DAA2E6AB28A005109D1 /* Pretendard-SemiBold.otf in Resources */,
 				72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,7 +582,6 @@
 				72233D962E671319005109D1 /* BasicViewModel.swift in Sources */,
 				72233D712E4344AD005109D1 /* HomeViewModel.swift in Sources */,
 				72233D782E4744B5005109D1 /* MissionView.swift in Sources */,
-				72F8F2222E3AC30D00070291 /* TempFont.swift in Sources */,
 				72233D7A2E4A7EC7005109D1 /* AppDelegate.swift in Sources */,
 				72233D752E4733F9005109D1 /* SettingViewModel.swift in Sources */,
 				72233D6F2E4342F9005109D1 /* SettingView.swift in Sources */,
