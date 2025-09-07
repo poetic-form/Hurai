@@ -22,9 +22,6 @@ final class AppInfo {
     @AppStorage("endInterval")
     var endInterval: Date = .now + 3600
     
-    @AppStorage("isFirst")
-    var isFirst: Bool = true
-    
     @AppStorage("isOnPause")
     var isOnPause: Bool = false
     

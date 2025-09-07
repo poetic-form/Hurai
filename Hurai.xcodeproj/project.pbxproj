@@ -36,6 +36,8 @@
 		72233DA92E6AB28A005109D1 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72233D9F2E6AB28A005109D1 /* Pretendard-Regular.otf */; };
 		72233DAA2E6AB28A005109D1 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72233DA02E6AB28A005109D1 /* Pretendard-SemiBold.otf */; };
 		72233DAC2E6AB391005109D1 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DAB2E6AB391005109D1 /* View+Extension.swift */; };
+		72233DB32E6ABCD6005109D1 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DB22E6ABCD6005109D1 /* OnboardingView.swift */; };
+		72233DB52E6D48B3005109D1 /* OnboardingPageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DB42E6D48B3005109D1 /* OnboardingPageControlView.swift */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
 		72F8F2182E3AC2E100070291 /* TempComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2172E3AC2E100070291 /* TempComponents.swift */; };
@@ -123,6 +125,8 @@
 		72233DA02E6AB28A005109D1 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		72233DA12E6AB28A005109D1 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		72233DAB2E6AB391005109D1 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		72233DB22E6ABCD6005109D1 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		72233DB42E6D48B3005109D1 /* OnboardingPageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageControlView.swift; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
 		72F8F2172E3AC2E100070291 /* TempComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempComponents.swift; sourceTree = "<group>"; };
@@ -226,6 +230,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		72233DAD2E6ABCB2005109D1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				72233DB22E6ABCD6005109D1 /* OnboardingView.swift */,
+				72233DB42E6D48B3005109D1 /* OnboardingPageControlView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		72F8F2012E3AC1AA00070291 /* Hurai */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +328,7 @@
 		72F8F20E2E3AC22600070291 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				72233DAD2E6ABCB2005109D1 /* Onboarding */,
 				72233D6A2E4342DE005109D1 /* RootView.swift */,
 				72233D6C2E4342F0005109D1 /* HomeView.swift */,
 				72233D6E2E4342F9005109D1 /* SettingView.swift */,
@@ -582,6 +596,8 @@
 				72233D962E671319005109D1 /* BasicViewModel.swift in Sources */,
 				72233D712E4344AD005109D1 /* HomeViewModel.swift in Sources */,
 				72233DAC2E6AB391005109D1 /* View+Extension.swift in Sources */,
+				72233DB32E6ABCD6005109D1 /* OnboardingView.swift in Sources */,
+				72233DB52E6D48B3005109D1 /* OnboardingPageControlView.swift in Sources */,
 				72233D782E4744B5005109D1 /* MissionView.swift in Sources */,
 				72233D7A2E4A7EC7005109D1 /* AppDelegate.swift in Sources */,
 				72233D752E4733F9005109D1 /* SettingViewModel.swift in Sources */,
