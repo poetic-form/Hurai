@@ -27,9 +27,6 @@ struct HuraiApp: App {
             .environmentObject(homeVM)
             .environmentObject(settingVM)
             .environmentObject(missionVM)
-            .onAppear {
-                print(isFirst)
-            }
         }
     }
 }

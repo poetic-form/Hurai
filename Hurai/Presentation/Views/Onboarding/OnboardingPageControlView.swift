@@ -9,7 +9,8 @@ import SwiftUI
 
 struct OnboardingPageControlView: View {
     @State private var currentPage: Int = 0
-    
+    @AppStorage("isFirst") var isFirst: Bool = true
+
     var body: some View {
         VStack {
             TabView(selection: $currentPage) {
@@ -37,8 +38,12 @@ struct OnboardingPageControlView: View {
             
             PageControlIndicator(count: 4, currentPage: $currentPage)
             
-            Button("다음") {
+            HuraiButton(title: "다음") {
                 currentPage += 1
+                
+                if currentPage > 3 {
+                    isFirst = false
+                }
             }
         }
         .background(.black)

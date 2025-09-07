@@ -20,6 +20,8 @@ struct SettingView: View {
     @AppStorage("repeatCount", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var repeatCount: TimeInterval = 0
     
+    @AppStorage("isFirst") var isFirst: Bool = true
+    
     // 권한 설정같은것도 추가하면 좋겟다 세팅에
     var formatter: DateIntervalFormatter {
         let formatter = DateIntervalFormatter()
@@ -82,6 +84,10 @@ struct SettingView: View {
                     
                     Button("설정 초기화") {
                         showAlert = true
+                    }
+                    
+                    Button("온보딩 보기") {
+                        isFirst = true
                     }
                     
                     NavigationLink {
