@@ -10,7 +10,8 @@ import SwiftUI
 struct OnboardingPageControlView: View {
     @State private var currentPage: Int = 0
     @AppStorage("isFirst") var isFirst: Bool = true
-
+    @State private var nav: Bool = false
+    
     var body: some View {
         VStack {
             TabView(selection: $currentPage) {
@@ -39,12 +40,19 @@ struct OnboardingPageControlView: View {
             PageControlIndicator(count: 4, currentPage: $currentPage)
             
             HuraiButton(title: "다음") {
-                currentPage += 1
-                
-                if currentPage > 3 {
-                    isFirst = false
+                if currentPage < 3 {
+                    withAnimation {
+                        currentPage += 1
+                    }
+                } else {
+                    withAnimation(.easeInOut(duration: 3)){
+                        nav = true
+                    }
                 }
             }
+        }
+        .navigationDestination(isPresented: $nav) {
+            OnboardingInitialSetupView()
         }
         .background(.black)
     }
@@ -79,5 +87,5 @@ struct PageControlIndicator: View {
 }
 
 #Preview {
-    OnboardingPageControlView()
+    OnboardingView()
 }

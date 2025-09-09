@@ -11,20 +11,24 @@ struct OnboardingView: View {
     @State private var isActive = true
     
     var body: some View {
-        ZStack {
-            SplashView()
-                .opacity(isActive ? 1 : 0)
-                .onAppear {
-                   toggleActive()
-                }
-            
-            OnboardingPageControlView()
-                .opacity(isActive ? 0 : 1)
+        NavigationStack {
+            ZStack {
+                SplashView()
+                
+                    .opacity(isActive ? 1 : 0)
+                    .onAppear {
+                       toggleActive()
+                    }
+                
+//                OnboardingPageControlView()
+                HuraiTimeSlider()
+                    .opacity(isActive ? 0 : 1)
+            }
         }
     }
     
     func toggleActive() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             withAnimation(.easeInOut) {
                 isActive = false
             }
@@ -38,7 +42,8 @@ struct SplashView: View {
             .foregroundStyle(.black)
             .ignoresSafeArea()
             .overlay {
-                Image(systemName: "star.fill")
+                Label("후라이 스플래시뷰", systemImage: "star.fill")
+                    .pretendard(.bold, 20)
                     .foregroundStyle(.white)
             }
     }

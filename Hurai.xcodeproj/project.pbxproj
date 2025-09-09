@@ -39,6 +39,9 @@
 		72233DB32E6ABCD6005109D1 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DB22E6ABCD6005109D1 /* OnboardingView.swift */; };
 		72233DB52E6D48B3005109D1 /* OnboardingPageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DB42E6D48B3005109D1 /* OnboardingPageControlView.swift */; };
 		72233DB72E6D7DF5005109D1 /* HuraiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DB62E6D7DF5005109D1 /* HuraiButton.swift */; };
+		72233DBB2E6D82CD005109D1 /* OnboardingInitialSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DBA2E6D82CD005109D1 /* OnboardingInitialSetupView.swift */; };
+		72233DBD2E6EBB2A005109D1 /* HuraiWheelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DBC2E6EBB2A005109D1 /* HuraiWheelPicker.swift */; };
+		72233DBF2E6ED5A9005109D1 /* HuraiTimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DBE2E6ED5A9005109D1 /* HuraiTimeSlider.swift */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
 		72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F21F2E3AC30000070291 /* TempConstant.swift */; };
@@ -128,6 +131,9 @@
 		72233DB22E6ABCD6005109D1 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		72233DB42E6D48B3005109D1 /* OnboardingPageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageControlView.swift; sourceTree = "<group>"; };
 		72233DB62E6D7DF5005109D1 /* HuraiButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiButton.swift; sourceTree = "<group>"; };
+		72233DBA2E6D82CD005109D1 /* OnboardingInitialSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInitialSetupView.swift; sourceTree = "<group>"; };
+		72233DBC2E6EBB2A005109D1 /* HuraiWheelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiWheelPicker.swift; sourceTree = "<group>"; };
+		72233DBE2E6ED5A9005109D1 /* HuraiTimeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiTimeSlider.swift; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
 		72F8F21F2E3AC30000070291 /* TempConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConstant.swift; sourceTree = "<group>"; };
@@ -234,9 +240,26 @@
 			isa = PBXGroup;
 			children = (
 				72233DB22E6ABCD6005109D1 /* OnboardingView.swift */,
-				72233DB42E6D48B3005109D1 /* OnboardingPageControlView.swift */,
+				72233DB82E6D8295005109D1 /* OnboardingPageControl */,
+				72233DB92E6D82A5005109D1 /* OnboardingInitialSetup */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		72233DB82E6D8295005109D1 /* OnboardingPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				72233DB42E6D48B3005109D1 /* OnboardingPageControlView.swift */,
+			);
+			path = OnboardingPageControl;
+			sourceTree = "<group>";
+		};
+		72233DB92E6D82A5005109D1 /* OnboardingInitialSetup */ = {
+			isa = PBXGroup;
+			children = (
+				72233DBA2E6D82CD005109D1 /* OnboardingInitialSetupView.swift */,
+			);
+			path = OnboardingInitialSetup;
 			sourceTree = "<group>";
 		};
 		72F8F2012E3AC1AA00070291 /* Hurai */ = {
@@ -313,6 +336,8 @@
 			isa = PBXGroup;
 			children = (
 				72233DB62E6D7DF5005109D1 /* HuraiButton.swift */,
+				72233DBC2E6EBB2A005109D1 /* HuraiWheelPicker.swift */,
+				72233DBE2E6ED5A9005109D1 /* HuraiTimeSlider.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -593,6 +618,7 @@
 				72F8F2472E3D300100070291 /* NotificationService.swift in Sources */,
 				72233D6D2E4342F0005109D1 /* HomeView.swift in Sources */,
 				72F8F2492E3D379E00070291 /* DeviceActivityService.swift in Sources */,
+				72233DBF2E6ED5A9005109D1 /* HuraiTimeSlider.swift in Sources */,
 				72233D962E671319005109D1 /* BasicViewModel.swift in Sources */,
 				72233D712E4344AD005109D1 /* HomeViewModel.swift in Sources */,
 				72233DAC2E6AB391005109D1 /* View+Extension.swift in Sources */,
@@ -602,7 +628,9 @@
 				72233D7A2E4A7EC7005109D1 /* AppDelegate.swift in Sources */,
 				72233D752E4733F9005109D1 /* SettingViewModel.swift in Sources */,
 				72233D6F2E4342F9005109D1 /* SettingView.swift in Sources */,
+				72233DBB2E6D82CD005109D1 /* OnboardingInitialSetupView.swift in Sources */,
 				72233D692E433376005109D1 /* FlipMotionService.swift in Sources */,
+				72233DBD2E6EBB2A005109D1 /* HuraiWheelPicker.swift in Sources */,
 				72233D6B2E4342DE005109D1 /* RootView.swift in Sources */,
 				72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */,
 				72233D922E6710FD005109D1 /* Extensions.swift in Sources */,
