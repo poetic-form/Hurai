@@ -30,7 +30,7 @@ struct OnboardingPageControlView: View {
             
             PageControlIndicator(count: 4, currentPage: $currentPage)
             
-            HuraiButton(title: "다음") {
+            HuraiButton(title: currentPage == 3 ? "시작하기" : "다음") {
                 if currentPage < 3 {
                     withAnimation {
                         currentPage += 1
@@ -58,7 +58,7 @@ struct PageControlIndicator: View {
             ForEach(0...count - 1, id: \.self) { index in
                 Circle()
                     .frame(width: 8, height: 8)
-                    .foregroundStyle(.yellow)
+                    .foregroundStyle(.huraiAccent)
                     .opacity(index == currentPage ? 1 : 0.3)
                     .onTapGesture {
                         if index > currentPage {

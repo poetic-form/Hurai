@@ -16,15 +16,15 @@ struct HuraiButton: View {
             action()
         } label: {
             RoundedRectangle(cornerRadius: 8)
-                .foregroundStyle(.yellow)
+                .foregroundStyle(.huraiAccent)
                 .frame(height: 56)
                 .overlay {
                     Text("\(title)")
-                        .foregroundStyle(.black)
+                        .foregroundStyle(.huraiBlack)
                         .pretendard(.semibold, 18, relativeTo: .caption)
                 }
         }
-        .padding(.horizontal, 20)
+        .padding(20)
     }
 }
 

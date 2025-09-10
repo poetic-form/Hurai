@@ -12,19 +12,25 @@ struct OnboardingTemplate: View {
     var subtitle: String = ""
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Text(title)
                 .pretendard(.bold, 26)
-                .foregroundStyle(.white)
+                .foregroundStyle(.huraiWhite)
                 .multilineTextAlignment(.center)
+            
+            Spacer()
+                .frame(height: 45)
             
             Rectangle()
                 .frame(width: 228, height: 250)
                 .foregroundStyle(.gray)
             
+            Spacer()
+                .frame(height: 76)
+            
             Text(subtitle)
                 .pretendard(.regular, 16)
-                .foregroundStyle(.white)
+                .foregroundStyle(.huraiGray)
                 .multilineTextAlignment(.center)
         }
     }
