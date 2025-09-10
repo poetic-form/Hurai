@@ -9,7 +9,6 @@ import SwiftUI
 
 struct OnboardingPageControlView: View {
     @State private var currentPage: Int = 0
-    @AppStorage("isFirst") var isFirst: Bool = true
     @State private var nav: Bool = false
     
     var body: some View {

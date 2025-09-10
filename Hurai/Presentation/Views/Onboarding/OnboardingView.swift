@@ -14,14 +14,12 @@ struct OnboardingView: View {
         NavigationStack {
             ZStack {
                 SplashView()
-                
                     .opacity(isActive ? 1 : 0)
                     .onAppear {
-                       toggleActive()
+                        toggleActive()
                     }
                 
-//                OnboardingPageControlView()
-                HuraiTimeSlider()
+                OnboardingPageControlView()
                     .opacity(isActive ? 0 : 1)
             }
         }

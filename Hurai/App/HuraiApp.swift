@@ -18,15 +18,18 @@ struct HuraiApp: App {
     var body: some Scene {
         WindowGroup {
             ZStack {
-                OnboardingView()
-                    .opacity(isFirst ? 1 : 0)
-                
                 RootView()
-                    .opacity(isFirst ? 0 : 1)
+                
+                if isFirst {
+                    OnboardingView()
+                        .transition(.move(edge: .bottom))
+                        .zIndex(1)
+                }
             }
             .environmentObject(homeVM)
             .environmentObject(settingVM)
             .environmentObject(missionVM)
+            .animation(.easeInOut, value: isFirst)
         }
     }
 }
