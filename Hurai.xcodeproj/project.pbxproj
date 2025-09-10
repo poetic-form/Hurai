@@ -43,6 +43,11 @@
 		72233DBD2E6EBB2A005109D1 /* HuraiWheelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DBC2E6EBB2A005109D1 /* HuraiWheelPicker.swift */; };
 		72233DBF2E6ED5A9005109D1 /* HuraiTimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DBE2E6ED5A9005109D1 /* HuraiTimeSlider.swift */; };
 		72233DDB2E702FAE005109D1 /* OnboardingInitialSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DDA2E702FAE005109D1 /* OnboardingInitialSetupViewModel.swift */; };
+		72233DE12E716EBD005109D1 /* WelcomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DE02E716EBD005109D1 /* WelcomView.swift */; };
+		72233DE32E716ECF005109D1 /* ScreenTimeOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DE22E716ECF005109D1 /* ScreenTimeOverviewView.swift */; };
+		72233DE52E716ED6005109D1 /* MissionOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DE42E716ED6005109D1 /* MissionOverviewView.swift */; };
+		72233DE72E716EDC005109D1 /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DE62E716EDC005109D1 /* GetStartedView.swift */; };
+		72233DE92E717028005109D1 /* OnboardingTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DE82E717028005109D1 /* OnboardingTemplate.swift */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
 		72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F21F2E3AC30000070291 /* TempConstant.swift */; };
@@ -136,6 +141,11 @@
 		72233DBC2E6EBB2A005109D1 /* HuraiWheelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiWheelPicker.swift; sourceTree = "<group>"; };
 		72233DBE2E6ED5A9005109D1 /* HuraiTimeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiTimeSlider.swift; sourceTree = "<group>"; };
 		72233DDA2E702FAE005109D1 /* OnboardingInitialSetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInitialSetupViewModel.swift; sourceTree = "<group>"; };
+		72233DE02E716EBD005109D1 /* WelcomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomView.swift; sourceTree = "<group>"; };
+		72233DE22E716ECF005109D1 /* ScreenTimeOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeOverviewView.swift; sourceTree = "<group>"; };
+		72233DE42E716ED6005109D1 /* MissionOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOverviewView.swift; sourceTree = "<group>"; };
+		72233DE62E716EDC005109D1 /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
+		72233DE82E717028005109D1 /* OnboardingTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTemplate.swift; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
 		72F8F21F2E3AC30000070291 /* TempConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConstant.swift; sourceTree = "<group>"; };
@@ -252,6 +262,11 @@
 			isa = PBXGroup;
 			children = (
 				72233DB42E6D48B3005109D1 /* OnboardingPageControlView.swift */,
+				72233DE82E717028005109D1 /* OnboardingTemplate.swift */,
+				72233DE02E716EBD005109D1 /* WelcomView.swift */,
+				72233DE22E716ECF005109D1 /* ScreenTimeOverviewView.swift */,
+				72233DE42E716ED6005109D1 /* MissionOverviewView.swift */,
+				72233DE62E716EDC005109D1 /* GetStartedView.swift */,
 			);
 			path = OnboardingPageControl;
 			sourceTree = "<group>";
@@ -621,17 +636,22 @@
 				72F8F2472E3D300100070291 /* NotificationService.swift in Sources */,
 				72233D6D2E4342F0005109D1 /* HomeView.swift in Sources */,
 				72F8F2492E3D379E00070291 /* DeviceActivityService.swift in Sources */,
+				72233DE12E716EBD005109D1 /* WelcomView.swift in Sources */,
 				72233DBF2E6ED5A9005109D1 /* HuraiTimeSlider.swift in Sources */,
 				72233D962E671319005109D1 /* BasicViewModel.swift in Sources */,
 				72233D712E4344AD005109D1 /* HomeViewModel.swift in Sources */,
 				72233DAC2E6AB391005109D1 /* View+Extension.swift in Sources */,
+				72233DE52E716ED6005109D1 /* MissionOverviewView.swift in Sources */,
 				72233DB32E6ABCD6005109D1 /* OnboardingView.swift in Sources */,
 				72233DB52E6D48B3005109D1 /* OnboardingPageControlView.swift in Sources */,
+				72233DE72E716EDC005109D1 /* GetStartedView.swift in Sources */,
 				72233D782E4744B5005109D1 /* MissionView.swift in Sources */,
 				72233D7A2E4A7EC7005109D1 /* AppDelegate.swift in Sources */,
 				72233D752E4733F9005109D1 /* SettingViewModel.swift in Sources */,
 				72233D6F2E4342F9005109D1 /* SettingView.swift in Sources */,
+				72233DE32E716ECF005109D1 /* ScreenTimeOverviewView.swift in Sources */,
 				72233DBB2E6D82CD005109D1 /* OnboardingInitialSetupView.swift in Sources */,
+				72233DE92E717028005109D1 /* OnboardingTemplate.swift in Sources */,
 				72233DDB2E702FAE005109D1 /* OnboardingInitialSetupViewModel.swift in Sources */,
 				72233D692E433376005109D1 /* FlipMotionService.swift in Sources */,
 				72233DBD2E6EBB2A005109D1 /* HuraiWheelPicker.swift in Sources */,

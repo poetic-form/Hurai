@@ -13,21 +13,24 @@ struct OnboardingView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                SplashView()
-                    .opacity(isActive ? 1 : 0)
-                    .onAppear {
-                        toggleActive()
-                    }
-                
                 OnboardingPageControlView()
-                    .opacity(isActive ? 0 : 1)
+                
+                if isActive {
+                    SplashView()
+                        .onAppear {
+                            toggleActive()
+                        }
+                        .zIndex(1)
+                        .onAppear { toggleActive() }
+                        .transition(.opacity)
+                }
             }
         }
     }
     
     func toggleActive() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            withAnimation(.easeInOut) {
+            withAnimation {
                 isActive = false
             }
         }
@@ -37,7 +40,7 @@ struct OnboardingView: View {
 struct SplashView: View {
     var body: some View {
        Rectangle()
-            .foregroundStyle(.black)
+            .foregroundStyle(.huraiBackground)
             .ignoresSafeArea()
             .overlay {
                 Label("후라이 스플래시뷰", systemImage: "star.fill")
@@ -50,3 +53,4 @@ struct SplashView: View {
 #Preview {
     OnboardingView()
 }
+

@@ -14,24 +14,16 @@ struct OnboardingPageControlView: View {
     var body: some View {
         VStack {
             TabView(selection: $currentPage) {
-                Rectangle()
-                    .foregroundStyle(.red)
-                    .opacity(0.7)
+                WelcomView()
                     .tag(0)
                 
-                Rectangle()
-                    .foregroundStyle(.blue)
-                    .opacity(0.7)
+                ScreenTimeOverviewView()
                     .tag(1)
                 
-                Rectangle()
-                    .foregroundStyle(.green)
-                    .opacity(0.7)
+                MissionOverviewView()
                     .tag(2)
                 
-                Rectangle()
-                    .foregroundStyle(.purple)
-                    .opacity(0.7)
+                GetStartedView()
                     .tag(3)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -53,7 +45,7 @@ struct OnboardingPageControlView: View {
         .navigationDestination(isPresented: $nav) {
             OnboardingInitialSetupView()
         }
-        .background(.black)
+        .background(.huraiBackground)
     }
 }
 
