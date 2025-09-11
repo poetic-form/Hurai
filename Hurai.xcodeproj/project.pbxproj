@@ -42,7 +42,7 @@
 		72233DBB2E6D82CD005109D1 /* OnboardingInitialSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DBA2E6D82CD005109D1 /* OnboardingInitialSetupView.swift */; };
 		72233DBD2E6EBB2A005109D1 /* HuraiWheelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DBC2E6EBB2A005109D1 /* HuraiWheelPicker.swift */; };
 		72233DBF2E6ED5A9005109D1 /* HuraiTimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DBE2E6ED5A9005109D1 /* HuraiTimeSlider.swift */; };
-		72233DDB2E702FAE005109D1 /* OnboardingInitialSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DDA2E702FAE005109D1 /* OnboardingInitialSetupViewModel.swift */; };
+		72233DDB2E702FAE005109D1 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DDA2E702FAE005109D1 /* OnboardingViewModel.swift */; };
 		72233DE12E716EBD005109D1 /* WelcomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DE02E716EBD005109D1 /* WelcomView.swift */; };
 		72233DE32E716ECF005109D1 /* ScreenTimeOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DE22E716ECF005109D1 /* ScreenTimeOverviewView.swift */; };
 		72233DE52E716ED6005109D1 /* MissionOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DE42E716ED6005109D1 /* MissionOverviewView.swift */; };
@@ -144,7 +144,7 @@
 		72233DBA2E6D82CD005109D1 /* OnboardingInitialSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInitialSetupView.swift; sourceTree = "<group>"; };
 		72233DBC2E6EBB2A005109D1 /* HuraiWheelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiWheelPicker.swift; sourceTree = "<group>"; };
 		72233DBE2E6ED5A9005109D1 /* HuraiTimeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiTimeSlider.swift; sourceTree = "<group>"; };
-		72233DDA2E702FAE005109D1 /* OnboardingInitialSetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInitialSetupViewModel.swift; sourceTree = "<group>"; };
+		72233DDA2E702FAE005109D1 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		72233DE02E716EBD005109D1 /* WelcomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomView.swift; sourceTree = "<group>"; };
 		72233DE22E716ECF005109D1 /* ScreenTimeOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeOverviewView.swift; sourceTree = "<group>"; };
 		72233DE42E716ED6005109D1 /* MissionOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOverviewView.swift; sourceTree = "<group>"; };
@@ -398,7 +398,7 @@
 				72233D702E4344AD005109D1 /* HomeViewModel.swift */,
 				72233D742E4733F9005109D1 /* SettingViewModel.swift */,
 				72233D972E671AB6005109D1 /* MissionViewModel.swift */,
-				72233DDA2E702FAE005109D1 /* OnboardingInitialSetupViewModel.swift */,
+				72233DDA2E702FAE005109D1 /* OnboardingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -666,7 +666,7 @@
 				72233DBB2E6D82CD005109D1 /* OnboardingInitialSetupView.swift in Sources */,
 				72233DE92E717028005109D1 /* OnboardingTemplate.swift in Sources */,
 				72233DED2E7177F3005109D1 /* AppSelectionView.swift in Sources */,
-				72233DDB2E702FAE005109D1 /* OnboardingInitialSetupViewModel.swift in Sources */,
+				72233DDB2E702FAE005109D1 /* OnboardingViewModel.swift in Sources */,
 				72233D692E433376005109D1 /* FlipMotionService.swift in Sources */,
 				72233DEB2E7177E4005109D1 /* PermissionRequestView.swift in Sources */,
 				72233DF12E717829005109D1 /* ThresholdSetupView.swift in Sources */,

@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct OnboardingPageControlView: View {
-    @State private var currentPage: Int = 0
-    @State private var nav: Bool = false
+    @EnvironmentObject var viewModel: OnboardingViewModel
     
     var body: some View {
         VStack {
-            TabView(selection: $currentPage) {
+            TabView(selection: $viewModel.onboardingPage) {
                 WelcomView()
                     .tag(0)
                 
@@ -28,21 +27,21 @@ struct OnboardingPageControlView: View {
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
-            PageControlIndicator(count: 4, currentPage: $currentPage)
+            PageControlIndicator(count: 4, page: $viewModel.onboardingPage)
             
-            HuraiButton(title: currentPage == 3 ? "시작하기" : "다음") {
-                if currentPage < 3 {
+            HuraiButton(title: viewModel.onboardingPage == 3 ? "시작하기" : "다음") {
+                if viewModel.onboardingPage < 3 {
                     withAnimation {
-                        currentPage += 1
+                        viewModel.onboardingPage += 1
                     }
                 } else {
                     withAnimation(.easeInOut(duration: 3)){
-                        nav = true
+                        viewModel.showSetupView = true
                     }
                 }
             }
         }
-        .navigationDestination(isPresented: $nav) {
+        .navigationDestination(isPresented: $viewModel.showSetupView) {
             OnboardingInitialSetupView()
         }
         .background(.huraiBackground)
@@ -51,7 +50,7 @@ struct OnboardingPageControlView: View {
 
 struct PageControlIndicator: View {
     let count: Int
-    @Binding var currentPage: Int
+    @Binding var page: Int
     
     var body: some View {
         HStack(spacing: 8) {
@@ -59,19 +58,19 @@ struct PageControlIndicator: View {
                 Circle()
                     .frame(width: 8, height: 8)
                     .foregroundStyle(.huraiAccent)
-                    .opacity(index == currentPage ? 1 : 0.3)
+                    .opacity(index == page ? 1 : 0.3)
                     .onTapGesture {
-                        if index > currentPage {
+                        if index > page {
                             withAnimation {
-                                currentPage += 1
+                                page += 1
                             }
-                        } else if index < currentPage {
+                        } else if index < page {
                             withAnimation {
-                                currentPage -= 1
+                                page -= 1
                             }
                         }
                     }
-                    .animation(.easeInOut, value: currentPage)
+                    .animation(.easeInOut, value: page)
             }
         }
     }
@@ -79,4 +78,6 @@ struct PageControlIndicator: View {
 
 #Preview {
     OnboardingView()
+        .environmentObject(OnboardingViewModel())
 }
+

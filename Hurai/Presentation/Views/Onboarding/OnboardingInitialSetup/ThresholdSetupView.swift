@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct ThresholdSetupView: View {
-    @Binding var page: Int
+    @AppStorage("isFirst") var isFirst: Bool = true
     
     var body: some View {
         VStack {
             Spacer()
             
             HuraiButton(title: "다음") {
-                page += 1
+                isFirst = false
             }
         }
     }
 }
 
 #Preview {
-    ThresholdSetupView(page: .constant(0))
+    OnboardingInitialSetupView()
+        .environmentObject(OnboardingViewModel())
 }
+

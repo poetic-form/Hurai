@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct ScheduleSetupView: View {
-    @Binding var page: Int
+    @EnvironmentObject var viewModel: OnboardingViewModel
     
     var body: some View {
         VStack {
             Spacer()
             
             HuraiButton(title: "다음") {
-                page += 1
+                viewModel.setupPage += 1
             }
         }
     }
 }
 
 #Preview {
-    ScheduleSetupView(page: .constant(0))
+    OnboardingInitialSetupView()
+        .environmentObject(OnboardingViewModel())
 }
+

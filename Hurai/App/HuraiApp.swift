@@ -13,6 +13,7 @@ struct HuraiApp: App {
     @StateObject private var homeVM: HomeViewModel = HomeViewModel()
     @StateObject private var settingVM: SettingViewModel = SettingViewModel()
     @StateObject private var missionVM: MissionViewModel = MissionViewModel()
+    @StateObject private var onboardingVM: OnboardingViewModel = OnboardingViewModel()
     @AppStorage("isFirst") var isFirst: Bool = true
     
     var body: some Scene {
@@ -29,6 +30,7 @@ struct HuraiApp: App {
             .environmentObject(homeVM)
             .environmentObject(settingVM)
             .environmentObject(missionVM)
+            .environmentObject(onboardingVM)
             .animation(.easeInOut, value: isFirst)
         }
     }

@@ -9,22 +9,19 @@ import SwiftUI
 import FamilyControls
 
 struct OnboardingInitialSetupView: View {
-    @AppStorage("isFirst") var isFirst: Bool = true
-
-    @State private var page: Int = 0
+    @EnvironmentObject var viewModel: OnboardingViewModel
     @State private var show: Bool = false
-    
     
     var body: some View {
         VStack {
             Button("뒤로가기") {
-                page -= 1
+                viewModel.setupPage -= 1
             }
-            .disabled(page == 0)
+            .disabled(viewModel.setupPage == 0)
             
             HStack(spacing: 20) {
                 ForEach(0...3, id: \.self) { index in
-                    if index <= page {
+                    if index <= viewModel.setupPage {
                         RoundedRectangle(cornerRadius: 100)
                             .frame(width: 75, height: 6)
                             .foregroundStyle(.huraiAccent)
@@ -37,27 +34,28 @@ struct OnboardingInitialSetupView: View {
             }
             .padding(20)
             
-            switch page {
+            switch viewModel.setupPage {
             case 0:
-                PermissionRequestView(page: $page)
+                PermissionRequestView()
             case 1:
-                AppSelectionView(page: $page)
+                AppSelectionView()
             case 2:
-                ScheduleSetupView(page: $page)
+                ScheduleSetupView()
             case 3:
-                ThresholdSetupView(page: $page)
+                ThresholdSetupView()
             default:
                 EmptyView()
             }
         }
         .background(.huraiBackground)
         .navigationBarBackButtonHidden()
-        .animation(.easeInOut(duration: 0.1), value: page)
+        .animation(.easeInOut(duration: 0.1), value: viewModel.setupPage)
     }
 }
 
 
 #Preview {
     OnboardingInitialSetupView()
+        .environmentObject(OnboardingViewModel())
 }
 
