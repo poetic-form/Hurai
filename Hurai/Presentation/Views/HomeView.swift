@@ -59,12 +59,12 @@ struct HomeView: View {
         .onChange(of: viewModel.threshold) { newValue in
             viewModel.updateThreshold()
         }
-        .onChange(of: viewModel.startInterval) { newValue in
-            viewModel.updateStartInterval()
-        }
-        .onChange(of: viewModel.endInterval) { newValue in
-            viewModel.updateEndInterval()
-        }
+//        .onChange(of: viewModel.startInterval) { newValue in
+//            viewModel.updateStartInterval()
+//        }
+//        .onChange(of: viewModel.endInterval) { newValue in
+//            viewModel.updateEndInterval()
+//        }
         .padding()
     }
 }

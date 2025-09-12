@@ -52,6 +52,7 @@
 		72233DED2E7177F3005109D1 /* AppSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DEC2E7177F3005109D1 /* AppSelectionView.swift */; };
 		72233DEF2E71781E005109D1 /* ScheduleSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DEE2E71781E005109D1 /* ScheduleSetupView.swift */; };
 		72233DF12E717829005109D1 /* ThresholdSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DF02E717829005109D1 /* ThresholdSetupView.swift */; };
+		72DDB04B2E73B4AB00A04B62 /* FamilyActivityPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDB04A2E73B4AB00A04B62 /* FamilyActivityPickerView.swift */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
 		72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F21F2E3AC30000070291 /* TempConstant.swift */; };
@@ -154,6 +155,7 @@
 		72233DEC2E7177F3005109D1 /* AppSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSelectionView.swift; sourceTree = "<group>"; };
 		72233DEE2E71781E005109D1 /* ScheduleSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSetupView.swift; sourceTree = "<group>"; };
 		72233DF02E717829005109D1 /* ThresholdSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdSetupView.swift; sourceTree = "<group>"; };
+		72DDB04A2E73B4AB00A04B62 /* FamilyActivityPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyActivityPickerView.swift; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
 		72F8F21F2E3AC30000070291 /* TempConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConstant.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				72233DBA2E6D82CD005109D1 /* OnboardingInitialSetupView.swift */,
 				72233DEA2E7177E4005109D1 /* PermissionRequestView.swift */,
 				72233DEC2E7177F3005109D1 /* AppSelectionView.swift */,
+				72DDB04A2E73B4AB00A04B62 /* FamilyActivityPickerView.swift */,
 				72233DEE2E71781E005109D1 /* ScheduleSetupView.swift */,
 				72233DF02E717829005109D1 /* ThresholdSetupView.swift */,
 			);
@@ -395,10 +398,10 @@
 			isa = PBXGroup;
 			children = (
 				72233D952E671319005109D1 /* BasicViewModel.swift */,
+				72233DDA2E702FAE005109D1 /* OnboardingViewModel.swift */,
 				72233D702E4344AD005109D1 /* HomeViewModel.swift */,
 				72233D742E4733F9005109D1 /* SettingViewModel.swift */,
 				72233D972E671AB6005109D1 /* MissionViewModel.swift */,
-				72233DDA2E702FAE005109D1 /* OnboardingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				72233DED2E7177F3005109D1 /* AppSelectionView.swift in Sources */,
 				72233DDB2E702FAE005109D1 /* OnboardingViewModel.swift in Sources */,
 				72233D692E433376005109D1 /* FlipMotionService.swift in Sources */,
+				72DDB04B2E73B4AB00A04B62 /* FamilyActivityPickerView.swift in Sources */,
 				72233DEB2E7177E4005109D1 /* PermissionRequestView.swift in Sources */,
 				72233DF12E717829005109D1 /* ThresholdSetupView.swift in Sources */,
 				72233DBD2E6EBB2A005109D1 /* HuraiWheelPicker.swift in Sources */,

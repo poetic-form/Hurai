@@ -24,6 +24,7 @@ struct HuraiButton: View {
                         .pretendard(.semibold, 18, relativeTo: .caption)
                 }
         }
+        .buttonStyle(.plain)
         .padding(20)
     }
 }

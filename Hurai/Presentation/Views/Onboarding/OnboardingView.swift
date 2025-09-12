@@ -8,30 +8,22 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @State private var isActive = true
+    @StateObject var viewModel: OnboardingViewModel = OnboardingViewModel()
     
     var body: some View {
         NavigationStack {
             ZStack {
                 OnboardingPageControlView()
+                    .environmentObject(viewModel)
                 
-                if isActive {
+                if viewModel.showSplash {
                     SplashView()
                         .onAppear {
-                            toggleActive()
+                            viewModel.toggleSplash()
                         }
                         .zIndex(1)
-                        .onAppear { toggleActive() }
                         .transition(.opacity)
                 }
-            }
-        }
-    }
-    
-    func toggleActive() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            withAnimation {
-                isActive = false
             }
         }
     }
@@ -50,7 +42,7 @@ struct SplashView: View {
     }
 }
 
-#Preview {
-    OnboardingView()
-}
+//#Preview {
+//    OnboardingView()
+//}
 

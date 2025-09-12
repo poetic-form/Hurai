@@ -59,8 +59,8 @@ struct SuccessView: View {
             
             Button("약속하기") {
                 repeatCount += 1
-                viewModel.appLockService.unlockAllApps()
-                viewModel.deviceActivityService.center.stopMonitoring()
+                viewModel.unlockApps()
+                viewModel.stopMonitoring()
                 viewModel.startMonitoring()
                 registeredAt = .now
                 viewModel.showMissionView = false

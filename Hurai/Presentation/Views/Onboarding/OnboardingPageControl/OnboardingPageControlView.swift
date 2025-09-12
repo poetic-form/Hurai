@@ -41,8 +41,10 @@ struct OnboardingPageControlView: View {
                 }
             }
         }
+        .animation(.default, value: viewModel.onboardingPage)
         .navigationDestination(isPresented: $viewModel.showSetupView) {
             OnboardingInitialSetupView()
+                .environmentObject(viewModel)
         }
         .background(.huraiBackground)
     }

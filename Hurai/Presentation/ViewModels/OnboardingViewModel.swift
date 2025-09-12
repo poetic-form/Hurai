@@ -5,17 +5,28 @@
 //  Created by Sihyeong Lee on 9/9/25.
 //
 
-import Foundation
+import SwiftUI
 import FamilyControls
 import UserNotifications
 
-class OnboardingViewModel: ObservableObject {
+class OnboardingViewModel: BasicViewModel {
+    @Published var showSplash: Bool = true
     @Published var onboardingPage: Int = 0
     @Published var setupPage: Int = 0
     @Published var showSetupView: Bool = false
+    @Published var showFamilyActivityPickerView: Bool = false
+    
     
     @Published var authStatus: AuthorizationStatus = AuthorizationCenter.shared.authorizationStatus
     @Published var notificationGranted: Bool = false
+    
+    func toggleSplash() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            withAnimation {
+                self.showSplash = false
+            }
+        }
+    }
     
     func requestNotificationAuthorization() {
         UNUserNotificationCenter.current()

@@ -8,6 +8,12 @@
 import Foundation
 
 class MissionViewModel: BasicViewModel {
+    let appLockService: AppLockService = AppLockService()
+    
     @Published var showMissionView: Bool = false
     @Published var isActive: Bool = false
+    
+    func unlockApps() {
+        appLockService.unlockAllApps()
+    }
 }

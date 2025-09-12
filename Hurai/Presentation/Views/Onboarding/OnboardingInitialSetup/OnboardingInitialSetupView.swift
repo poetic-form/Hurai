@@ -6,11 +6,9 @@
 //
 
 import SwiftUI
-import FamilyControls
 
 struct OnboardingInitialSetupView: View {
     @EnvironmentObject var viewModel: OnboardingViewModel
-    @State private var show: Bool = false
     
     var body: some View {
         VStack {
