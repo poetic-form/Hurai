@@ -13,15 +13,20 @@ struct ThresholdSetupView: View {
     
     var body: some View {
         VStack {
-            VStack(alignment: .leading, spacing: 20) {
-                Text("선택한 앱의\n목표 사용시간을 선택해주세요")
-                    .pretendard(.bold, 24)
-                    .foregroundStyle(.huraiWhite)
+            HStack {
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("선택한 앱의\n목표 사용시간을 선택해주세요")
+                        .pretendard(.bold, 24)
+                        .foregroundStyle(.huraiWhite)
+                    
+                    Text("선택한 모든 앱의 총 목표 사용시간을 설정해주세요.\n최소 2분부터 최대 60분까지 설정할 수 있어요.")
+                        .pretendard(.regular, 16)
+                        .foregroundStyle(.huraiGray)
+                }
                 
-                Text("선택한 모든 앱의 총 목표 사용시간을 설정해주세요.\n최소 2분부터 최대 60분까지 설정할 수 있어요. ")
-                    .pretendard(.regular, 16)
-                    .foregroundStyle(.huraiGray)
+                Spacer()
             }
+            .padding(20)
             
             Spacer().frame(height: 70)
             
@@ -35,7 +40,7 @@ struct ThresholdSetupView: View {
             
             Spacer()
             
-            HuraiButton(title: "다음") {
+            HuraiButton(title: "후라이 시작하기") {
                 isFirst = false
             }
         }
@@ -75,6 +80,7 @@ struct HuraiThresholdPickerView: View {
                     .frame(width: 45, height: 34)
                 
                 HuraiWheelPicker(items: Array(2...60), selection: $threshold)
+                    .frame(height: 100)
                     .overlay {
                         Text("분")
                             .pretendard(.medium, 16)

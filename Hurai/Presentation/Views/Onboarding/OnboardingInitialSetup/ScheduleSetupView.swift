@@ -12,7 +12,24 @@ struct ScheduleSetupView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("지키고 싶은\n나의 수면시간을 알려주세요")
+                        .pretendard(.bold, 24)
+                        .foregroundStyle(.huraiWhite)
+                    
+                    Text("설정한 수면시간 동안만\n사용시간 측정과 잠금기능이 실행돼요.")
+                        .pretendard(.regular, 16)
+                        .foregroundStyle(.huraiGray)
+                }
+                
+                Spacer()
+            }
+            .padding(20)
+            
             Spacer()
+            
+            HuraiTimeSlider()
             
             HuraiButton(title: "다음") {
                 viewModel.setupPage += 1
@@ -22,7 +39,7 @@ struct ScheduleSetupView: View {
 }
 
 #Preview {
-    OnboardingInitialSetupView()
+    ScheduleSetupView()
         .environmentObject(OnboardingViewModel())
 }
 

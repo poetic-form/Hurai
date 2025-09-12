@@ -36,13 +36,13 @@ struct HuraiTimeSlider: View {
                 }
                 
                 Circle()
-                    .stroke(Color.black.opacity(0.06), lineWidth: 40)
+                    .stroke(Color.white.opacity(0.06), lineWidth: 40)
                 
                 let reverseRotation = (startProgress > toProgress) ? -Double((1 - startProgress) * 360) : 0
                 
                 Circle()
                     .trim(from: startProgress > toProgress ? 0 : startProgress, to: toProgress + (-reverseRotation / 360))
-                    .stroke(Color.black, style:
+                    .stroke(Color.huraiAccent, style:
                                 StrokeStyle(lineWidth: 40, lineCap: .round, lineJoin: .round))
                     .rotationEffect(.init(degrees: -90))
                     .rotationEffect(.init(degrees: reverseRotation))
@@ -83,9 +83,11 @@ struct HuraiTimeSlider: View {
                     Text("\(getTimeDifference().0)h")
                         .font(.title)
                         .fontWeight(.medium)
+                        .foregroundStyle(.huraiWhite)
                     Text("\(getTimeDifference().1)m")
                         .font(.title)
                         .fontWeight(.medium)
+                        .foregroundStyle(.huraiWhite)
                 }
             }
         }
