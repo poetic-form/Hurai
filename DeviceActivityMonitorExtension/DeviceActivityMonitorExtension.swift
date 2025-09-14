@@ -21,11 +21,18 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
     var repeatCount: TimeInterval = 0
     @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var registeredAt: Date = .now
+    @AppStorage("num", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var num: Int = 0
     
     override func intervalDidStart(for activity: DeviceActivityName) {
         super.intervalDidStart(for: activity)
         
         // Handle the start of the interval.
+        if let interval = deviceActivityService.center.schedule(for: .activity)?.nextInterval {
+            if !interval.contains(registeredAt) {
+                num = 0
+            }
+        }
     }
     
     override func intervalDidEnd(for activity: DeviceActivityName) {
@@ -34,6 +41,9 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         // Handle the end of the interval.
         if let interval = deviceActivityService.center.schedule(for: .activity)?.nextInterval {
             if !interval.contains(registeredAt) {
+                if repeatCount == 0 {
+                    num = 2
+                }
                 repeatCount = 0
             }
         }

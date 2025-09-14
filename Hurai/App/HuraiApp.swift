@@ -13,13 +13,23 @@ struct HuraiApp: App {
     @StateObject private var homeVM: HomeViewModel = HomeViewModel()
     @StateObject private var settingVM: SettingViewModel = SettingViewModel()
     @StateObject private var missionVM: MissionViewModel = MissionViewModel()
+    @AppStorage("isFirst") var isFirst: Bool = true
     
     var body: some Scene {
         WindowGroup {
-            RootView()
-                .environmentObject(homeVM)
-                .environmentObject(settingVM)
-                .environmentObject(missionVM)
+            ZStack {
+                RootView()
+                
+                if isFirst {
+                    OnboardingView()
+                        .transition(.move(edge: .bottom))
+                        .zIndex(1)
+                }
+            }
+            .environmentObject(homeVM)
+            .environmentObject(settingVM)
+            .environmentObject(missionVM)
+            .animation(.easeInOut, value: isFirst)
         }
     }
 }

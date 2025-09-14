@@ -11,7 +11,6 @@ import FamilyControls
 class BasicViewModel: ObservableObject {
     let storage: AppInfo = .init()
     let deviceActivityService: DeviceActivityService = .init()
-    let appLockService: AppLockService = .init()
     
     @Published var selections: FamilyActivitySelection
     @Published var threshold: Int
@@ -29,16 +28,26 @@ class BasicViewModel: ObservableObject {
         storage.selections = selections
     }
     
+    func fetchSelections() {
+        selections = storage.selections
+    }
+    
     func updateThreshold() {
         storage.threshold = threshold
     }
     
-    func updateStartInterval() {
-        storage.startInterval = startInterval
+    func fetchThreshold() {
+        threshold = storage.threshold
     }
     
-    func updateEndInterval() {
+    func updateInterval() {
+        storage.startInterval = startInterval
         storage.endInterval = endInterval
+    }
+    
+    func fetchInterval() {
+        startInterval = storage.startInterval
+        endInterval = storage.endInterval
     }
     
     func startMonitoring() {

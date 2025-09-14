@@ -14,16 +14,13 @@ final class AppInfo {
     var selections: FamilyActivitySelection = FamilyActivitySelection(includeEntireCategory: true)
     
     @AppStorage("threshold")
-    var threshold: Int = 2
+    var threshold: Int = 0
    
     @AppStorage("startInterval")
-    var startInterval: Date = .now
+    var startInterval: Date = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: .now) ?? .now
     
     @AppStorage("endInterval")
-    var endInterval: Date = .now + 3600
-    
-    @AppStorage("isFirst")
-    var isFirst: Bool = true
+    var endInterval: Date = Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: .now) ?? .now
     
     @AppStorage("isOnPause")
     var isOnPause: Bool = false

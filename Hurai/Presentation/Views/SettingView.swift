@@ -20,6 +20,8 @@ struct SettingView: View {
     @AppStorage("repeatCount", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var repeatCount: TimeInterval = 0
     
+    @AppStorage("isFirst") var isFirst: Bool = true
+    
     // 권한 설정같은것도 추가하면 좋겟다 세팅에
     var formatter: DateIntervalFormatter {
         let formatter = DateIntervalFormatter()
@@ -82,6 +84,64 @@ struct SettingView: View {
                     
                     Button("설정 초기화") {
                         showAlert = true
+                    }
+                    
+                    Button("온보딩 보기") {
+                        isFirst = true
+                    }
+                    
+                    NavigationLink {
+                        List {
+                            Button("heavy") {
+                                let generator = UIImpactFeedbackGenerator(style: .heavy)
+                                generator.prepare()  // 미리 준비
+                                generator.impactOccurred()  // 바로 진동
+                            }
+                            
+                            Button("light") {
+                                let generator = UIImpactFeedbackGenerator(style: .light)
+                                generator.prepare()  // 미리 준비
+                                generator.impactOccurred()  // 바로 진동
+                            }
+                            
+                            Button("medium") {
+                                let generator = UIImpactFeedbackGenerator(style: .medium)
+                                generator.prepare()  // 미리 준비
+                                generator.impactOccurred()  // 바로 진동
+                            }
+                            
+                            Button("rigid") {
+                                let generator = UIImpactFeedbackGenerator(style: .rigid)
+                                generator.prepare()  // 미리 준비
+                                generator.impactOccurred()  // 바로 진동
+                            }
+                            
+                            Button("soft") {
+                                let generator = UIImpactFeedbackGenerator(style: .soft)
+                                generator.prepare()  // 미리 준비
+                                generator.impactOccurred()  // 바로 진동
+                            }
+                            
+                            Button("warning") {
+                                let generator = UINotificationFeedbackGenerator()
+                                generator.prepare()
+                                generator.notificationOccurred(.warning)
+                            }
+                            
+                            Button("success") {
+                                let generator = UINotificationFeedbackGenerator()
+                                generator.prepare()
+                                generator.notificationOccurred(.success)
+                            }
+                            
+                            Button("error") {
+                                let generator = UINotificationFeedbackGenerator()
+                                generator.prepare()
+                                generator.notificationOccurred(.error)
+                            }
+                        }
+                    } label: {
+                        Text("햅틱 맛보기")
                     }
                     
                     NavigationLink {
