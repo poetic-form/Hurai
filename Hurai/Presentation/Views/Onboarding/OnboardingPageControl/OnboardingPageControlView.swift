@@ -35,9 +35,7 @@ struct OnboardingPageControlView: View {
                         viewModel.onboardingPage += 1
                     }
                 } else {
-                    withAnimation(.easeInOut(duration: 3)){
-                        viewModel.showSetupView = true
-                    }
+                    viewModel.showSetupView = true
                 }
             }
         }

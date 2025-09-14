@@ -10,6 +10,7 @@ import FamilyControls
 
 struct PermissionRequestView: View {
     @EnvironmentObject var viewModel: OnboardingViewModel
+    @State private var isPushed: Bool = false
     
     var attributedString: AttributedString {
         var string = AttributedString("후라이 사용을 위해 필요한\n두 가지 권한을 모두 허용해주세요")
@@ -20,41 +21,55 @@ struct PermissionRequestView: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack {
             VStack(alignment: .leading, spacing: 20) {
                 Text(attributedString)
                     .pretendard(.bold, 24)
-                    .foregroundStyle(.huraiWhite)
+                    .foregroundStyle(.white)
+                    .lineSpacing(8)
                 
-                VStack(alignment: .leading) {
-                    HStack {
-                        Image(systemName: viewModel.authStatus == .approved ? "checkmark" : "1.circle.fill")
-                            .foregroundStyle(.huraiAccent)
+                VStack(alignment: .leading, spacing: 10) {
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack {
+                            Image(systemName: viewModel.authStatus == .approved ? "checkmark" : "1.circle.fill")
+                                .font(.system(size: 18))
+                                .foregroundStyle(.huraiAccent)
+                                .frame(width: 20, height: 20)
+                            
+                            Text("스크린타임")
+                                .pretendard(.semibold, 16)
+                                .foregroundStyle(.white)
+                        }
                         
-                        Text("스크린타임")
-                            .foregroundStyle(.huraiWhite)
+                        Text("세가지 권한을 모두 허용해야만 휴대폰 사용시간 조절을\n도와드릴 수 있어요.")
+                            .pretendard(.regular, 14)
+                            .foregroundStyle(.huraiGray)
+                            .lineSpacing(8)
                     }
+                    .padding(10)
                     
-                    Text("세가지 권한을 모두 허용해야만 휴대폰 사용시간 조절을\n도와드릴 수 있어요.")
-                        .pretendard(.regular, 14)
-                        .foregroundStyle(.huraiGray)
-                }
-                
-                Divider()
-                    .background(.huraiGray)
-                
-                VStack(alignment: .leading) {
-                    HStack {
-                        Image(systemName: viewModel.notificationGranted ? "checkmark" : "2.circle.fill")
-                            .foregroundStyle(.huraiAccent)
+                    Divider()
+                        .background(.white.opacity(0.1))
+                        .padding(.horizontal, 20)
+                    
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack {
+                            Image(systemName: viewModel.notificationGranted ? "checkmark" : "2.circle.fill")
+                                .font(.system(size: 18))
+                                .foregroundStyle(.huraiAccent)
+                                .frame(width: 20, height: 20)
+                            
+                            Text("알림")
+                                .pretendard(.semibold, 16)
+                                .foregroundStyle(.white)
+                        }
                         
-                        Text("푸시알림")
-                            .foregroundStyle(.huraiWhite)
+                        Text("미션을 하려면 알림 권한 허용이 필요해요.")
+                            .pretendard(.regular, 14)
+                            .foregroundStyle(.huraiGray)
+                            .lineSpacing(8)
                     }
-                    
-                    Text("미션을 하려면 알림 권한 허용이 필요해요.")
-                        .pretendard(.regular, 14)
-                        .foregroundStyle(.huraiGray)
+                    .padding(10)
                 }
             }
             .padding(20)
@@ -65,9 +80,10 @@ struct PermissionRequestView: View {
                 HuraiButton(title: "스크린타임 권한 허용하기") {
                     requestScreenTimeAuthorization()
                 }
-            } else if viewModel.notificationGranted == false {
+            } else if !isPushed {
                 HuraiButton(title: "알림 권한 허용하기") {
                     viewModel.requestNotificationAuthorization()
+                    isPushed = true
                 }
             } else {
                 HuraiButton(title: "다음") {
