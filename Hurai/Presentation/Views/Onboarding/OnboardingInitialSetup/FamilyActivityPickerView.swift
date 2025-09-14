@@ -32,6 +32,7 @@ struct FamilyActivityPickerView: View {
                         .pretendard(.regular, 16)
                         .foregroundStyle(.accent)
                 }
+                .buttonStyle(.plain)
                 .disabled(
                     viewModel.selections.applications.count + viewModel.selections.webDomains.count > 5 ||
                     viewModel.selections.applications.count + viewModel.selections.webDomains.count == 0

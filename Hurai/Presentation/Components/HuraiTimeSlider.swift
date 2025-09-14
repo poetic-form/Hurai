@@ -130,10 +130,10 @@ struct HuraiTimeSlider: View {
             HStack(spacing: 8) {
                 Text("\(getTimeDifference().0)시간")
                     .pretendard(.bold, 23)
-                    .foregroundStyle(.huraiWhite)
+                    .foregroundStyle(.white)
                 Text("\(getTimeDifference().1)분")
                     .pretendard(.bold, 23)
-                    .foregroundStyle(.huraiWhite)
+                    .foregroundStyle(.white)
             }
         }
         .frame(width: width, height: width)

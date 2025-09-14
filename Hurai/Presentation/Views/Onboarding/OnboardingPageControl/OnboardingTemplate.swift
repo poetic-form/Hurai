@@ -15,7 +15,7 @@ struct OnboardingTemplate: View {
         VStack(spacing: 0) {
             Text(title)
                 .pretendard(.bold, 26)
-                .foregroundStyle(.huraiWhite)
+                .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
             
             Spacer()
