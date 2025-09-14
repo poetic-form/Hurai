@@ -16,7 +16,7 @@ struct HuraiButton: View {
             action()
         } label: {
             RoundedRectangle(cornerRadius: 8)
-                .foregroundStyle(.huraiAccent)
+                .foregroundStyle(.accent)
                 .frame(height: 56)
                 .overlay {
                     Text("\(title)")

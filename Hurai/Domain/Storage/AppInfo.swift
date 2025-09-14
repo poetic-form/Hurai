@@ -14,7 +14,7 @@ final class AppInfo {
     var selections: FamilyActivitySelection = FamilyActivitySelection(includeEntireCategory: true)
     
     @AppStorage("threshold")
-    var threshold: Int = 2
+    var threshold: Int = 0
    
     @AppStorage("startInterval")
     var startInterval: Date = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: .now) ?? .now

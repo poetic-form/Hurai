@@ -20,7 +20,7 @@ struct OnboardingInitialSetupView: View {
                         if index <= viewModel.setupPage {
                             RoundedRectangle(cornerRadius: 100)
                                 .frame(width: 75, height: 6)
-                                .foregroundStyle(.huraiAccent)
+                                .foregroundStyle(.accent)
                         } else {
                             RoundedRectangle(cornerRadius: 100)
                                 .frame(width: 75, height: 6)

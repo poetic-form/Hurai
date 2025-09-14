@@ -15,7 +15,7 @@ struct PermissionRequestView: View {
     var attributedString: AttributedString {
         var string = AttributedString("후라이 사용을 위해 필요한\n두 가지 권한을 모두 허용해주세요")
         if let highlight = string.range(of: "모두 허용") {
-            string[highlight].foregroundColor = .huraiAccent
+            string[highlight].foregroundColor = .accent
         }
         return string
     }
@@ -33,7 +33,7 @@ struct PermissionRequestView: View {
                         HStack {
                             Image(systemName: viewModel.authStatus == .approved ? "checkmark" : "1.circle.fill")
                                 .font(.system(size: 18))
-                                .foregroundStyle(.huraiAccent)
+                                .foregroundStyle(.accent)
                                 .frame(width: 20, height: 20)
                             
                             Text("스크린타임")
@@ -56,7 +56,7 @@ struct PermissionRequestView: View {
                         HStack {
                             Image(systemName: viewModel.notificationGranted ? "checkmark" : "2.circle.fill")
                                 .font(.system(size: 18))
-                                .foregroundStyle(.huraiAccent)
+                                .foregroundStyle(.accent)
                                 .frame(width: 20, height: 20)
                             
                             Text("알림")

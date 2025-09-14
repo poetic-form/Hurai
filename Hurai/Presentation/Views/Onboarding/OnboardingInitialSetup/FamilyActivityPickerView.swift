@@ -30,7 +30,7 @@ struct FamilyActivityPickerView: View {
                 } label: {
                     Text("선택 완료")
                         .pretendard(.regular, 16)
-                        .foregroundStyle(.huraiAccent)
+                        .foregroundStyle(.accent)
                 }
                 .disabled(
                     viewModel.selections.applications.count + viewModel.selections.webDomains.count > 5 ||

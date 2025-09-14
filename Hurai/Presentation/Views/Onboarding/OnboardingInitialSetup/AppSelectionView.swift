@@ -42,7 +42,7 @@ struct AppSelectionView: View {
                         .overlay {
                             Text("+ 앱 선택하기")
                                 .pretendard(.semibold, 16)
-                                .foregroundStyle(.huraiAccent)
+                                .foregroundStyle(.accent)
                         }
                 }
             }

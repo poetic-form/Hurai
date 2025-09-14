@@ -67,7 +67,7 @@ struct HuraiWheelPicker: UIViewRepresentable {
             label.text = "\(parent.items[row])"
             label.font = parent.font
             label.textAlignment = .center
-            label.textColor = parent.items[row] == parent.selection ? .huraiAccent : parent.textColor
+            label.textColor = parent.items[row] == parent.selection ? .accent : parent.textColor
             
             return label
         }

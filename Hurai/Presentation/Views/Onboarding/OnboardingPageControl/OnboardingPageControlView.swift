@@ -57,7 +57,7 @@ struct PageControlIndicator: View {
             ForEach(0...count - 1, id: \.self) { index in
                 Circle()
                     .frame(width: 8, height: 8)
-                    .foregroundStyle(.huraiAccent)
+                    .foregroundStyle(.accent)
                     .opacity(index == page ? 1 : 0.3)
                     .onTapGesture {
                         if index > page {

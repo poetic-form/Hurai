@@ -81,7 +81,7 @@ struct HuraiTimeSlider: View {
             
             Circle()
                 .trim(from: startProgress > endProgress ? 0 : startProgress, to: endProgress + (-reverseRotation / 360))
-                .stroke(Color.huraiAccent, style:
+                .stroke(Color.accent, style:
                             StrokeStyle(lineWidth: 40, lineCap: .round, lineJoin: .round))
                 .rotationEffect(.init(degrees: -90))
                 .rotationEffect(.init(degrees: reverseRotation))
@@ -252,7 +252,7 @@ struct HuraiTimeLabelStyle: LabelStyle {
         VStack(spacing: 8) {
             configuration.icon
                 .font(.title3)
-                .foregroundStyle(.huraiAccent)
+                .foregroundStyle(.accent)
             configuration.title
                 .foregroundStyle(.white)
                 .pretendard(.medium, 21)
