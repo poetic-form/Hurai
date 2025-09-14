@@ -44,9 +44,6 @@ struct OnboardingInitialSetupView: View {
                 EmptyView()
             }
         }
-        .onAppear {
-            viewModel.setupPage = 3
-        }
         .background(.huraiBackground)
         .navigationBarBackButtonHidden()
         .animation(.easeInOut(duration: 0.1), value: viewModel.setupPage)

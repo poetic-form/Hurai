@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ManagedSettings
 
 struct AppSelectionView: View {
     @EnvironmentObject var viewModel: OnboardingViewModel
@@ -22,49 +23,11 @@ struct AppSelectionView: View {
                     .foregroundStyle(.huraiGray)
                 
                 ForEach(Array(viewModel.storage.selections.applicationTokens).sorted(by: { $0.rawValue < $1.rawValue} ), id: \.self) { token in
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundStyle(.white.opacity(0.04))
-                        .frame(height: 50)
-                        .overlay {
-                            HStack {
-                                Label(token)
-                                Spacer()
-                                Button {
-                                    viewModel.selections.applicationTokens.remove(token)
-                                    viewModel.updateSelections()
-                                } label: {
-                                    Image(systemName: "xmark")
-                                        .resizable()
-                                        .frame(width: 10, height: 10)
-                                        .padding(5)
-                                        .foregroundStyle(.white.opacity(0.5))
-                                }
-                            }
-                            .padding()
-                        }
+                    selectionRowView(token: token)
                 }
                 
                 ForEach(Array(viewModel.selections.webDomainTokens).sorted(by: { $0.rawValue < $1.rawValue} ), id: \.self) { token in
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundStyle(.white.opacity(0.04))
-                        .frame(height: 50)
-                        .overlay {
-                            HStack {
-                                Label(token)
-                                    .padding()
-                                Spacer()
-                                Button {
-                                    viewModel.selections.webDomainTokens.remove(token)
-                                    viewModel.updateSelections()
-                                } label: {
-                                    Image(systemName: "xmark")
-                                        .resizable()
-                                        .frame(width: 10, height: 10)
-                                        .padding(5)
-                                        .foregroundStyle(.white.opacity(0.5))
-                                }
-                            }
-                        }
+                    selectionRowView(token: token)
                 }
                 
                 Button {
@@ -93,6 +56,47 @@ struct AppSelectionView: View {
             FamilyActivityPickerView()
         }
     }
+    
+    @ViewBuilder
+    func selectionRowView<T>(token: Token<T>) -> some View {
+        RoundedRectangle(cornerRadius: 10)
+            .foregroundStyle(.white.opacity(0.04))
+            .frame(height: 50)
+            .overlay {
+                HStack {
+                    if let applicationToken = token as? ApplicationToken {
+                        Label(applicationToken)
+                            .labelStyle(HuraiTokenLabelStyle())
+                        Spacer()
+                        Button {
+                            viewModel.selections.applicationTokens.remove(applicationToken)
+                            viewModel.updateSelections()
+                        } label: {
+                            Image(systemName: "xmark")
+                                .resizable()
+                                .frame(width: 10, height: 10)
+                                .padding(5)
+                                .foregroundStyle(.white.opacity(0.5))
+                        }
+                    } else if let webDomainToken = token as? WebDomainToken {
+                        Label(webDomainToken)
+                            .labelStyle(HuraiTokenLabelStyle())
+                        Spacer()
+                        Button {
+                            viewModel.selections.webDomainTokens.remove(webDomainToken)
+                            viewModel.updateSelections()
+                        } label: {
+                            Image(systemName: "xmark")
+                                .resizable()
+                                .frame(width: 10, height: 10)
+                                .padding(5)
+                                .foregroundStyle(.white.opacity(0.5))
+                        }
+                    }
+                }
+                .padding()
+            }
+    }
 }
 
 #Preview {
@@ -100,3 +104,13 @@ struct AppSelectionView: View {
         .environmentObject(OnboardingViewModel())
 }
 
+struct HuraiTokenLabelStyle: LabelStyle {
+    @Environment(\.colorScheme) private var colorScheme
+    
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.icon
+            configuration.title.brightness(colorScheme == .dark ? 0 : 1) // title 색상
+        }
+    }
+}
