@@ -28,7 +28,7 @@ class BasicViewModel: ObservableObject {
         storage.selections = selections
     }
     
-    func cancelSelections() {
+    func fetchSelections() {
         selections = storage.selections
     }
     
@@ -36,7 +36,7 @@ class BasicViewModel: ObservableObject {
         storage.threshold = threshold
     }
     
-    func cancelThreshold() {
+    func fetchThreshold() {
         threshold = storage.threshold
     }
     
@@ -45,7 +45,7 @@ class BasicViewModel: ObservableObject {
         storage.endInterval = endInterval
     }
     
-    func cancelInterval() {
+    func fetchInterval() {
         startInterval = storage.startInterval
         endInterval = storage.endInterval
     }

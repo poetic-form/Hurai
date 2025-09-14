@@ -15,7 +15,7 @@ struct FamilyActivityPickerView: View {
         VStack {
             HStack {
                 Button("취소") {
-                    viewModel.cancelSelections()
+                    viewModel.fetchSelections()
                     viewModel.showFamilyActivityPickerView = false
                 }
                 

@@ -30,8 +30,8 @@ struct ScheduleSetupView: View {
             Spacer()
             
             HuraiTimeSlider(
-                startTime: $viewModel.startInterval,
-                endTime: $viewModel.endInterval
+                startInterval: $viewModel.startInterval,
+                endInterval: $viewModel.endInterval
             )
             .onDisappear {
                 viewModel.updateInterval()
