@@ -31,7 +31,7 @@ struct OnboardingInitialSetupView: View {
             }
             .padding(20)
             .onAppear {
-                viewModel.setupPage = 2
+                viewModel.setupPage = 3
             }
             
             switch viewModel.setupPage {

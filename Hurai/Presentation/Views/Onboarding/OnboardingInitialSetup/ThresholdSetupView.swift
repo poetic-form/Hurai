@@ -17,11 +17,13 @@ struct ThresholdSetupView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     Text("선택한 앱의\n목표 사용시간을 선택해주세요")
                         .pretendard(.bold, 24)
-                        .foregroundStyle(.huraiWhite)
+                        .foregroundStyle(.white)
+                        .lineSpacing(8)
                     
                     Text("선택한 모든 앱의 총 목표 사용시간을 설정해주세요.\n최소 2분부터 최대 60분까지 설정할 수 있어요.")
                         .pretendard(.regular, 16)
                         .foregroundStyle(.huraiGray)
+                        .lineSpacing(4)
                 }
                 
                 Spacer()
@@ -43,6 +45,7 @@ struct ThresholdSetupView: View {
             HuraiButton(title: "후라이 시작하기") {
                 isFirst = false
             }
+            .disabled(viewModel.threshold == 0)
         }
         .onChange(of: viewModel.threshold) { newValue in
             viewModel.updateThreshold()
@@ -56,30 +59,29 @@ struct HuraiThresholdPickerView: View {
     var body: some View {
         HStack(spacing: 55) {
             Button {
-                if threshold > 7 {
+                if threshold > 6 {
                     threshold -= 5
                 } else {
-                    threshold = 2
+                    threshold = 0
                 }
             } label: {
                 RoundedRectangle(cornerRadius: 100)
                     .frame(width: 65, height: 34)
                     .foregroundStyle(.huraiGray.opacity(0.18))
                     .overlay {
-                        Text("- 5")
-                            .pretendard(.regular, 18)
-                            .foregroundStyle(.white)
+                       Label("5", systemImage: "minus")
+                            .labelStyle(HuraiStepperLabelStyle())
                     }
             }
             .buttonStyle(.plain)
-            .disabled(threshold == 2)
+            .disabled(threshold == 0)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 6)
                     .foregroundStyle(.gray.opacity(0.14))
                     .frame(width: 45, height: 34)
                 
-                HuraiWheelPicker(items: Array(2...60), selection: $threshold)
+                HuraiWheelPicker(items: [0] + Array(2...60), selection: $threshold)
                     .frame(height: 100)
                     .overlay {
                         Text("분")
@@ -91,7 +93,7 @@ struct HuraiThresholdPickerView: View {
             .frame(width: 85)
             
             Button {
-                if threshold < 55{
+                if threshold < 55 {
                     threshold += 5
                 } else {
                     threshold = 60
@@ -101,9 +103,8 @@ struct HuraiThresholdPickerView: View {
                     .frame(width: 65, height: 34)
                     .foregroundStyle(.huraiGray.opacity(0.18))
                     .overlay {
-                        Text("+ 5")
-                            .pretendard(.regular, 18)
-                            .foregroundStyle(.white)
+                        Label("5", systemImage: "plus")
+                             .labelStyle(HuraiStepperLabelStyle())
                     }
             }
             .buttonStyle(.plain)
@@ -114,7 +115,18 @@ struct HuraiThresholdPickerView: View {
 }
 
 #Preview {
-    ThresholdSetupView()
+    OnboardingInitialSetupView()
         .environmentObject(OnboardingViewModel())
 }
 
+struct HuraiStepperLabelStyle: LabelStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack(spacing: 4) {
+            configuration.icon
+                .pretendard(.regular, 14)
+            configuration.title
+                .pretendard(.regular, 18)
+        }
+        .foregroundStyle(.white)
+    }
+}
