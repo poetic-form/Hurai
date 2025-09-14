@@ -27,8 +27,6 @@ struct ScheduleSetupView: View {
             }
             .padding(20)
             
-            Spacer()
-            
             HuraiTimeSlider(
                 startInterval: $viewModel.startInterval,
                 endInterval: $viewModel.endInterval
@@ -36,6 +34,8 @@ struct ScheduleSetupView: View {
             .onDisappear {
                 viewModel.updateInterval()
             }
+            
+            Spacer()
             
             HuraiButton(title: "다음") {
                 viewModel.setupPage += 1

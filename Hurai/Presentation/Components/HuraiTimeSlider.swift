@@ -36,8 +36,8 @@ struct HuraiTimeSlider: View {
     let generator = UIImpactFeedbackGenerator(style: .medium)
     
     var body: some View {
-        VStack {
-            HStack {
+        VStack(spacing: 50) {
+            HStack(spacing: 70) {
                 Label(startTimeString, systemImage: "moon.stars.fill")
                 Label(endTimeString, systemImage: "sun.max.fill")
             }
@@ -58,87 +58,85 @@ struct HuraiTimeSlider: View {
     
     @ViewBuilder
     func SleepTimeSlider() -> some View {
-        GeometryReader { proxy in
-            let width = proxy.size.width
+        let width: CGFloat = 273
+        ZStack {
             ZStack {
-                ZStack {
-                    let numbers = [12, 15, 18, 21, 0, 3, 6, 9]
-                    
-                    ForEach(numbers.indices, id: \.self) { index in
-                        Text("\(numbers[index])")
-                            .foregroundColor(.secondary)
-                            .font(.caption)
-                            .rotationEffect(.init(degrees: Double(index) * -45))
-                            .offset(y: (width - 90) / 2)
-                            .rotationEffect(.init(degrees: Double(index) * 45 ))
-                    }
-                }
+                let numbers = ["오후12시", "2", "4", "오후6시", "8", "10", "오전12시", "2", "4", "오전6시", "8", "10"]
                 
-                Circle()
-                    .stroke(Color.white.opacity(0.06), lineWidth: 10)
-                
-                let reverseRotation = (startProgress > endProgress) ? -Double((1 - startProgress) * 360) : 0
-                
-                Circle()
-                    .trim(from: startProgress > endProgress ? 0 : startProgress, to: endProgress + (-reverseRotation / 360))
-                    .stroke(Color.huraiAccent, style:
-                                StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
-                    .rotationEffect(.init(degrees: -90))
-                    .rotationEffect(.init(degrees: reverseRotation))
-                
-                Image(systemName: "moon.stars.fill")
-                    .foregroundStyle(.black)
-                    .font(.callout)
-                    .frame(width: 30, height: 30)
-                    .rotationEffect(.init(degrees: 90))
-                    .rotationEffect(.init(degrees: -startAngle))
-                    .background(.white, in: Circle())
-                    .offset(x: width / 2)
-                    .rotationEffect(.init(degrees: startAngle))
-                    .gesture(
-                        DragGesture()
-                            .onChanged { value in
-                                onDrag(value: value, fromSlider: true)
-                            }
-                            .onEnded { _ in
-                                updateInterval()
-                            }
-                    )
-                    .rotationEffect(.init(degrees: -90))
-                
-                Image(systemName: "alarm.fill")
-                    .foregroundStyle(.black)
-                    .font(.callout)
-                    .frame(width: 30, height: 30)
-                    .rotationEffect(.init(degrees: 90))
-                    .rotationEffect(.init(degrees: -endAngle))
-                    .background(.white, in: Circle())
-                    .offset(x: width / 2)
-                    .rotationEffect(.init(degrees: endAngle))
-                    .gesture(
-                        DragGesture()
-                            .onChanged { value in
-                                onDrag(value: value)
-                            }
-                            .onEnded { _ in
-                                updateInterval()
-                            }
-                    )
-                    .rotationEffect(.init(degrees: -90))
-                
-                HStack(spacing: 8) {
-                    Text("\(getTimeDifference().0)h")
-                        .font(.title)
-                        .fontWeight(.medium)
-                        .foregroundStyle(.huraiWhite)
-                    Text("\(getTimeDifference().1)m")
-                        .font(.title)
-                        .fontWeight(.medium)
-                        .foregroundStyle(.huraiWhite)
+                ForEach(numbers.indices, id: \.self) { index in
+                    Text("\(numbers[index])")
+                        .foregroundColor(.white)
+                        .pretendard(.medium, 10)
+                        .rotationEffect(.init(degrees: Double(index) * -30))
+                        .offset(y: (width - 90) / 2)
+                        .rotationEffect(.init(degrees: Double(index) * 30 ))
                 }
             }
+            
+            Circle()
+                .stroke(Color.white.opacity(0.06), lineWidth: 40)
+                .frame(width: width, height: width)
+            
+            let reverseRotation = (startProgress > endProgress) ? -Double((1 - startProgress) * 360) : 0
+            
+            Circle()
+                .trim(from: startProgress > endProgress ? 0 : startProgress, to: endProgress + (-reverseRotation / 360))
+                .stroke(Color.huraiAccent, style:
+                            StrokeStyle(lineWidth: 40, lineCap: .round, lineJoin: .round))
+                .rotationEffect(.init(degrees: -90))
+                .rotationEffect(.init(degrees: reverseRotation))
+                .frame(width: width, height: width)
+            
+            Image(systemName: "moon.stars.fill")
+                .foregroundStyle(.black)
+                .font(.callout)
+                .frame(width: 30, height: 30)
+                .rotationEffect(.init(degrees: 90))
+                .rotationEffect(.init(degrees: -startAngle))
+                .background(.white, in: Circle())
+                .offset(x: width / 2)
+                .rotationEffect(.init(degrees: startAngle))
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            onDrag(value: value, fromSlider: true)
+                        }
+                        .onEnded { _ in
+                            updateInterval()
+                        }
+                )
+                .rotationEffect(.init(degrees: -90))
+            
+            Image(systemName: "alarm.fill")
+                .foregroundStyle(.black)
+                .font(.callout)
+                .frame(width: 30, height: 30)
+                .rotationEffect(.init(degrees: 90))
+                .rotationEffect(.init(degrees: -endAngle))
+                .background(.white, in: Circle())
+                .offset(x: width / 2)
+                .rotationEffect(.init(degrees: endAngle))
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            onDrag(value: value)
+                        }
+                        .onEnded { _ in
+                            updateInterval()
+                        }
+                )
+                .rotationEffect(.init(degrees: -90))
+            
+            HStack(spacing: 8) {
+                Text("\(getTimeDifference().0)시간")
+                    .pretendard(.bold, 23)
+                    .foregroundStyle(.huraiWhite)
+                Text("\(getTimeDifference().1)분")
+                    .pretendard(.bold, 23)
+                    .foregroundStyle(.huraiWhite)
+            }
         }
-        .frame(width: screenBounds().width / 1.6, height: screenBounds().width / 1.4)
+        .frame(width: width, height: width)
     }
     
     func onDrag(value: DragGesture.Value, fromSlider: Bool = false) {
@@ -251,12 +249,13 @@ extension View {
 
 struct HuraiTimeLabelStyle: LabelStyle {
     func makeBody(configuration: Configuration) -> some View {
-        VStack {
+        VStack(spacing: 8) {
             configuration.icon
+                .font(.title3)
                 .foregroundStyle(.huraiAccent)
             configuration.title
                 .foregroundStyle(.white)
-                .pretendard(.semibold, 18)
+                .pretendard(.medium, 21)
         }
     }
 }
