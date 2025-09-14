@@ -29,7 +29,7 @@ struct HuraiTimeSlider: View {
     private var timeFormatter: DateFormatter {
         let f = DateFormatter()
         f.locale = Locale(identifier: "ko_KR")
-        f.dateFormat = "a h:mm"
+        f.dateFormat = "a hh : mm"
         return f
     }
     
@@ -58,7 +58,7 @@ struct HuraiTimeSlider: View {
     
     @ViewBuilder
     func SleepTimeSlider() -> some View {
-        let width: CGFloat = 273
+        let width: CGFloat = 253
         ZStack {
             ZStack {
                 let numbers = ["오후12시", "2", "4", "오후6시", "8", "10", "오전12시", "2", "4", "오전6시", "8", "10"]
@@ -256,6 +256,7 @@ struct HuraiTimeLabelStyle: LabelStyle {
             configuration.title
                 .foregroundStyle(.white)
                 .pretendard(.medium, 21)
+                .monospacedDigit()
         }
     }
 }

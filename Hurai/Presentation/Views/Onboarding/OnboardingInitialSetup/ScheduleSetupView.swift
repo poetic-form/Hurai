@@ -11,16 +11,18 @@ struct ScheduleSetupView: View {
     @EnvironmentObject var viewModel: OnboardingViewModel
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             HStack {
                 VStack(alignment: .leading, spacing: 20) {
                     Text("지키고 싶은\n나의 수면시간을 알려주세요")
                         .pretendard(.bold, 24)
-                        .foregroundStyle(.huraiWhite)
+                        .foregroundStyle(.white)
+                        .lineSpacing(8)
                     
                     Text("설정한 수면시간 동안만\n사용시간 측정과 잠금기능이 실행돼요.")
                         .pretendard(.regular, 16)
                         .foregroundStyle(.huraiGray)
+                        .lineSpacing(4)
                 }
                 
                 Spacer()
@@ -45,7 +47,7 @@ struct ScheduleSetupView: View {
 }
 
 #Preview {
-    ScheduleSetupView()
+    OnboardingInitialSetupView()
         .environmentObject(OnboardingViewModel())
 }
 
