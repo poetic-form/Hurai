@@ -30,6 +30,9 @@ struct OnboardingInitialSetupView: View {
                 }
             }
             .padding(20)
+            .onAppear {
+                viewModel.setupPage = 1
+            }
             
             switch viewModel.setupPage {
             case 0:

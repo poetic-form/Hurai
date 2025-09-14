@@ -16,11 +16,14 @@ struct AppSelectionView: View {
             VStack(alignment: .leading, spacing: 20) {
                 Text("나의 수면시간을 방해하는 \n앱을 선택해주세요")
                     .pretendard(.bold, 24)
-                    .foregroundStyle(.huraiWhite)
+                    .foregroundStyle(.white)
+                    .lineSpacing(8)
                 
                 Text("최대 5개의 앱을 선택할 수 있어요.\n이후에도 선택한 앱을 삭제하거나 추가할 수 있어요.")
                     .pretendard(.regular, 16)
                     .foregroundStyle(.huraiGray)
+                    .lineSpacing(4)
+                    .padding(.bottom, 10)
                 
                 ForEach(Array(viewModel.storage.selections.applicationTokens).sorted(by: { $0.rawValue < $1.rawValue} ), id: \.self) { token in
                     selectionRowView(token: token)
@@ -50,9 +53,12 @@ struct AppSelectionView: View {
             HuraiButton(title: "선택 완료") {
                 viewModel.setupPage += 1
             }
-            .disabled(viewModel.selections.applicationTokens.isEmpty && viewModel.selections.webDomainTokens.isEmpty)
+            .disabled(viewModel.selections.applicationTokens.isEmpty &&
+                      viewModel.selections.webDomainTokens.isEmpty)
         }
-        .sheet(isPresented: $viewModel.showFamilyActivityPickerView) {
+        .sheet(isPresented: $viewModel.showFamilyActivityPickerView, onDismiss: {
+            viewModel.fetchSelections()
+        }) {
             FamilyActivityPickerView()
         }
     }
@@ -100,7 +106,7 @@ struct AppSelectionView: View {
 }
 
 #Preview {
-    AppSelectionView()
+    OnboardingInitialSetupView()
         .environmentObject(OnboardingViewModel())
 }
 
