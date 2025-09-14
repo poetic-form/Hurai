@@ -91,6 +91,60 @@ struct SettingView: View {
                     }
                     
                     NavigationLink {
+                        List {
+                            Button("heavy") {
+                                let generator = UIImpactFeedbackGenerator(style: .heavy)
+                                generator.prepare()  // 미리 준비
+                                generator.impactOccurred()  // 바로 진동
+                            }
+                            
+                            Button("light") {
+                                let generator = UIImpactFeedbackGenerator(style: .light)
+                                generator.prepare()  // 미리 준비
+                                generator.impactOccurred()  // 바로 진동
+                            }
+                            
+                            Button("medium") {
+                                let generator = UIImpactFeedbackGenerator(style: .medium)
+                                generator.prepare()  // 미리 준비
+                                generator.impactOccurred()  // 바로 진동
+                            }
+                            
+                            Button("rigid") {
+                                let generator = UIImpactFeedbackGenerator(style: .rigid)
+                                generator.prepare()  // 미리 준비
+                                generator.impactOccurred()  // 바로 진동
+                            }
+                            
+                            Button("soft") {
+                                let generator = UIImpactFeedbackGenerator(style: .soft)
+                                generator.prepare()  // 미리 준비
+                                generator.impactOccurred()  // 바로 진동
+                            }
+                            
+                            Button("warning") {
+                                let generator = UINotificationFeedbackGenerator()
+                                generator.prepare()
+                                generator.notificationOccurred(.warning)
+                            }
+                            
+                            Button("success") {
+                                let generator = UINotificationFeedbackGenerator()
+                                generator.prepare()
+                                generator.notificationOccurred(.success)
+                            }
+                            
+                            Button("error") {
+                                let generator = UINotificationFeedbackGenerator()
+                                generator.prepare()
+                                generator.notificationOccurred(.error)
+                            }
+                        }
+                    } label: {
+                        Text("햅틱 맛보기")
+                    }
+                    
+                    NavigationLink {
                         if let nextIntervalTime = deviceActivityService.center.schedule(for: .activity)?.nextInterval {
                             Text(formatter.string(from: nextIntervalTime) ?? "error")
                         }

@@ -33,6 +33,8 @@ struct HuraiTimeSlider: View {
         return f
     }
     
+    let generator = UIImpactFeedbackGenerator(style: .medium)
+    
     var body: some View {
         VStack {
             HStack {
@@ -44,6 +46,8 @@ struct HuraiTimeSlider: View {
             SleepTimeSlider()
         }
         .onAppear {
+            generator.prepare()
+            
             startAngle = getAngle(from: startInterval)
             startProgress = startAngle / 360
             
@@ -235,6 +239,7 @@ struct HuraiTimeSlider: View {
     func updateInterval() {
         startInterval = getTime(angle: startAngle)
         endInterval = getTime(angle: endAngle)
+        generator.impactOccurred()
     }
 }
 
