@@ -17,10 +17,10 @@ final class AppInfo {
     var threshold: Int = 2
    
     @AppStorage("startInterval")
-    var startInterval: Date = .now
+    var startInterval: Date = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: .now) ?? .now
     
     @AppStorage("endInterval")
-    var endInterval: Date = .now + 3600
+    var endInterval: Date = Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: .now) ?? .now
     
     @AppStorage("isOnPause")
     var isOnPause: Bool = false

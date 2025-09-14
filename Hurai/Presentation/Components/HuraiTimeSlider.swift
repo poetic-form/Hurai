@@ -8,13 +8,48 @@
 import SwiftUI
 
 struct HuraiTimeSlider: View {
+    @Binding var startTime: Date
+    @Binding var endTime: Date
+    
     @State var startAngle: Double = 0
     @State var toAngle: Double = 180
     @State private var startProgress: CGFloat = 0
     @State private var toProgress: CGFloat = 0.5
+    @State private var lastAngle: Double = 0          // 이전 드래그 위치
+    @State private var isClockwise: Bool = true       // 시계/반시계 방향 여부
+    
+    private var startTimeString: String {
+        timeFormatter.string(from: getTime(angle: startAngle))
+    }
+
+    private var endTimeString: String {
+        timeFormatter.string(from: getTime(angle: toAngle))
+    }
+
+    private var timeFormatter: DateFormatter {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "ko_KR")
+        f.dateFormat = "a h:mm"
+        return f
+    }
     
     var body: some View {
-        SleepTimeSlider()
+        VStack {
+            HStack {
+                Label(startTimeString, systemImage: "moon.stars.fill")
+                Label(endTimeString, systemImage: "sun.max.fill")
+            }
+            .labelStyle(HuraiTimeLabelStyle())
+            
+            SleepTimeSlider()
+        }
+        .onAppear {
+            startAngle = getAngle(from: startTime)
+            startProgress = startAngle / 360
+            
+            toAngle = getAngle(from: endTime)
+            toProgress = toAngle / 360
+        }
     }
     
     @ViewBuilder
@@ -36,18 +71,19 @@ struct HuraiTimeSlider: View {
                 }
                 
                 Circle()
-                    .stroke(Color.white.opacity(0.06), lineWidth: 40)
+                    .stroke(Color.white.opacity(0.06), lineWidth: 10)
                 
                 let reverseRotation = (startProgress > toProgress) ? -Double((1 - startProgress) * 360) : 0
                 
                 Circle()
                     .trim(from: startProgress > toProgress ? 0 : startProgress, to: toProgress + (-reverseRotation / 360))
                     .stroke(Color.huraiAccent, style:
-                                StrokeStyle(lineWidth: 40, lineCap: .round, lineJoin: .round))
+                                StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
                     .rotationEffect(.init(degrees: -90))
                     .rotationEffect(.init(degrees: reverseRotation))
                 
                 Image(systemName: "moon.stars.fill")
+                    .foregroundStyle(.black)
                     .font(.callout)
                     .frame(width: 30, height: 30)
                     .rotationEffect(.init(degrees: 90))
@@ -60,10 +96,14 @@ struct HuraiTimeSlider: View {
                             .onChanged { value in
                                 onDrag(value: value, fromSlider: true)
                             }
+                            .onEnded { _ in
+                                updateInterval()
+                            }
                     )
                     .rotationEffect(.init(degrees: -90))
                 
                 Image(systemName: "alarm.fill")
+                    .foregroundStyle(.black)
                     .font(.callout)
                     .frame(width: 30, height: 30)
                     .rotationEffect(.init(degrees: 90))
@@ -75,6 +115,9 @@ struct HuraiTimeSlider: View {
                         DragGesture()
                             .onChanged { value in
                                 onDrag(value: value)
+                            }
+                            .onEnded { _ in
+                                updateInterval()
                             }
                     )
                     .rotationEffect(.init(degrees: -90))
@@ -98,20 +141,64 @@ struct HuraiTimeSlider: View {
         let vector = CGVector(dx: value.location.x, dy: value.location.y)
         let radians = atan2(vector.dy - 15, vector.dx - 15)
         var angle = radians * 180 / .pi
-//        if angle < 0 { angle = 360 + angle }
-        var progress = angle / 360
-        if progress < 0 { progress = 1 + progress }
-        if fromSlider {
-            if abs(angle - toAngle) > 30 {
-                self.startAngle = angle
-                self.startProgress = progress
-            }
+        if angle < 0 { angle = 360 + angle }
+        let progress = angle / 360
+        
+        // ✅ 방향 계산
+        let diff = angle - lastAngle
+        if abs(diff) < 180 {
+            isClockwise = diff > 0
         } else {
-            if abs(angle - startAngle) > 30 {
-                self.toAngle = angle
-                self.toProgress = progress
-            }
+            // 0°↔︎360° 경계 보정
+            isClockwise = diff < 0
         }
+        lastAngle = angle
+
+        if fromSlider {
+            let gap: CGFloat = abs(toAngle - angle)
+            
+            if isClockwise && (gap < 15 || gap > 345) {
+                var toangle = angle + 15
+                if toangle > 360 { toangle -= 360 }
+                self.toAngle = toangle
+                self.toProgress = toangle / 360
+            } else if !isClockwise && (gap < 15 || gap > 345) {
+                var toangle = angle - 15
+                if toangle > 360 { toangle -= 360 }
+                self.toAngle = toangle
+                self.toProgress = toangle / 360
+            }
+            
+            self.startAngle = angle
+            self.startProgress = progress
+        } else {
+            let gap: CGFloat = abs(angle - startAngle)
+            
+            if !isClockwise && (gap < 15 || gap > 345) {
+                var startangle = angle - 15
+                if startangle > 360 { startangle -= 360 }
+                self.startAngle = startangle
+                self.startProgress = startangle / 360
+            } else if isClockwise && (gap < 15 || gap > 345) {
+                var startangle = angle + 15
+                if startangle > 360 { startangle -= 360 }
+                self.startAngle = startangle
+                self.startProgress = startangle / 360
+            }
+            
+            self.toAngle = angle
+            self.toProgress = progress
+        }
+    }
+
+    func getAngle(from date: Date) -> Double {
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minute = calendar.component(.minute, from: date)
+        
+        // 1시간 = 15도, 1분 = 0.25도
+        let angle = Double(hour % 24) * 15 + Double(minute) * 0.25
+        return angle
     }
     
     func getTime(angle: Double) -> Date {
@@ -144,6 +231,11 @@ struct HuraiTimeSlider: View {
         let result = calendar.dateComponents([.hour, .minute], from: getTime(angle: startAngle), to: getTime(angle: toAngle))
         return (result.hour ?? 0, result.minute ?? 0)
     }
+    
+    func updateInterval() {
+        startTime = getTime(angle: startAngle)
+        endTime = getTime(angle: toAngle)
+    }
 }
 
 extension View {
@@ -152,6 +244,18 @@ extension View {
     }
 }
 
+struct HuraiTimeLabelStyle: LabelStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        VStack {
+            configuration.icon
+                .foregroundStyle(.huraiAccent)
+            configuration.title
+                .foregroundStyle(.white)
+                .pretendard(.semibold, 18)
+        }
+    }
+}
+
 #Preview {
-    HuraiTimeSlider()
+    HuraiTimeSlider(startTime: .constant(Date()), endTime: .constant(.now + 10000))
 }
