@@ -58,6 +58,7 @@
 		7253D6982E77F4C5005AF13E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D912E6710FD005109D1 /* Extensions.swift */; };
 		7253D6992E77F84A005AF13E /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72233D812E549FC0005109D1 /* Config.xcconfig */; };
 		7253D69A2E77F84A005AF13E /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72233D812E549FC0005109D1 /* Config.xcconfig */; };
+		7253D69C2E77FDF7005AF13E /* UhBeeGmin2Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7253D69B2E77FDF7005AF13E /* UhBeeGmin2Bold.ttf */; };
 		72DDB04B2E73B4AB00A04B62 /* FamilyActivityPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDB04A2E73B4AB00A04B62 /* FamilyActivityPickerView.swift */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
@@ -163,6 +164,7 @@
 		72233DF02E717829005109D1 /* ThresholdSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdSetupView.swift; sourceTree = "<group>"; };
 		7253D6932E77E53F005AF13E /* HuraiRoundProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiRoundProgress.swift; sourceTree = "<group>"; };
 		7253D6952E77E598005AF13E /* MissionSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionSuccessView.swift; sourceTree = "<group>"; };
+		7253D69B2E77FDF7005AF13E /* UhBeeGmin2Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UhBeeGmin2Bold.ttf; sourceTree = "<group>"; };
 		72DDB04A2E73B4AB00A04B62 /* FamilyActivityPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyActivityPickerView.swift; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 				72233D9F2E6AB28A005109D1 /* Pretendard-Regular.otf */,
 				72233DA02E6AB28A005109D1 /* Pretendard-SemiBold.otf */,
 				72233DA12E6AB28A005109D1 /* Pretendard-Thin.otf */,
+				7253D69B2E77FDF7005AF13E /* UhBeeGmin2Bold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				72233DA52E6AB28A005109D1 /* Pretendard-Light.otf in Resources */,
 				72233DA62E6AB28A005109D1 /* Pretendard-ExtraLight.otf in Resources */,
 				72233DA72E6AB28A005109D1 /* Pretendard-Bold.otf in Resources */,
+				7253D69C2E77FDF7005AF13E /* UhBeeGmin2Bold.ttf in Resources */,
 				72233DA82E6AB28A005109D1 /* Pretendard-ExtraBold.otf in Resources */,
 				72233DA92E6AB28A005109D1 /* Pretendard-Regular.otf in Resources */,
 				72233DAA2E6AB28A005109D1 /* Pretendard-SemiBold.otf in Resources */,

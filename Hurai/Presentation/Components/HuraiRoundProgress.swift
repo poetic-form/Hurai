@@ -30,7 +30,7 @@ struct HuraiRoundProgress : View {
                 .animation(.linear, value: progress)
             
             Text("\(Int(percent.rounded(.down)))")
-                .pretendard(.bold, 70)
+                .uhbee(70)
         }
         
     }
@@ -38,5 +38,5 @@ struct HuraiRoundProgress : View {
 
 
 #Preview {
-//    HuraiRoundProgress()
+    HuraiRoundProgress(diameter: 200, duration: 10, percent: .constant(10))
 }

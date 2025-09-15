@@ -34,3 +34,19 @@ extension View {
         }
     }
 }
+
+extension View {
+    func uhbee(
+        _ size: CGFloat,
+        relativeTo textStyle: Font.TextStyle? = nil
+    ) -> some View {
+        let fontName: String = "UhBeeGmin2Bold"
+        
+        if let textStyle = textStyle {
+            return self.font(.custom(fontName, size: size, relativeTo: textStyle))
+        } else {
+            return self.font(.custom(fontName, size: size))
+        }
+    }
+}
+
