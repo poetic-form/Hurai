@@ -82,7 +82,6 @@ struct HuraiThresholdPickerView: View {
                     .frame(width: 45, height: 34)
                 
                 HuraiWheelPicker(items: [0] + Array(2...60), selection: $threshold)
-                    .frame(height: 100)
                     .overlay {
                         Text("분")
                             .pretendard(.medium, 16)
