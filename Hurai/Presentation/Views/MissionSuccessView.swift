@@ -88,7 +88,7 @@ struct GoBackView: View {
             Color.huraiBackground
                 .opacity(0.75)
                 
-            Image(.goBack)
+            Image(.huraiGoBack)
                 .resizable()
                 .frame(width: 163, height: 79)
                 .padding(.leading, 18)

@@ -54,6 +54,10 @@
 		72233DF12E717829005109D1 /* ThresholdSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DF02E717829005109D1 /* ThresholdSetupView.swift */; };
 		7253D6942E77E53F005AF13E /* HuraiRoundProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253D6932E77E53F005AF13E /* HuraiRoundProgress.swift */; };
 		7253D6962E77E598005AF13E /* MissionSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253D6952E77E598005AF13E /* MissionSuccessView.swift */; };
+		7253D6972E77F4C5005AF13E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D912E6710FD005109D1 /* Extensions.swift */; };
+		7253D6982E77F4C5005AF13E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D912E6710FD005109D1 /* Extensions.swift */; };
+		7253D6992E77F84A005AF13E /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72233D812E549FC0005109D1 /* Config.xcconfig */; };
+		7253D69A2E77F84A005AF13E /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72233D812E549FC0005109D1 /* Config.xcconfig */; };
 		72DDB04B2E73B4AB00A04B62 /* FamilyActivityPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDB04A2E73B4AB00A04B62 /* FamilyActivityPickerView.swift */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
@@ -636,6 +640,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7253D6992E77F84A005AF13E /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,6 +648,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7253D69A2E77F84A005AF13E /* Config.xcconfig in Resources */,
 				72233D862E55F9CF005109D1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -712,6 +718,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72F8F2942E3D40F400070291 /* ShieldActionExtension.swift in Sources */,
+				7253D6972E77F4C5005AF13E /* Extensions.swift in Sources */,
 				72F8F2882E3D40DA00070291 /* NotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -721,6 +728,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72F8F2992E3D40FE00070291 /* ShieldConfigurationExtension.swift in Sources */,
+				7253D6982E77F4C5005AF13E /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
