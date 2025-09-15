@@ -13,66 +13,63 @@ struct MissionView: View {
     
     var body: some View {
         NavigationStack {
-            Text("\((flipMotionService.remainingDuration.rounded()))")
-                .onAppear {
-                    UIApplication.shared.isIdleTimerDisabled = true
+            VStack {
+                Spacer()
+                    .frame(height: 100)
+                
+                VStack(spacing: 56) {
+                    Text("30초 동안 핸드폰 뒤집어놓기")
+                        .pretendard(.semibold, 16)
+                        .foregroundStyle(.white.opacity(0.8))
+                        .padding(.horizontal, 30)
+                        .padding(.vertical, 12)
+                        .background {
+                            RoundedRectangle(cornerRadius: 14)
+                                .foregroundStyle(.white.opacity(0.1))
+                        }
+
+                    Text("미션을 하는 동안 눈을 감고\n잠에 들기 위해 노력해보세요")
+                        .pretendard(.semibold, 22)
+                        .foregroundStyle(.white)
+                        .lineSpacing(8)
+                        .multilineTextAlignment(.center)
                 }
-                .onDisappear {
-                    UIApplication.shared.isIdleTimerDisabled = false
-                }
-            Spacer()
-                .frame(height: 100)
-            
-            Button("디버깅용 미션 완료 버튼") {
-                viewModel.isActive = true
+                
+                Spacer()
+                    .frame(height: 126)
+                
+                HuraiRoundProgress(diameter: 220, duration: flipMotionService.requiredHoldDuration, percent: $flipMotionService.remainingDuration)
+                    
+                Spacer()
+            }
+            .onAppear {
+                UIApplication.shared.isIdleTimerDisabled = true
+            }
+            .onDisappear {
+                UIApplication.shared.isIdleTimerDisabled = false
             }
             .navigationDestination(isPresented: $viewModel.isActive) {
-                SuccessView()
+                MissionSuccessView()
             }
+        }
+        .background(.huraiBackground)
+        .onAppear {
+            viewModel.initialize()
         }
         .onChange(of: flipMotionService.hasMetHoldRequirement) { newValue in
             if newValue {
-                viewModel.isActive = true
-            }
-        }
-    }
-}
-
-struct SuccessView: View {
-    @EnvironmentObject var viewModel: MissionViewModel
-    
-    @AppStorage("repeatCount", store: UserDefaults(suiteName: Bundle.main.appGroupName))
-    var repeatCount: TimeInterval = 0
-    @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
-    var registeredAt: Date = .now
-    
-    var body: some View {
-        VStack {
-            Text("얼마나 더 볼건데 ?")
-            
-            Picker("목표 시간 설정", selection: $viewModel.threshold) {
-                ForEach(2...60, id: \.self) { index in
-                    Text("\(index)분").tag(index)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    viewModel.isActive = true
                 }
             }
-            .pickerStyle(.wheel)
-            
-            Button("약속하기") {
-                repeatCount += 1
-                viewModel.unlockApps()
-                viewModel.stopMonitoring()
-                viewModel.startMonitoring()
-                registeredAt = .now
-                viewModel.showMissionView = false
-            }
         }
-        .onChange(of: viewModel.threshold) { newValue in
-            viewModel.updateThreshold()
-        }
-        .navigationBarBackButtonHidden()
     }
 }
 
-//#Preview {
-//    MissionView(showMissionView: .constant(true))
-//}
+
+
+#Preview {
+    MissionView(flipMotionService: FlipMotionService())
+        .environmentObject(MissionViewModel())
+        .background(.huraiBackground)
+}

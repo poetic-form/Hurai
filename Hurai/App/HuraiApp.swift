@@ -12,7 +12,6 @@ struct HuraiApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var homeVM: HomeViewModel = HomeViewModel()
     @StateObject private var settingVM: SettingViewModel = SettingViewModel()
-    @StateObject private var missionVM: MissionViewModel = MissionViewModel()
     @AppStorage("isFirst") var isFirst: Bool = true
     
     var body: some Scene {
@@ -28,7 +27,6 @@ struct HuraiApp: App {
             }
             .environmentObject(homeVM)
             .environmentObject(settingVM)
-            .environmentObject(missionVM)
             .animation(.easeInOut, value: isFirst)
         }
     }

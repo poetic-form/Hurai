@@ -33,7 +33,7 @@ class FlipMotionService: ObservableObject {
             return
         }
         
-        motionManager.deviceMotionUpdateInterval = 0.2
+        motionManager.deviceMotionUpdateInterval = 0.1
         
         motionManager.startDeviceMotionUpdates(to: .main) { [weak self] motion, _ in
             guard let self, let motion else { return }

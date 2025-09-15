@@ -21,8 +21,8 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
     var repeatCount: TimeInterval = 0
     @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var registeredAt: Date = .now
-    @AppStorage("num", store: UserDefaults(suiteName: Bundle.main.appGroupName))
-    var num: Int = 0
+    @AppStorage("isDefered", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var isDefered: Bool = false
     
     override func intervalDidStart(for activity: DeviceActivityName) {
         super.intervalDidStart(for: activity)
@@ -30,7 +30,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         // Handle the start of the interval.
         if let interval = deviceActivityService.center.schedule(for: .activity)?.nextInterval {
             if !interval.contains(registeredAt) {
-                num = 0
+                
             }
         }
     }
@@ -42,7 +42,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         if let interval = deviceActivityService.center.schedule(for: .activity)?.nextInterval {
             if !interval.contains(registeredAt) {
                 if repeatCount == 0 {
-                    num = 2
+                    
                 }
                 repeatCount = 0
             }
@@ -55,6 +55,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         super.eventDidReachThreshold(event, activity: activity)
         
         // Handle the event reaching its threshold.
+        isDefered = false
         appLockService.lockApps(apps: storage.selections)
     }
     
