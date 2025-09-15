@@ -53,6 +53,9 @@ struct MissionView: View {
             }
         }
         .background(.huraiBackground)
+        .onAppear {
+            viewModel.initialize()
+        }
         .onChange(of: flipMotionService.hasMetHoldRequirement) { newValue in
             if newValue {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

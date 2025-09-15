@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RootView: View {
-    @EnvironmentObject var missionVM: MissionViewModel
+    @StateObject private var missionVM: MissionViewModel = MissionViewModel()
     
     @AppStorage("repeatCount", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var repeatCount: TimeInterval = 0
@@ -33,6 +33,7 @@ struct RootView: View {
             MissionView(
                 flipMotionService: .init(requiredHoldDuration: 3 * (repeatCount + 1))
             )
+            .environmentObject(missionVM)
         }
     }
 }
