@@ -13,26 +13,50 @@ struct MissionView: View {
     
     var body: some View {
         NavigationStack {
-            Text("\((flipMotionService.remainingDuration.rounded()))")
-                .onAppear {
-                    UIApplication.shared.isIdleTimerDisabled = true
+            VStack {
+                Spacer()
+                    .frame(height: 100)
+                
+                VStack(spacing: 56) {
+                    RoundedRectangle(cornerRadius: 14)
+                        .frame(width: 240, height: 40)
+                        .foregroundStyle(.white.opacity(0.1))
+                        .overlay {
+                            Text("30초 동안 핸드폰 뒤집어놓기")
+                                .pretendard(.semibold, 16)
+                                .foregroundStyle(.white.opacity(0.8))
+                        }
+                    
+                    Text("미션을 하는 동안 눈을 감고\n잠에 들기 위해 노력해보세요")
+                        .pretendard(.semibold, 22)
+                        .foregroundStyle(.white)
+                        .lineSpacing(8)
+                        .multilineTextAlignment(.center)
                 }
-                .onDisappear {
-                    UIApplication.shared.isIdleTimerDisabled = false
-                }
-            Spacer()
-                .frame(height: 100)
-            
-            Button("디버깅용 미션 완료 버튼") {
-                viewModel.isActive = true
+                
+                Spacer()
+                    .frame(height: 126)
+                
+                RoundProgressView(diameter: 220, duration: flipMotionService.requiredHoldDuration, percent: $flipMotionService.remainingDuration)
+                    
+                Spacer()
+            }
+            .onAppear {
+                UIApplication.shared.isIdleTimerDisabled = true
+            }
+            .onDisappear {
+                UIApplication.shared.isIdleTimerDisabled = false
             }
             .navigationDestination(isPresented: $viewModel.isActive) {
                 SuccessView()
             }
         }
+        .background(.huraiBackground)
         .onChange(of: flipMotionService.hasMetHoldRequirement) { newValue in
             if newValue {
-                viewModel.isActive = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    viewModel.isActive = true
+                }
             }
         }
     }
@@ -73,6 +97,36 @@ struct SuccessView: View {
     }
 }
 
-//#Preview {
-//    MissionView(showMissionView: .constant(true))
-//}
+#Preview {
+    MissionView(flipMotionService: FlipMotionService())
+        .environmentObject(MissionViewModel())
+}
+
+struct RoundProgressView : View {
+    var diameter: CGFloat
+    var color: Color = .accent
+    let duration: TimeInterval
+    @Binding var percent: TimeInterval
+    
+    var body: some View {
+        let lineWidth = diameter * 0.05
+        let progress = (CGFloat(percent) / duration)
+        
+        ZStack {
+            Circle()
+                .stroke(Color.accent.opacity(0.2), style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
+                .frame(width: diameter, height: diameter)
+            Circle()
+                .trim(from: progress, to: 1)
+                .stroke(color, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
+                .frame(width: diameter, height: diameter)
+                .rotationEffect(Angle(degrees: 90))
+                .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
+                .animation(.linear, value: progress)
+            
+            Text("\(Int(percent.rounded(.down)))")
+                .pretendard(.bold, 70)
+        }
+        
+    }
+}
