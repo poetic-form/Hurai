@@ -50,6 +50,18 @@ class BasicViewModel: ObservableObject {
         endInterval = storage.endInterval
     }
     
+    func updateAllInfos() {
+        updateInterval()
+        updateThreshold()
+        updateSelections()
+    }
+    
+    func fetchAllInfos() {
+        fetchInterval()
+        fetchThreshold()
+        fetchSelections()
+    }
+    
     func startMonitoring() {
         let threshold = DateComponents(minute: threshold)
         deviceActivityService.startMonitoring(start: startInterval, end: endInterval, apps: selections, threshold: threshold)

@@ -33,7 +33,7 @@ struct HomeView: View {
                     Spacer()
                     
                     Button {
-                        
+                        viewModel.showEditSheet = true
                     } label: {
                         Image(systemName: "gear")
                             .font(.system(size: 26))
@@ -82,7 +82,7 @@ struct HomeView: View {
                                             Image(systemName: "flame")
                                                 .foregroundStyle(.accent)
                                         }
-                                           
+                                        
                                         Text("\(viewModel.threshold)분")
                                             .foregroundStyle(.white)
                                             .pretendard(.bold, 36)
@@ -144,15 +144,6 @@ struct HomeView: View {
                             ForEach(Array(viewModel.storage.selections.applicationTokens).sorted(by: { $0.rawValue < $1.rawValue} ), id: \.self) { token in
                                 Label(token)
                                     .labelStyle(.iconOnly)
-                                    .background {
-                                    GeometryReader { proxy in
-                                       Rectangle()
-                                            .onAppear {
-                                                print("width:", proxy.size.width,
-                                                      "height:", proxy.size.height)
-                                            }
-                                    }
-                                }
                             }
                         }
                         .padding(.horizontal, 20)
@@ -165,9 +156,10 @@ struct HomeView: View {
         }
         .background(.huraiBackground)
         .onAppear {
-            viewModel.fetchInterval()
-            viewModel.fetchThreshold()
-            viewModel.fetchSelections()
+            viewModel.fetchAllInfos()
+        }
+        .sheet(isPresented: $viewModel.showEditSheet, onDismiss: { viewModel.fetchAllInfos() }) {
+            InfoEditView()
         }
     }
 }

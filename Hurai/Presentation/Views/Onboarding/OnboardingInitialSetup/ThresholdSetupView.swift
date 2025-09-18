@@ -88,6 +88,8 @@ struct HuraiThresholdPickerView: View {
                             .foregroundStyle(.white)
                             .offset(x: 40)
                     }
+                    .frame(height: 120)
+                    .clipShape(Rectangle())
             }
             .frame(width: 85)
             
