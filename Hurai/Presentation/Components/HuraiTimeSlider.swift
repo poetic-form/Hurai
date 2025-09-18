@@ -33,7 +33,7 @@ struct HuraiTimeSlider: View {
         return f
     }
     
-    let generator = UIImpactFeedbackGenerator(style: .medium)
+    let generator = UIImpactFeedbackGenerator(style: .light)
     
     var body: some View {
         VStack(spacing: 50) {
@@ -128,12 +128,10 @@ struct HuraiTimeSlider: View {
                 .rotationEffect(.init(degrees: -90))
             
             HStack(spacing: 8) {
-                Text("\(getTimeDifference().0)시간")
+                Text("\(getTimeDifference().0)시간 \(getTimeDifference().1)분")
                     .pretendard(.bold, 23)
                     .foregroundStyle(.white)
-                Text("\(getTimeDifference().1)분")
-                    .pretendard(.bold, 23)
-                    .foregroundStyle(.white)
+                    .monospacedDigit()
             }
         }
         .frame(width: width, height: width)

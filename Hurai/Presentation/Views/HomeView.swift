@@ -11,65 +11,186 @@ import ManagedSettings
 
 struct HomeView: View {
     @EnvironmentObject private var viewModel: HomeViewModel
-   
+    
     @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var registeredAt: Date = .now
     
+    private var timeFormatter: DateFormatter {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "ko_KR")
+        f.dateFormat = "a hh : mm"
+        return f
+    }
+    
     var body: some View {
-        VStack(spacing: 10) {
-            Button("앱 선택") {
-                viewModel.showSelectionPicker = true
-            }
-            
-            List {
-                ForEach(Array(viewModel.selections.applicationTokens).sorted(by: { $0.rawValue < $1.rawValue} ), id: \.self) { app in
-                    Label(app)
-                }
-                
-                ForEach(Array(viewModel.selections.webDomainTokens).sorted(by: { $0.rawValue < $1.rawValue} ), id: \.self) { web in
-                    Label(web)
-                }
-            }
-            
-            List {
-                DatePicker("start interval", selection: $viewModel.startInterval, displayedComponents: .hourAndMinute)
-                
-                DatePicker("end interval", selection: $viewModel.endInterval, displayedComponents: .hourAndMinute)
-                
-                Picker("threshold", selection: $viewModel.threshold) {
-                    ForEach(2...60, id: \.self) { index in
-                        Text("\(index)분")
-                            .tag(index)
+        VStack {
+            VStack {
+                HStack {
+                    Text("Hurai")
+                        .uhbee(24)
+                        .foregroundStyle(.white)
+                    
+                    Spacer()
+                    
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "gear")
+                            .font(.system(size: 26))
+                            .foregroundStyle(.white)
                     }
                 }
-                .pickerStyle(.menu)
+                .padding(.vertical, 30)
+                
+                HStack {
+                    Text("오늘도\n병아리를 지켜주세요!")
+                        .pretendard(.bold, 26)
+                        .foregroundStyle(.white)
+                        .lineSpacing(8)
+                    
+                    Spacer()
+                }
+                
+                HStack {
+                    Spacer()
+                    
+                    Image(.huraiChiken)
+                        .resizable()
+                        .frame(width: 100, height: 110)
+                }
             }
-            .scrollDisabled(true)
+            .padding([.horizontal, .bottom], 20)
+            .background {
+                let cornerRadii: RectangleCornerRadii = .init(bottomLeading: 50, bottomTrailing: 50)
+                UnevenRoundedRectangle(cornerRadii: cornerRadii)
+                    .foregroundStyle(LinearGradient(gradient: Gradient(colors: [.huraiSecondary, .accent]), startPoint: .top, endPoint: .bottom))
+                    .ignoresSafeArea(edges: .top)
+            }
             
-            Button("start monitoring") {
-                viewModel.startMonitoring()
-                registeredAt = .now
+            VStack(spacing: 26) {
+                HStack(spacing: 14) {
+                    RoundedRectangle(cornerRadius: 30)
+                        .overlay {
+                            VStack {
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 17) {
+                                        Label {
+                                            Text("오늘의 목표 시간")
+                                                .pretendard(.semibold, 15)
+                                                .foregroundStyle(.white)
+                                        } icon: {
+                                            Image(systemName: "flame")
+                                                .foregroundStyle(.accent)
+                                        }
+                                           
+                                        Text("\(viewModel.threshold)분")
+                                            .foregroundStyle(.white)
+                                            .pretendard(.bold, 36)
+                                    }
+                                    
+                                    Spacer()
+                                }
+                                
+                                Spacer()
+                                
+                                HStack {
+                                    Spacer()
+                                    
+                                    Image(.huraiWatch)
+                                        .resizable()
+                                        .frame(width: 63, height: 63)
+                                }
+                            }
+                            .padding(20)
+                        }
+                    
+                    RoundedRectangle(cornerRadius: 30)
+                        .overlay {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 20) {
+                                    Text("수면 시간")
+                                        .pretendard(.semibold, 15)
+                                        .foregroundStyle(.white)
+                                    
+                                    HStack(spacing: 14) {
+                                        Divider()
+                                            .frame(width: 2)
+                                            .background(.accent)
+                                        
+                                        VStack(alignment: .leading) {
+                                            Label("\(timeFormatter.string(from: viewModel.startInterval))", systemImage: "moon.zzz.fill")
+                                                .labelStyle(HuraiHomeViewLabelStyle())
+                                                .monospacedDigit()
+                                            
+                                            Spacer()
+                                            
+                                            Label("\(timeFormatter.string(from: viewModel.endInterval))", systemImage: "sun.max.fill")
+                                                .labelStyle(HuraiHomeViewLabelStyle())
+                                                .monospacedDigit()
+                                        }
+                                    }
+                                }
+                                
+                                Spacer()
+                            }
+                            .padding(20)
+                        }
+                }
+                
+                RoundedRectangle(cornerRadius: 30)
+                    .frame(height: 92)
+                    .overlay {
+                        HStack(spacing: 30) {
+                            ForEach(Array(viewModel.storage.selections.applicationTokens).sorted(by: { $0.rawValue < $1.rawValue} ), id: \.self) { token in
+                                Label(token)
+                                    .labelStyle(.iconOnly)
+                                    .background {
+                                    GeometryReader { proxy in
+                                       Rectangle()
+                                            .onAppear {
+                                                print("width:", proxy.size.width,
+                                                      "height:", proxy.size.height)
+                                            }
+                                    }
+                                }
+                            }
+                        }
+                        .padding(.horizontal, 20)
+                    }
             }
-            .buttonStyle(.bordered)
+            .foregroundStyle(.white.opacity(0.06))
+            .padding(20)
+            
+            Spacer()
         }
-        .familyActivityPicker(isPresented: $viewModel.showSelectionPicker, selection: $viewModel.selections)
-        .onChange(of: viewModel.selections) { newValue in
-            viewModel.updateSelections()
+        .background(.huraiBackground)
+        .onAppear {
+            viewModel.fetchInterval()
+            viewModel.fetchThreshold()
+            viewModel.fetchSelections()
         }
-        .onChange(of: viewModel.threshold) { newValue in
-            viewModel.updateThreshold()
-        }
-//        .onChange(of: viewModel.startInterval) { newValue in
-//            viewModel.updateStartInterval()
-//        }
-//        .onChange(of: viewModel.endInterval) { newValue in
-//            viewModel.updateEndInterval()
-//        }
-        .padding()
     }
 }
 
 #Preview {
-    HomeView()
+    RootView()
         .environmentObject(HomeViewModel())
+        .environmentObject(SettingViewModel())
+        .environmentObject(MissionViewModel())
+}
+
+
+struct HuraiHomeViewLabelStyle: LabelStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            configuration.icon
+                .font(.system(size: 18))
+                .foregroundStyle(.accent)
+            
+            configuration.title
+                .pretendard(.semibold, 22)
+                .foregroundStyle(.white)
+                .tracking(-1)
+        }
+    }
 }
