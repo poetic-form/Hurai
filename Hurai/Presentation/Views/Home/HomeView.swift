@@ -35,7 +35,7 @@ struct HomeView: View {
                     Button {
                         viewModel.showEditSheet = true
                     } label: {
-                        Image(systemName: "gear")
+                        Image(systemName: "gearshape")
                             .font(.system(size: 26))
                             .foregroundStyle(.white)
                     }

@@ -608,11 +608,12 @@
 				};
 			};
 			buildConfigurationList = 72180A532E3A5FB7007338DF /* Build configuration list for PBXProject "Hurai" */;
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 72180A4F2E3A5FB7007338DF;
 			minimizedProjectReferenceProxies = 1;

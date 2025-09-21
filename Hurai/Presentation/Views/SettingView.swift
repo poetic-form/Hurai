@@ -10,7 +10,7 @@ import FamilyControls
 
 struct SettingView: View {
     @EnvironmentObject var viewModel: SettingViewModel
-    @Binding var showMissionView: Bool
+    @EnvironmentObject  var missionViewmodel: MissionViewModel
     @State var showAlert: Bool = false
     let noti: NotificationService = .init()
     let appLockService: AppLockService = .init()
@@ -75,7 +75,7 @@ struct SettingView: View {
                     }
                     
                     Button("미션하러가기") {
-                        showMissionView = true
+                        missionViewmodel.showMissionView = true
                     }
                     
                     Button("반복 카운트 초기화 (\(Int(repeatCount)))") {
