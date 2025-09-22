@@ -12,62 +12,57 @@ struct HomeTimeSettingView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack {
             HStack {
                 Button {
-                    viewModel.fetchInterval()
-                    viewModel.fetchThreshold()
                     dismiss()
                 } label: {
-                    Text("취소")
-                        .pretendard(.regular, 16)
-                        .foregroundStyle(.white)
-                }
-                
-                Spacer()
-                
-                Button {
-                    viewModel.updateInterval()
-                    viewModel.updateThreshold()
-                    dismiss()
-                } label: {
-                    Text("확인")
+                    Label("뒤로", systemImage: "chevron.left")
                         .pretendard(.regular, 16)
                         .foregroundStyle(.accent)
                 }
+                .buttonStyle(.plain)
+                .disabled(viewModel.threshold == 0)
+                
+                Spacer()
             }
             .padding(20)
             
-            VStack(spacing: 65) {
-                VStack {
+            VStack {
+                VStack(spacing: 37) {
                     HStack {
                         Text("수면 시간")
-                            .pretendard(.semibold, 20)
+                            .pretendard(.bold, 26)
                             .foregroundStyle(.white)
                         
                         Spacer()
                     }
-                    .padding(.horizontal, 20)
-                    .padding(.top, 10)
-                    .padding(.bottom, 30)
                     
                     HuraiTimeSlider(startInterval: $viewModel.startInterval, endInterval: $viewModel.endInterval)
                 }
                 
-                VStack {
+                Divider()
+                    .frame(height: 1)
+                    .background(.white.opacity(0.1))
+                    .padding(.vertical, 20)
+                
+                VStack(spacing: 20) {
                     HStack {
                         Text("오늘의 목표 시간")
-                            .pretendard(.semibold, 20)
+                            .pretendard(.bold, 26)
                             .foregroundStyle(.white)
                         
                         Spacer()
                     }
-                    .padding(20)
                     
                     HuraiThresholdPickerView(threshold: $viewModel.threshold)
                 }
+                
+                Spacer()
             }
+            .padding(.horizontal, 20)
         }
+        .background(.huraiBackground)
         .navigationBarBackButtonHidden()
     }
 }

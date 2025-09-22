@@ -11,21 +11,23 @@ struct HuraiTimeSlider: View {
     @Binding var startInterval: Date
     @Binding var endInterval: Date
     
-    @State var startAngle: Double = 0
-    @State var endAngle: Double = 180
+    @State private var startAngle: Double = 0
+    @State private var endAngle: Double   = 180
     @State private var startProgress: CGFloat = 0
-    @State private var endProgress: CGFloat = 0.5
-    @State private var lastAngle: Double = 0          // 이전 드래그 위치
-    @State private var isClockwise: Bool = true       // 시계/반시계 방향 여부
+    @State private var endProgress: CGFloat   = 0.5
+    @State private var lastAngle: Double      = 0
+    @State private var isClockwise: Bool      = true
     
+    // MARK: - Formatter
     private var startTimeString: String {
         timeFormatter.string(from: getTime(angle: startAngle))
     }
-
     private var endTimeString: String {
         timeFormatter.string(from: getTime(angle: endAngle))
     }
-
+    private var durationString: String {
+        "\(getTimeDifference().0)시간 \(getTimeDifference().1)분"
+    }
     private var timeFormatter: DateFormatter {
         let f = DateFormatter()
         f.locale = Locale(identifier: "ko_KR")
@@ -35,100 +37,88 @@ struct HuraiTimeSlider: View {
     
     let generator = UIImpactFeedbackGenerator(style: .light)
     
+    // MARK: - Init
+    init(startInterval: Binding<Date>, endInterval: Binding<Date>) {
+        _startInterval = startInterval
+        _endInterval   = endInterval
+        generator.prepare()
+        
+        let sAngle = Self.getAngle(from: startInterval.wrappedValue)
+        let eAngle = Self.getAngle(from: endInterval.wrappedValue)
+        
+        _startAngle   = State(initialValue: Self.normalizeAngle(sAngle))
+        _endAngle     = State(initialValue: Self.normalizeAngle(eAngle))
+        _startProgress = State(initialValue: Self.normalizeProgress(sAngle))
+        _endProgress   = State(initialValue: Self.normalizeProgress(eAngle))
+    }
+    
+    // MARK: - Body
     var body: some View {
-        VStack(spacing: 50) {
+        VStack(spacing: 35) {
             HStack(spacing: 70) {
-                Label(startTimeString, systemImage: "moon.stars.fill")
-                Label(endTimeString, systemImage: "sun.max.fill")
+                Label(startTimeString, systemImage: "moon.zzz.fill")
+                Label(endTimeString,   systemImage: "sun.max.fill")
             }
             .labelStyle(HuraiTimeLabelStyle())
             
             SleepTimeSlider()
+                .padding(.bottom, 15)
         }
-        .onAppear {
-            generator.prepare()
-            
-            startAngle = getAngle(from: startInterval)
-            startProgress = startAngle / 360
-            
-            endAngle = getAngle(from: endInterval)
-            endProgress = endAngle / 360
-        }
+        .onChange(of: startTimeString) { _ in haptic() }
+        .onChange(of: endTimeString)   { _ in haptic() }
     }
     
+    // MARK: - Slider View
     @ViewBuilder
     func SleepTimeSlider() -> some View {
         let width: CGFloat = 253
+        
         ZStack {
-            ZStack {
-                let numbers = ["오후12시", "2", "4", "오후6시", "8", "10", "오전12시", "2", "4", "오전6시", "8", "10"]
-                
-                ForEach(numbers.indices, id: \.self) { index in
-                    Text("\(numbers[index])")
-                        .foregroundColor(.white)
-                        .pretendard(.medium, 10)
-                        .rotationEffect(.init(degrees: Double(index) * -30))
-                        .offset(y: (width - 90) / 2)
-                        .rotationEffect(.init(degrees: Double(index) * 30 ))
-                }
+            // 시각 라벨
+            let numbers = ["오후12시","2","4","오후6시","8","10",
+                           "오전12시","2","4","오전6시","8","10"]
+            ForEach(numbers.indices, id: \.self) { idx in
+                Text(numbers[idx])
+                    .foregroundColor(.white)
+                    .pretendard(.medium, 10)
+                    .rotationEffect(.degrees(Double(idx) * -30))
+                    .offset(y: (width - 90) / 2)
+                    .rotationEffect(.degrees(Double(idx) * 30))
             }
             
             Circle()
                 .stroke(Color.white.opacity(0.06), lineWidth: 40)
                 .frame(width: width, height: width)
             
-            let reverseRotation = (startProgress > endProgress) ? -Double((1 - startProgress) * 360) : 0
+            // ✅ progress 는 항상 0~1
+            let reverseRotation = (startProgress > endProgress)
+                ? Double((startProgress - 1) * 360) : 0
             
             Circle()
-                .trim(from: startProgress > endProgress ? 0 : startProgress, to: endProgress + (-reverseRotation / 360))
-                .stroke(Color.accent, style:
-                            StrokeStyle(lineWidth: 40, lineCap: .round, lineJoin: .round))
-                .rotationEffect(.init(degrees: -90))
-                .rotationEffect(.init(degrees: reverseRotation))
+                .trim(from: startProgress > endProgress ? 0 : startProgress,
+                      to: endProgress + (-reverseRotation / 360))
+                .stroke(Color.accent,
+                        style: StrokeStyle(lineWidth: 40,
+                                           lineCap: .round,
+                                           lineJoin: .round))
+                .rotationEffect(.degrees(-90))
+                .rotationEffect(.degrees(reverseRotation))
                 .frame(width: width, height: width)
             
-            Image(systemName: "moon.stars.fill")
-                .foregroundStyle(.black)
-                .font(.callout)
-                .frame(width: 30, height: 30)
-                .rotationEffect(.init(degrees: 90))
-                .rotationEffect(.init(degrees: -startAngle))
-                .background(.white, in: Circle())
-                .offset(x: width / 2)
-                .rotationEffect(.init(degrees: startAngle))
-                .gesture(
-                    DragGesture()
-                        .onChanged { value in
-                            onDrag(value: value, fromSlider: true)
-                        }
-                        .onEnded { _ in
-                            updateInterval()
-                        }
-                )
-                .rotationEffect(.init(degrees: -90))
+            // 시작 핸들
+            knob(width: width,
+                 systemName: "moon.zzz.fill",
+                 angle: startAngle,
+                 dragFromSlider: true)
             
-            Image(systemName: "alarm.fill")
-                .foregroundStyle(.black)
-                .font(.callout)
-                .frame(width: 30, height: 30)
-                .rotationEffect(.init(degrees: 90))
-                .rotationEffect(.init(degrees: -endAngle))
-                .background(.white, in: Circle())
-                .offset(x: width / 2)
-                .rotationEffect(.init(degrees: endAngle))
-                .gesture(
-                    DragGesture()
-                        .onChanged { value in
-                            onDrag(value: value)
-                        }
-                        .onEnded { _ in
-                            updateInterval()
-                        }
-                )
-                .rotationEffect(.init(degrees: -90))
+            // 종료 핸들
+            knob(width: width,
+                 systemName: "sun.max.fill",
+                 angle: endAngle,
+                 dragFromSlider: false)
             
             HStack(spacing: 8) {
-                Text("\(getTimeDifference().0)시간 \(getTimeDifference().1)분")
+                Text(durationString)
                     .pretendard(.bold, 23)
                     .foregroundStyle(.white)
                     .monospacedDigit()
@@ -137,114 +127,139 @@ struct HuraiTimeSlider: View {
         .frame(width: width, height: width)
     }
     
+    // MARK: - Knob View
+    private func knob(width: CGFloat,
+                      systemName: String,
+                      angle: Double,
+                      dragFromSlider: Bool) -> some View {
+        Image(systemName: systemName)
+            .foregroundStyle(.black)
+            .font(.callout)
+            .frame(width: 30, height: 30)
+            .rotationEffect(.degrees(90))
+            .rotationEffect(.degrees(-angle))
+            .background(.white, in: Circle())
+            .offset(x: width / 2)
+            .rotationEffect(.degrees(angle))
+            .gesture(
+                DragGesture()
+                    .onChanged { value in
+                        onDrag(value: value, fromSlider: dragFromSlider)
+                    }
+                    .onEnded { _ in
+                        updateInterval()
+                    }
+            )
+            .rotationEffect(.degrees(-90))
+    }
+    
+    // MARK: - Drag Logic
     func onDrag(value: DragGesture.Value, fromSlider: Bool = false) {
-        let vector = CGVector(dx: value.location.x, dy: value.location.y)
+        let vector  = CGVector(dx: value.location.x, dy: value.location.y)
         let radians = atan2(vector.dy - 15, vector.dx - 15)
-        var angle = radians * 180 / .pi
-        if angle < 0 { angle = 360 + angle }
-        let progress = angle / 360
+        var angle   = radians * 180 / .pi
+        if angle < 0 { angle += 360 }
         
-        // ✅ 방향 계산
+        // ✅ 항상 0~360 유지
+        angle = Self.normalizeAngle(angle)
+        let progress = Self.normalizeProgress(angle)
+        
+        // 방향
         let diff = angle - lastAngle
         if abs(diff) < 180 {
             isClockwise = diff > 0
         } else {
-            // 0°↔︎360° 경계 보정
             isClockwise = diff < 0
         }
         lastAngle = angle
-
+        
         if fromSlider {
-            let gap: CGFloat = abs(endAngle - angle)
-            
+            let gap = abs(endAngle - angle)
             if isClockwise && (gap < 15 || gap > 345) {
-                var toAngle = angle + 15
-                if toAngle > 360 { toAngle -= 360 }
-                self.endAngle = toAngle
-                self.endProgress = toAngle / 360
+                var to = angle + 15; if to > 360 { to -= 360 }
+                endAngle    = Self.normalizeAngle(to)
+                endProgress = Self.normalizeProgress(to)
             } else if !isClockwise && (gap < 15 || gap > 345) {
-                var toAngle = angle - 15
-                if toAngle > 360 { toAngle -= 360 }
-                self.endAngle = toAngle
-                self.endProgress = toAngle / 360
+                var to = angle - 15; if to < 0 { to += 360 }
+                endAngle    = Self.normalizeAngle(to)
+                endProgress = Self.normalizeProgress(to)
             }
-            
-            self.startAngle = angle
-            self.startProgress = progress
+            startAngle   = angle
+            startProgress = progress
         } else {
-            let gap: CGFloat = abs(angle - startAngle)
-            
+            let gap = abs(angle - startAngle)
             if !isClockwise && (gap < 15 || gap > 345) {
-                var toAngle = angle - 15
-                if toAngle > 360 { toAngle -= 360 }
-                self.startAngle = toAngle
-                self.startProgress = toAngle / 360
+                var to = angle - 15; if to < 0 { to += 360 }
+                startAngle   = Self.normalizeAngle(to)
+                startProgress = Self.normalizeProgress(to)
             } else if isClockwise && (gap < 15 || gap > 345) {
-                var toAngle = angle + 15
-                if toAngle > 360 { toAngle -= 360 }
-                self.startAngle = toAngle
-                self.startProgress = toAngle / 360
+                var to = angle + 15; if to > 360 { to -= 360 }
+                startAngle   = Self.normalizeAngle(to)
+                startProgress = Self.normalizeProgress(to)
             }
-            
-            self.endAngle = angle
-            self.endProgress = progress
+            endAngle   = angle
+            endProgress = progress
         }
     }
-
-    func getAngle(from date: Date) -> Double {
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        let minute = calendar.component(.minute, from: date)
-        
-        // 1시간 = 15도, 1분 = 0.25도
-        let angle = Double(hour % 24) * 15 + Double(minute) * 0.25
-        return angle
+    
+    // MARK: - Helpers
+    static func normalizeAngle(_ angle: Double) -> Double {
+        let a = angle.truncatingRemainder(dividingBy: 360)
+        return a < 0 ? a + 360 : a
+    }
+    static func normalizeProgress(_ angle: Double) -> CGFloat {
+        CGFloat(normalizeAngle(angle) / 360)
+    }
+    
+    static func getAngle(from date: Date) -> Double {
+        let cal = Calendar.current
+        let h = cal.component(.hour, from: date)
+        let m = cal.component(.minute, from: date)
+        return Double(h % 24) * 15 + Double(m) * 0.25
     }
     
     func getTime(angle: Double) -> Date {
-        let progress = angle / 15
-        let hour = Int(progress)
-        let remainder = (progress.truncatingRemainder(dividingBy: 1) * 12).rounded()
+        let p = angle / 15
+        let hour = Int(p)
+        let remainder = (p.truncatingRemainder(dividingBy: 1) * 12).rounded()
         var minute = remainder * 5
         minute = (minute > 55 ? 55 : minute)
         
-        var components = DateComponents()
-        components.hour = hour == 24 ? 0 : hour
-        components.minute = Int(minute)
-        components.second = 0
+        var comp = DateComponents()
+        comp.hour   = hour == 24 ? 0 : hour
+        comp.minute = Int(minute)
+        comp.second = 0
         
-        let calendar = Calendar.current
-        let currentDate = Date()
-        let currentDay = calendar.component(.day, from: currentDate)
-        
+        let cal = Calendar.current
+        let now = Date()
+        let day = cal.component(.day, from: now)
         let isPastMidnight = (startAngle > endAngle) && (angle == endAngle)
-        components.day = currentDay + (isPastMidnight ? 1 : 0)
+        comp.day   = day + (isPastMidnight ? 1 : 0)
+        comp.year  = cal.component(.year, from: now)
+        comp.month = cal.component(.month, from: now)
         
-        components.year = calendar.component(.year, from: currentDate)
-        components.month = calendar.component(.month, from: currentDate)
-        
-        return calendar.date(from: components) ?? Date()
+        return cal.date(from: comp) ?? Date()
     }
     
     func getTimeDifference() -> (Int, Int) {
-        let calendar = Calendar.current
-        let result = calendar.dateComponents([.hour, .minute], from: getTime(angle: startAngle), to: getTime(angle: endAngle))
-        return (result.hour ?? 0, result.minute ?? 0)
+        let cal = Calendar.current
+        let diff = cal.dateComponents([.hour, .minute],
+                        from: getTime(angle: startAngle),
+                        to:   getTime(angle: endAngle))
+        return (diff.hour ?? 0, diff.minute ?? 0)
     }
     
     func updateInterval() {
         startInterval = getTime(angle: startAngle)
-        endInterval = getTime(angle: endAngle)
+        endInterval   = getTime(angle: endAngle)
+    }
+    
+    func haptic() {
         generator.impactOccurred()
     }
 }
 
-extension View {
-    func screenBounds() -> CGRect {
-        return UIScreen.main.bounds
-    }
-}
-
+// MARK: - LabelStyle
 struct HuraiTimeLabelStyle: LabelStyle {
     func makeBody(configuration: Configuration) -> some View {
         VStack(spacing: 8) {
@@ -260,5 +275,6 @@ struct HuraiTimeLabelStyle: LabelStyle {
 }
 
 #Preview {
-    HuraiTimeSlider(startInterval: .constant(Date()), endInterval: .constant(.now + 10000))
+    HuraiTimeSlider(startInterval: .constant(Date()),
+                    endInterval: .constant(.now + 10000))
 }

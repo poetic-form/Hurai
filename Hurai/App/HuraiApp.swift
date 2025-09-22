@@ -18,6 +18,10 @@ struct HuraiApp: App {
     @AppStorage("repeatCount", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var repeatCount: TimeInterval = 0
     
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
+    
     var body: some Scene {
         WindowGroup {
             ZStack {
@@ -29,6 +33,7 @@ struct HuraiApp: App {
                         .zIndex(1)
                 }
             }
+            .dynamicTypeSize(.xSmall)
             .onOpenURL { url in
                 if(url.scheme == "hurai" && url.host == "mission") {
                     missionVM.showMissionView = true
@@ -38,11 +43,13 @@ struct HuraiApp: App {
                 MissionView(
                     flipMotionService: .init(requiredHoldDuration: 3 * (repeatCount + 1))
                 )
+                .dynamicTypeSize(.xSmall)
             }
+            .preferredColorScheme(.dark)
             .environmentObject(missionVM)
             .environmentObject(homeVM)
             .environmentObject(settingVM)
-            .animation(.easeInOut, value: isFirst)
+            .animation(isFirst ? .none : .easeInOut, value: isFirst)
         }
     }
 }

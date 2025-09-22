@@ -63,7 +63,7 @@ struct OnboardingInitialSetupView: View {
                         .frame(height: 20)
                         .scaledToFit()
                         .padding(5)
-                        .foregroundStyle(.huraiWhite)
+                        .foregroundStyle(.white)
                 }
             }
             

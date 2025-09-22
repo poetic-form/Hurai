@@ -28,7 +28,7 @@ extension View {
         }
         
         if let textStyle = textStyle {
-            return self.font(.custom(fontName, size: size, relativeTo: textStyle))
+            return self.font(.custom(fontName, size: size))
         } else {
             return self.font(.custom(fontName, size: size))
         }

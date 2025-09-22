@@ -21,7 +21,7 @@ struct HuraiButton: View {
                 .overlay {
                     Text("\(title)")
                         .foregroundStyle(.huraiBlack)
-                        .pretendard(.semibold, 18, relativeTo: .caption)
+                        .pretendard(.semibold, 18)
                 }
         }
         .buttonStyle(.plain)

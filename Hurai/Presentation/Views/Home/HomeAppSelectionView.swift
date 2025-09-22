@@ -16,29 +16,14 @@ struct HomeAppSelectionView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
                 Button {
-                    viewModel.fetchSelections()
                     dismiss()
                 } label: {
-                    Text("취소")
-                        .pretendard(.regular, 16)
-                        .foregroundStyle(.white)
-                }
-                
-                Spacer()
-                
-                Button {
-                    viewModel.updateSelections()
-                    dismiss()
-                } label: {
-                    Text("선택 완료")
+                    Label("뒤로", systemImage: "chevron.left")
                         .pretendard(.regular, 16)
                         .foregroundStyle(.accent)
                 }
-                .buttonStyle(.plain)
-                .disabled(
-                    viewModel.selections.applications.count + viewModel.selections.webDomains.count > 5 ||
-                    viewModel.selections.applications.count + viewModel.selections.webDomains.count == 0
-                )
+                
+                Spacer()
             }
             .padding(20)
             
@@ -57,4 +42,5 @@ struct HomeAppSelectionView: View {
 
 #Preview {
     HomeAppSelectionView()
+        .environmentObject(HomeViewModel())
 }

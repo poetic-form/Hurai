@@ -8,17 +8,62 @@
 import SwiftUI
 
 struct RootView: View {
+    @State private var tag: Int = 0
+    
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house")
-                }
-            SettingView()
-                .tabItem {
-                    Image(systemName: "gear")
-                }
+        VStack(spacing: 0) {
+            TabView(selection: $tag) {
+                HomeView()
+                    .tabItem {
+                        Image(systemName: "house")
+                    }
+                    .tag(0)
+                SettingView()
+                    .tabItem {
+                        Image(systemName: "gear")
+                    }
+                    .tag(1)
+            }
+            
+            tabbar()
         }
+    }
+    
+    @ViewBuilder
+    func tabbar() -> some View {
+        HStack {
+            HStack {
+                Spacer()
+                
+                Image(systemName: "house.fill")
+                    .font(.system(size: 36))
+                    .foregroundStyle(tag == 0 ? .accent : .gray)
+                
+                Spacer()
+                    .frame(width: 60)
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                tag = 0
+            }
+            
+            HStack {
+                Spacer()
+                    .frame(width: 60)
+                
+                Image(systemName: "gear")
+                    .font(.system(size: 36))
+                    .foregroundStyle(tag == 1 ? .accent : .gray)
+                
+                Spacer()
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                tag = 1
+            }
+        }
+        .frame(height: 70)
+        .background(.huraiBackground)
     }
 }
 

@@ -26,6 +26,7 @@ struct InfoEditView: View {
                     Spacer()
                     
                     Button {
+                        viewModel.updateAllInfos()
                         viewModel.startMonitoring()
                         viewModel.showEditSheet = false
                     } label: {
@@ -63,6 +64,8 @@ struct InfoEditView: View {
                     
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(.huraiBackground)
         }
     }
 }

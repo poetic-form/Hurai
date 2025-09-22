@@ -15,6 +15,9 @@ struct HomeView: View {
     @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var registeredAt: Date = .now
     
+    @AppStorage("imageNumber", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var imageNumber: Int = 0
+    
     private var timeFormatter: DateFormatter {
         let f = DateFormatter()
         f.locale = Locale(identifier: "ko_KR")
@@ -54,9 +57,19 @@ struct HomeView: View {
                 HStack {
                     Spacer()
                     
-                    Image(.huraiChiken)
-                        .resizable()
-                        .frame(width: 100, height: 110)
+                    if imageNumber == 0 {
+                        Image(.huraiChiken)
+                            .resizable()
+                            .frame(width: 100, height: 110)
+                    } else if imageNumber == 1 {
+                        Image(.huraiPeeking)
+                            .resizable()
+                            .frame(width: 100, height: 110)
+                    } else if imageNumber == 2 {
+                        Image(.huraiWatch)
+                            .resizable()
+                            .frame(width: 100, height: 110)
+                    }
                 }
             }
             .padding([.horizontal, .bottom], 20)
@@ -69,85 +82,97 @@ struct HomeView: View {
             
             VStack(spacing: 26) {
                 HStack(spacing: 14) {
-                    RoundedRectangle(cornerRadius: 30)
-                        .overlay {
-                            VStack {
-                                HStack {
-                                    VStack(alignment: .leading, spacing: 17) {
-                                        Label {
-                                            Text("오늘의 목표 시간")
-                                                .pretendard(.semibold, 15)
+                    Button {
+                        viewModel.showEditSheet = true
+                    } label: {
+                        RoundedRectangle(cornerRadius: 30)
+                            .overlay {
+                                VStack {
+                                    HStack {
+                                        VStack(alignment: .leading, spacing: 17) {
+                                            Label {
+                                                Text("오늘의 목표 시간")
+                                                    .pretendard(.semibold, 15)
+                                                    .foregroundStyle(.white)
+                                            } icon: {
+                                                Image(systemName: "flame")
+                                                    .foregroundStyle(.accent)
+                                            }
+                                            
+                                            Text("\(viewModel.threshold)분")
                                                 .foregroundStyle(.white)
-                                        } icon: {
-                                            Image(systemName: "flame")
-                                                .foregroundStyle(.accent)
+                                                .pretendard(.bold, 36)
                                         }
                                         
-                                        Text("\(viewModel.threshold)분")
-                                            .foregroundStyle(.white)
-                                            .pretendard(.bold, 36)
+                                        Spacer()
                                     }
                                     
                                     Spacer()
-                                }
-                                
-                                Spacer()
-                                
-                                HStack {
-                                    Spacer()
                                     
-                                    Image(.huraiWatch)
-                                        .resizable()
-                                        .frame(width: 63, height: 63)
+                                    HStack {
+                                        Spacer()
+                                        
+                                        Image(.huraiWatch)
+                                            .resizable()
+                                            .frame(width: 63, height: 63)
+                                    }
                                 }
+                                .padding(20)
                             }
-                            .padding(20)
-                        }
+                    }
                     
-                    RoundedRectangle(cornerRadius: 30)
-                        .overlay {
-                            HStack {
-                                VStack(alignment: .leading, spacing: 20) {
-                                    Text("수면 시간")
-                                        .pretendard(.semibold, 15)
-                                        .foregroundStyle(.white)
-                                    
-                                    HStack(spacing: 14) {
-                                        Divider()
-                                            .frame(width: 2)
-                                            .background(.accent)
+                    Button {
+                        viewModel.showEditSheet = true
+                    } label: {
+                        RoundedRectangle(cornerRadius: 30)
+                            .overlay {
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 20) {
+                                        Text("수면 시간")
+                                            .pretendard(.semibold, 15)
+                                            .foregroundStyle(.white)
                                         
-                                        VStack(alignment: .leading) {
-                                            Label("\(timeFormatter.string(from: viewModel.startInterval))", systemImage: "moon.zzz.fill")
-                                                .labelStyle(HuraiHomeViewLabelStyle())
-                                                .monospacedDigit()
+                                        HStack(spacing: 14) {
+                                            Divider()
+                                                .frame(width: 2)
+                                                .background(.accent)
                                             
-                                            Spacer()
-                                            
-                                            Label("\(timeFormatter.string(from: viewModel.endInterval))", systemImage: "sun.max.fill")
-                                                .labelStyle(HuraiHomeViewLabelStyle())
-                                                .monospacedDigit()
+                                            VStack(alignment: .leading) {
+                                                Label("\(timeFormatter.string(from: viewModel.startInterval))", systemImage: "moon.zzz.fill")
+                                                    .labelStyle(HuraiHomeViewLabelStyle())
+                                                    .monospacedDigit()
+                                                
+                                                Spacer()
+                                                
+                                                Label("\(timeFormatter.string(from: viewModel.endInterval))", systemImage: "sun.max.fill")
+                                                    .labelStyle(HuraiHomeViewLabelStyle())
+                                                    .monospacedDigit()
+                                            }
                                         }
                                     }
+                                    
+                                    Spacer()
                                 }
-                                
-                                Spacer()
+                                .padding(20)
                             }
-                            .padding(20)
-                        }
+                    }
                 }
                 
-                RoundedRectangle(cornerRadius: 30)
-                    .frame(height: 92)
-                    .overlay {
-                        HStack(spacing: 30) {
-                            ForEach(Array(viewModel.storage.selections.applicationTokens).sorted(by: { $0.rawValue < $1.rawValue} ), id: \.self) { token in
-                                Label(token)
-                                    .labelStyle(.iconOnly)
+                Button {
+                    viewModel.showEditSheet = true
+                } label: {
+                    RoundedRectangle(cornerRadius: 30)
+                        .frame(height: 92)
+                        .overlay {
+                            HStack(spacing: 30) {
+                                ForEach(Array(viewModel.storage.selections.applicationTokens).sorted(by: { $0.rawValue < $1.rawValue} ), id: \.self) { token in
+                                    Label(token)
+                                        .labelStyle(.iconOnly)
+                                }
                             }
+                            .padding(.horizontal, 20)
                         }
-                        .padding(.horizontal, 20)
-                    }
+                }
             }
             .foregroundStyle(.white.opacity(0.06))
             .padding(20)
@@ -160,6 +185,7 @@ struct HomeView: View {
         }
         .sheet(isPresented: $viewModel.showEditSheet, onDismiss: { viewModel.fetchAllInfos() }) {
             InfoEditView()
+                .dynamicTypeSize(.xSmall)
         }
     }
 }
