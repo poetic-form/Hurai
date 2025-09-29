@@ -27,7 +27,7 @@ struct SettingView: View {
                     
                     Section(header: Text("고객 지원").pretendard(.semibold, 16).foregroundStyle(.white.opacity(0.8)).padding(.leading, -8)) {
                         NavigationLink {
-                            RootView()
+                            IntroduceView()
                         } label: {
                             Text("서비스 소개")
                                 .padding(.vertical, 20)
