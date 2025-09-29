@@ -34,8 +34,7 @@ struct SettingView: View {
                         }
                         
                         NavigationLink {
-                            Rectangle()
-                            
+                            GuideView()
                         } label: {
                             Text("사용 설명서")
                                 .padding(.vertical, 20)
