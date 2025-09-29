@@ -57,7 +57,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         super.eventDidReachThreshold(event, activity: activity)
         
         // Handle the event reaching its threshold.
-        isDefered = false
+        isDefered = true
         appLockService.lockApps(apps: storage.selections)
     }
     
