@@ -321,6 +321,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		728B99922E8A645700D12717 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				72233D6E2E4342F9005109D1 /* SettingView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		72F8F2012E3AC1AA00070291 /* Hurai */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,7 +424,7 @@
 				72233D6A2E4342DE005109D1 /* RootView.swift */,
 				72233DAD2E6ABCB2005109D1 /* Onboarding */,
 				722D16A82E7BE33E004865A8 /* Home */,
-				72233D6E2E4342F9005109D1 /* SettingView.swift */,
+				728B99922E8A645700D12717 /* Setting */,
 				72233D772E4744B5005109D1 /* MissionView.swift */,
 				7253D6952E77E598005AF13E /* MissionSuccessView.swift */,
 			);
