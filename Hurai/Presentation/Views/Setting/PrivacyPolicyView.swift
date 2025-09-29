@@ -177,9 +177,9 @@ struct PrivacyPolicyView: View {
                         }
                     }
                 }
+                .padding(20)
             }
             .foregroundStyle(.white)
-            .padding(20)
             .labelStyle(HuraiGuideLabelStyle())
             .kerning(-0.4)
             .lineSpacing(6)
