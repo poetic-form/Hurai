@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RootView: View {
-    @State private var tag: Int = 0
+    @State var tag: Int = 0
     
     var body: some View {
         VStack(spacing: 0) {

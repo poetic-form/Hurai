@@ -34,9 +34,13 @@ struct GuideView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     VStack(alignment: .leading, spacing: 24) {
-                        Text("🍳 후라이 스토리")
-                            .pretendard(.bold, 16)
-                            .foregroundStyle(.accent)
+                        HStack {
+                            Text("🍳 후라이 스토리")
+                                .pretendard(.bold, 16)
+                                .foregroundStyle(.accent)
+                            
+                            Spacer()
+                        }
                         
                         Text("후라이는 잠들기 전 핸드폰 사용으로 자꾸만 수면시간이 줄어드는 사람들을 위해 만들었어요.\n\n이러한 문제를 해결하기 위해서 이 문제에 공감하는 6명의 애플 디벨로퍼 아카데미 러너들이 모여 함께 제작한 서비스에요.".byCharWrapping)
                             .pretendard(.medium, 16)
@@ -49,9 +53,13 @@ struct GuideView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 24) {
-                        Text("💡 후라이 사용법")
-                            .pretendard(.bold, 16)
-                            .foregroundStyle(.accent)
+                        HStack {
+                            Text("💡 후라이 사용법")
+                                .pretendard(.bold, 16)
+                                .foregroundStyle(.accent)
+                            
+                            Spacer()
+                        }
                         
                         VStack(alignment: .leading, spacing: 30) {
                             VStack(alignment: .leading, spacing: 12) {
@@ -172,9 +180,13 @@ struct GuideView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 24) {
-                        Text("❓ 그 밖의 궁금한 점")
-                            .pretendard(.bold, 16)
-                            .foregroundStyle(.accent)
+                        HStack {
+                            Text("❓ 그 밖의 궁금한 점")
+                                .pretendard(.bold, 16)
+                                .foregroundStyle(.accent)
+                            
+                            Spacer()
+                        }
                         
                         VStack(alignment: .leading, spacing: 20) {
                             VStack(alignment: .leading, spacing: 12) {
