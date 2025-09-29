@@ -9,24 +9,15 @@ import Foundation
 import SwiftUI
 import Network
 
-class SettingViewModel: ObservableObject {
-    let storage: AppInfo = .init()
+class SettingViewModel: BasicViewModel {
+    let notificationService: NotificationService = .init()
     
-    @Published var isOnPause: Bool = false
     @Published var showLoading: Bool = false
     @Published var networkStatus: NWPath.Status? = nil
     
     @Published var reportTitle: String = ""
     @Published var reportEmail: String = ""
     @Published var reportMessage: String = ""
-    
-    init() {
-        isOnPause = storage.isOnPause
-    }
-    
-    func updateIsOnPause() {
-        storage.isOnPause = isOnPause
-    }
     
     func resetSetting() {
         showLoading = false
@@ -82,5 +73,13 @@ class SettingViewModel: ObservableObject {
         request.httpBody = try? JSONSerialization.data(withJSONObject: payload, options: [])
         
         URLSession.shared.dataTask(with: request).resume()
+    }
+    
+    func registNotification() {
+        notificationService.scheduleDailyMorningNotification(title: "잠은 잘 잤나요?", body: "후라이가 비활성화 되어있어요")
+    }
+    
+    func removeNotification() {
+        notificationService.removeDailyMorningNotification()
     }
 }

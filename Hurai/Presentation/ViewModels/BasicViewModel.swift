@@ -16,12 +16,14 @@ class BasicViewModel: ObservableObject {
     @Published var threshold: Int
     @Published var startInterval: Date
     @Published var endInterval: Date
+    @Published var isOnPause: Bool
     
     init() {
         selections = storage.selections
         threshold = storage.threshold
         startInterval = storage.startInterval
         endInterval = storage.endInterval
+        isOnPause = storage.isOnPause
     }
     
     func updateSelections() {
@@ -48,6 +50,14 @@ class BasicViewModel: ObservableObject {
     func fetchInterval() {
         startInterval = storage.startInterval
         endInterval = storage.endInterval
+    }
+    
+    func fetchIsOnPause() {
+        isOnPause = storage.isOnPause
+    }
+    
+    func updateIsOnPause() {
+        storage.isOnPause = isOnPause
     }
     
     func updateAllInfos() {

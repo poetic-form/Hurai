@@ -42,6 +42,8 @@ struct HomeView: View {
                             .font(.system(size: 26))
                             .foregroundStyle(.white)
                     }
+                    .buttonStyle(.plain)
+                    .disabled(viewModel.storage.isOnPause)
                 }
                 .padding(.vertical, 30)
                 
@@ -120,6 +122,8 @@ struct HomeView: View {
                                 .padding(20)
                             }
                     }
+                    .buttonStyle(.plain)
+                    .disabled(viewModel.storage.isOnPause)
                     
                     Button {
                         viewModel.showEditSheet = true
@@ -156,6 +160,8 @@ struct HomeView: View {
                                 .padding(20)
                             }
                     }
+                    .buttonStyle(.plain)
+                    .disabled(viewModel.storage.isOnPause)
                 }
                 
                 Button {
@@ -173,6 +179,8 @@ struct HomeView: View {
                             .padding(.horizontal, 20)
                         }
                 }
+                .buttonStyle(.plain)
+                .disabled(viewModel.storage.isOnPause)
             }
             .foregroundStyle(.white.opacity(0.06))
             .padding(20)

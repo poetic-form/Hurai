@@ -74,8 +74,19 @@ struct SettingView: View {
         .scrollContentBackground(.hidden)
         .scrollDisabled(true)
         .background(.huraiBackground)
+        .onAppear {
+            viewModel.fetchIsOnPause()
+        }
         .onChange(of: viewModel.isOnPause) { newValue in
             viewModel.updateIsOnPause()
+            
+            if newValue {
+                viewModel.stopMonitoring()
+                viewModel.registNotification()
+            } else {
+                viewModel.startMonitoring()
+                viewModel.removeNotification()
+            }
         }
     }
 }
