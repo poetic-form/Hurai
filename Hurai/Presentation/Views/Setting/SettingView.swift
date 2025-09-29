@@ -10,6 +10,9 @@ import FamilyControls
 
 struct SettingView: View {
     @EnvironmentObject var viewModel: SettingViewModel
+    var appVersion: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+    }
     
     var body: some View {
         NavigationStack {
@@ -48,7 +51,7 @@ struct SettingView: View {
                         }
                         
                         NavigationLink {
-                            Circle()
+                            PrivacyPolicyView()
                         } label: {
                             Text("개인정보 처리방침")
                                 .padding(.vertical, 20)
@@ -61,10 +64,16 @@ struct SettingView: View {
                     .listRowSeparator(.hidden)
                 }
                 
+                Text("버전 \(appVersion)")
+                    .pretendard(.light, 10)
+                    .foregroundStyle(.white.opacity(0.3))
+                    .padding(30)
+                
                 Divider()
                     .background(.white.opacity(0.1))
             }
             .scrollContentBackground(.hidden)
+            .scrollDisabled(true)
             .background(.huraiBackground)
         }
         .onChange(of: viewModel.isOnPause) { newValue in

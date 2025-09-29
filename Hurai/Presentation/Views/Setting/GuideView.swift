@@ -238,6 +238,7 @@ struct GuideView: View {
                 .padding(20)
                 .labelStyle(HuraiGuideLabelStyle())
                 .kerning(-0.4)
+                .lineSpacing(6)
             }
         }
         .background(.huraiBackground)
