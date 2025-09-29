@@ -10,5 +10,5 @@ import Foundation
 class HomeViewModel: BasicViewModel {
     @Published var showSelectionPicker: Bool = false
     @Published var showThresholdPicker: Bool = false
-    @Published var showMissionView: Bool = false
+    @Published var showEditSheet: Bool = false
 }

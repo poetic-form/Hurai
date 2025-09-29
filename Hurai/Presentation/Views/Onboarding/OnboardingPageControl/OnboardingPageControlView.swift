@@ -43,6 +43,7 @@ struct OnboardingPageControlView: View {
         .navigationDestination(isPresented: $viewModel.showSetupView) {
             OnboardingInitialSetupView()
                 .environmentObject(viewModel)
+                .dynamicTypeSize(.xSmall)
         }
         .background(.huraiBackground)
     }

@@ -23,7 +23,9 @@ class ShieldActionExtension: ShieldActionDelegate {
         case .primaryButtonPressed:
             completionHandler(.close)
         case .secondaryButtonPressed:
-            notificationService.missionNotification(title: "후라이", body: "미션하러가기")
+            if isDefered {
+                notificationService.missionNotification(title: "후라이", body: "미션하러가기")
+            }
             isDefered.toggle()
             completionHandler(.defer)
         @unknown default:
@@ -33,11 +35,33 @@ class ShieldActionExtension: ShieldActionDelegate {
     
     override func handle(action: ShieldAction, for webDomain: WebDomainToken, completionHandler: @escaping (ShieldActionResponse) -> Void) {
         // Handle the action as needed.
-        completionHandler(.close)
+        switch action {
+        case .primaryButtonPressed:
+            completionHandler(.close)
+        case .secondaryButtonPressed:
+            if isDefered {
+                notificationService.missionNotification(title: "후라이", body: "미션하러가기")
+            }
+            isDefered.toggle()
+            completionHandler(.defer)
+        @unknown default:
+            fatalError()
+        }
     }
     
     override func handle(action: ShieldAction, for category: ActivityCategoryToken, completionHandler: @escaping (ShieldActionResponse) -> Void) {
         // Handle the action as needed.
-        completionHandler(.close)
+        switch action {
+        case .primaryButtonPressed:
+            completionHandler(.close)
+        case .secondaryButtonPressed:
+            if isDefered {
+                notificationService.missionNotification(title: "후라이", body: "미션하러가기")
+            }
+            isDefered.toggle()
+            completionHandler(.defer)
+        @unknown default:
+            fatalError()
+        }
     }
 }

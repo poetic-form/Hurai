@@ -57,7 +57,7 @@ struct HuraiThresholdPickerView: View {
     @Binding var threshold: Int
     
     var body: some View {
-        HStack(spacing: 55) {
+        HStack(spacing: 45) {
             Button {
                 if threshold > 6 {
                     threshold -= 5
@@ -88,8 +88,10 @@ struct HuraiThresholdPickerView: View {
                             .foregroundStyle(.white)
                             .offset(x: 40)
                     }
+                    .frame(height: 120)
+                    .clipShape(Rectangle())
             }
-            .frame(width: 85)
+            .frame(width: 105)
             
             Button {
                 if threshold < 55 {

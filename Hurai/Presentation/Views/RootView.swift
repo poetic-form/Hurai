@@ -8,33 +8,62 @@
 import SwiftUI
 
 struct RootView: View {
-    @StateObject private var missionVM: MissionViewModel = MissionViewModel()
-    
-    @AppStorage("repeatCount", store: UserDefaults(suiteName: Bundle.main.appGroupName))
-    var repeatCount: TimeInterval = 0
+    @State private var tag: Int = 0
     
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house")
-                }
-            SettingView(showMissionView: $missionVM.showMissionView)
-                .tabItem {
-                    Image(systemName: "gear")
-                }
+        VStack(spacing: 0) {
+            TabView(selection: $tag) {
+                HomeView()
+                    .tabItem {
+                        Image(systemName: "house")
+                    }
+                    .tag(0)
+                SettingView()
+                    .tabItem {
+                        Image(systemName: "gear")
+                    }
+                    .tag(1)
+            }
+            
+            tabbar()
         }
-        .onOpenURL { url in
-            if(url.scheme == "hurai" && url.host == "mission") {
-                missionVM.showMissionView = true
+    }
+    
+    @ViewBuilder
+    func tabbar() -> some View {
+        HStack {
+            HStack {
+                Spacer()
+                
+                Image(systemName: "house.fill")
+                    .font(.system(size: 36))
+                    .foregroundStyle(tag == 0 ? .accent : .gray)
+                
+                Spacer()
+                    .frame(width: 60)
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                tag = 0
+            }
+            
+            HStack {
+                Spacer()
+                    .frame(width: 60)
+                
+                Image(systemName: "gear")
+                    .font(.system(size: 36))
+                    .foregroundStyle(tag == 1 ? .accent : .gray)
+                
+                Spacer()
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                tag = 1
             }
         }
-        .fullScreenCover(isPresented: $missionVM.showMissionView) {
-            MissionView(
-                flipMotionService: .init(requiredHoldDuration: 3 * (repeatCount + 1))
-            )
-            .environmentObject(missionVM)
-        }
+        .frame(height: 70)
+        .background(.huraiBackground)
     }
 }
 

@@ -15,6 +15,8 @@ struct MissionSuccessView: View {
     var repeatCount: TimeInterval = 0
     @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var registeredAt: Date = .now
+    @AppStorage("imageNumber", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var imageNumber: Int = 0
     
     var body: some View {
         ZStack {
@@ -53,6 +55,7 @@ struct MissionSuccessView: View {
                 Spacer()
                 
                 HuraiButton(title: "설정 완료") {
+                    imageNumber = 2
                     repeatCount += 1
                     viewModel.unlockApps()
                     viewModel.startMonitoring()
@@ -68,7 +71,7 @@ struct MissionSuccessView: View {
         }
         .background(.huraiBackground)
         .onAppear {
-            viewModel.fetchThreshold()
+            viewModel.fetchAllInfos()
         }
         .onChange(of: viewModel.threshold) { newValue in
             viewModel.updateThreshold()
