@@ -8,6 +8,7 @@
 import Foundation
 import FamilyControls
 import ManagedSettings
+import UIKit
 
 extension FamilyActivitySelection: @retroactive RawRepresentable {
     public init?(rawValue: String) {
@@ -75,5 +76,16 @@ extension Bundle {
             fatalError("APP_NAME not set in Info.plist")
         }
         return value
+    }
+}
+
+extension UINavigationController: @retroactive UIGestureRecognizerDelegate {
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        interactivePopGestureRecognizer?.delegate = self
+    }
+
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return viewControllers.count > 1 && (!MissionViewModel.shared.showMissionView && !OnboardingViewModel.shared.showSetupView)
     }
 }
