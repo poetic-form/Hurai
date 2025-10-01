@@ -97,3 +97,29 @@ struct SettingView: View {
         .environmentObject(SettingViewModel())
         .environmentObject(MissionViewModel())
 }
+
+struct HuraiNavigationBar: View {
+    @Environment(\.dismiss) var dismiss
+    let title: String
+    
+    var body: some View {
+        HStack {
+            Button {
+                dismiss()
+            } label: {
+                Label("뒤로", systemImage: "chevron.left")
+                    .pretendard(.regular, 16)
+                    .foregroundStyle(.accent)
+            }
+            
+            Spacer()
+        }
+        .overlay {
+            Text(title)
+                .pretendard(.semibold, 16)
+                .foregroundStyle(.white)
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 10)
+    }
+}

@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct IntroduceView: View {
-    @Environment(\.dismiss) var dismiss
-    
     var attributedString: AttributedString {
         var string = AttributedString("잠들기 전 핸드폰 사용으로 수면을 방해하는 앱을 목표한 시간만큼만 사용하도록 돕는 서비스에요.")
         if let highlight = string.range(of: "수면을 방해") {
@@ -23,19 +21,7 @@ struct IntroduceView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Button {
-                    dismiss()
-                } label: {
-                    Label("뒤로", systemImage: "chevron.left")
-                        .pretendard(.regular, 16)
-                        .foregroundStyle(.accent)
-                }
-                
-                Spacer()
-            }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 10)
+            HuraiNavigationBar(title: "")
             
             ScrollView {
                 VStack(spacing: 135) {

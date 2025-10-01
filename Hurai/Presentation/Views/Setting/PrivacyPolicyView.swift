@@ -8,28 +8,9 @@
 import SwiftUI
 
 struct PrivacyPolicyView: View {
-    @Environment(\.dismiss) var dismiss
-    
     var body: some View {
         VStack {
-            HStack {
-                Button {
-                    dismiss()
-                } label: {
-                    Label("뒤로", systemImage: "chevron.left")
-                        .pretendard(.regular, 16)
-                        .foregroundStyle(.accent)
-                }
-                
-                Spacer()
-            }
-            .overlay {
-                Text("개인정보 처리방침")
-                    .pretendard(.semibold, 16)
-                    .foregroundStyle(.white)
-            }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 10)
+            HuraiNavigationBar(title: "개인정보 처리방침")
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 30) {

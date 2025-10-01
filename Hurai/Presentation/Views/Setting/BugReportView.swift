@@ -14,24 +14,7 @@ struct BugReportView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Button {
-                    dismiss()
-                } label: {
-                    Label("뒤로", systemImage: "chevron.left")
-                        .pretendard(.regular, 16)
-                        .foregroundStyle(.accent)
-                }
-                
-                Spacer()
-            }
-            .overlay {
-                Text("오류 신고")
-                    .pretendard(.semibold, 16)
-                    .foregroundStyle(.white)
-            }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 10)
+            HuraiNavigationBar(title: "오류 신고")
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 30) {
