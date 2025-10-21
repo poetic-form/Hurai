@@ -8,6 +8,7 @@
 import Foundation
 import FamilyControls
 import ManagedSettings
+import UIKit
 
 extension FamilyActivitySelection: @retroactive RawRepresentable {
     public init?(rawValue: String) {

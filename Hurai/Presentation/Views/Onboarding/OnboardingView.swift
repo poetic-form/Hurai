@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @StateObject var viewModel: OnboardingViewModel = OnboardingViewModel()
+    @StateObject var viewModel: OnboardingViewModel = OnboardingViewModel.shared
     
     var body: some View {
         NavigationStack {

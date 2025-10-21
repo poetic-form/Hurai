@@ -43,6 +43,7 @@ struct ThresholdSetupView: View {
             Spacer()
             
             HuraiButton(title: "후라이 시작하기") {
+                viewModel.showSetupView = false
                 isFirst = false
             }
             .disabled(viewModel.threshold == 0)

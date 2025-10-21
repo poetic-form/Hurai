@@ -8,6 +8,8 @@
 import Foundation
 
 class MissionViewModel: BasicViewModel {
+    static let shared = MissionViewModel()
+    
     let appLockService: AppLockService = AppLockService()
     @Published var showMissionView: Bool = false
     @Published var isActive: Bool = false

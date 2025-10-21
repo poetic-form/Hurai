@@ -62,6 +62,10 @@
 		7253D6992E77F84A005AF13E /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72233D812E549FC0005109D1 /* Config.xcconfig */; };
 		7253D69A2E77F84A005AF13E /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72233D812E549FC0005109D1 /* Config.xcconfig */; };
 		7253D69C2E77FDF7005AF13E /* UhBeeGmin2Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7253D69B2E77FDF7005AF13E /* UhBeeGmin2Bold.ttf */; };
+		728B99942E8A6E7100D12717 /* IntroduceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728B99932E8A6E7100D12717 /* IntroduceView.swift */; };
+		72D0A36D2E8A7E4A000C77B9 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0A36C2E8A7E4A000C77B9 /* GuideView.swift */; };
+		72D0A36F2E8A9BCA000C77B9 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0A36E2E8A9BCA000C77B9 /* PrivacyPolicyView.swift */; };
+		72D0A3712E8AA1B1000C77B9 /* BugReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0A3702E8AA1B1000C77B9 /* BugReportView.swift */; };
 		72DDB04B2E73B4AB00A04B62 /* FamilyActivityPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDB04A2E73B4AB00A04B62 /* FamilyActivityPickerView.swift */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
@@ -171,6 +175,10 @@
 		7253D6932E77E53F005AF13E /* HuraiRoundProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiRoundProgress.swift; sourceTree = "<group>"; };
 		7253D6952E77E598005AF13E /* MissionSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionSuccessView.swift; sourceTree = "<group>"; };
 		7253D69B2E77FDF7005AF13E /* UhBeeGmin2Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UhBeeGmin2Bold.ttf; sourceTree = "<group>"; };
+		728B99932E8A6E7100D12717 /* IntroduceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceView.swift; sourceTree = "<group>"; };
+		72D0A36C2E8A7E4A000C77B9 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
+		72D0A36E2E8A9BCA000C77B9 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		72D0A3702E8AA1B1000C77B9 /* BugReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugReportView.swift; sourceTree = "<group>"; };
 		72DDB04A2E73B4AB00A04B62 /* FamilyActivityPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyActivityPickerView.swift; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
@@ -321,6 +329,18 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		728B99922E8A645700D12717 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				72233D6E2E4342F9005109D1 /* SettingView.swift */,
+				728B99932E8A6E7100D12717 /* IntroduceView.swift */,
+				72D0A36C2E8A7E4A000C77B9 /* GuideView.swift */,
+				72D0A3702E8AA1B1000C77B9 /* BugReportView.swift */,
+				72D0A36E2E8A9BCA000C77B9 /* PrivacyPolicyView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		72F8F2012E3AC1AA00070291 /* Hurai */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,7 +436,7 @@
 				72233D6A2E4342DE005109D1 /* RootView.swift */,
 				72233DAD2E6ABCB2005109D1 /* Onboarding */,
 				722D16A82E7BE33E004865A8 /* Home */,
-				72233D6E2E4342F9005109D1 /* SettingView.swift */,
+				728B99922E8A645700D12717 /* Setting */,
 				72233D772E4744B5005109D1 /* MissionView.swift */,
 				7253D6952E77E598005AF13E /* MissionSuccessView.swift */,
 			);
@@ -611,7 +631,6 @@
 			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 				ko,
 			);
@@ -713,13 +732,17 @@
 				72233DEB2E7177E4005109D1 /* PermissionRequestView.swift in Sources */,
 				7253D6942E77E53F005AF13E /* HuraiRoundProgress.swift in Sources */,
 				72233DF12E717829005109D1 /* ThresholdSetupView.swift in Sources */,
+				72D0A3712E8AA1B1000C77B9 /* BugReportView.swift in Sources */,
 				72233DBD2E6EBB2A005109D1 /* HuraiWheelPicker.swift in Sources */,
 				72233D6B2E4342DE005109D1 /* RootView.swift in Sources */,
 				72F8F2202E3AC30000070291 /* TempConstant.swift in Sources */,
 				72233D922E6710FD005109D1 /* Extensions.swift in Sources */,
 				72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */,
+				728B99942E8A6E7100D12717 /* IntroduceView.swift in Sources */,
+				72D0A36F2E8A9BCA000C77B9 /* PrivacyPolicyView.swift in Sources */,
 				72233DB72E6D7DF5005109D1 /* HuraiButton.swift in Sources */,
 				72F8F2452E3D23FE00070291 /* AppLockService.swift in Sources */,
+				72D0A36D2E8A7E4A000C77B9 /* GuideView.swift in Sources */,
 				72233D982E671AB6005109D1 /* MissionViewModel.swift in Sources */,
 				72233D8B2E671005005109D1 /* AppInfo.swift in Sources */,
 			);

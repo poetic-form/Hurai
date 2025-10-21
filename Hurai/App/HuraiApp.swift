@@ -12,7 +12,7 @@ struct HuraiApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var homeVM: HomeViewModel = HomeViewModel()
     @StateObject private var settingVM: SettingViewModel = SettingViewModel()
-    @StateObject private var missionVM: MissionViewModel = MissionViewModel()
+    @StateObject private var missionVM: MissionViewModel = MissionViewModel.shared
    
     @AppStorage("isFirst") var isFirst: Bool = true
     @AppStorage("repeatCount", store: UserDefaults(suiteName: Bundle.main.appGroupName))
@@ -50,6 +50,20 @@ struct HuraiApp: App {
             .environmentObject(homeVM)
             .environmentObject(settingVM)
             .animation(isFirst ? .none : .easeInOut, value: isFirst)
+            .onChange(of: isFirst) { newValue in
+                homeVM.fetchAllInfos()
+            }
         }
+    }
+}
+
+extension UINavigationController: @retroactive UIGestureRecognizerDelegate {
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        interactivePopGestureRecognizer?.delegate = self
+    }
+
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return viewControllers.count > 1 && (!MissionViewModel.shared.showMissionView && !OnboardingViewModel.shared.showSetupView)
     }
 }

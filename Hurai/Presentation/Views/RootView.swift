@@ -8,24 +8,26 @@
 import SwiftUI
 
 struct RootView: View {
-    @State private var tag: Int = 0
+    @State var tag: Int = 0
     
     var body: some View {
-        VStack(spacing: 0) {
-            TabView(selection: $tag) {
-                HomeView()
-                    .tabItem {
-                        Image(systemName: "house")
-                    }
-                    .tag(0)
-                SettingView()
-                    .tabItem {
-                        Image(systemName: "gear")
-                    }
-                    .tag(1)
+        NavigationStack {
+            VStack(spacing: 0) {
+                TabView(selection: $tag) {
+                    HomeView()
+                        .tabItem {
+                            Image(systemName: "house")
+                        }
+                        .tag(0)
+                    SettingView()
+                        .tabItem {
+                            Image(systemName: "gear")
+                        }
+                        .tag(1)
+                }
+                
+                tabbar()
             }
-            
-            tabbar()
         }
     }
     

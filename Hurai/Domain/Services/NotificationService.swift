@@ -57,4 +57,35 @@ class NotificationService {
             }
         }
     }
+    
+    func scheduleDailyMorningNotification(title: String, body: String) {
+        var dateComponents = DateComponents()
+        dateComponents.hour = 9
+        dateComponents.minute = 0
+
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = .default
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+
+        let request = UNNotificationRequest(
+            identifier: "dailyMorningNotification",
+            content: content,
+            trigger: trigger
+        )
+
+        center.add(request) { error in
+            if let error = error {
+                print("매일 알림 등록 실패: \(error.localizedDescription)")
+            } else {
+                print("매일 아침 9시 알림 등록 완료")
+            }
+        }
+    }
+    
+    func removeDailyMorningNotification() {
+        center.removePendingNotificationRequests(withIdentifiers: ["dailyMorningNotification"])
+    }
 }

@@ -10,6 +10,8 @@ import FamilyControls
 import UserNotifications
 
 class OnboardingViewModel: BasicViewModel {
+    static let shared = OnboardingViewModel()
+    
     @Published var showLoadingView: Bool = false
     @Published var showSplash: Bool = true
     @Published var onboardingPage: Int = 0
