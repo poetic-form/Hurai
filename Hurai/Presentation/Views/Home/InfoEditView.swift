@@ -10,6 +10,8 @@ import ManagedSettings
 
 struct InfoEditView: View {
     @EnvironmentObject var viewModel: HomeViewModel
+    @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var registeredAt: Date = .now
     
     var body: some View {
         NavigationStack {
@@ -29,6 +31,8 @@ struct InfoEditView: View {
                     Button {
                         viewModel.updateAllInfos()
                         viewModel.startMonitoring()
+                        print("\(viewModel.storage.selections)")
+                        registeredAt = .now
                         viewModel.showEditSheet = false
                     } label: {
                         Text("확인")

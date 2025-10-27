@@ -228,9 +228,16 @@ struct HomeView: View {
                                     }
                             }
                         }
+                        .overlay(alignment: .topTrailing) {
+                            Image(systemName: "chevron.forward")
+                                .padding(20)
+                                .foregroundStyle(.white.opacity(0.5))
+                        }
                     }
                     .frame(maxHeight: 370)
             }
+            .buttonStyle(.plain)
+            .disabled(viewModel.storage.isOnPause)
             .padding(16)
             
             Spacer()
@@ -241,7 +248,7 @@ struct HomeView: View {
         }
         .sheet(isPresented: $viewModel.showEditSheet, onDismiss: { viewModel.fetchAllInfos() }) {
             InfoEditView()
-                .dynamicTypeSize(.xSmall)
+                .dynamicTypeSize(.medium)
         }
     }
 }

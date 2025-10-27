@@ -16,7 +16,7 @@ struct MissionSuccessView: View {
     @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var registeredAt: Date = .now
     @AppStorage("missionState", store: UserDefaults(suiteName: Bundle.main.appGroupName))
-    var imageNumber: Int = 0
+    var missionState: Int = 0
     
     var body: some View {
         ZStack {
@@ -54,7 +54,7 @@ struct MissionSuccessView: View {
                 Spacer()
                 
                 HuraiButton(title: "설정 완료") {
-                    imageNumber = 2
+                    missionState = 1
                     repeatCount += 1
                     viewModel.unlockApps()
                     viewModel.startMonitoring()
