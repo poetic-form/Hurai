@@ -98,7 +98,7 @@ struct HomeView: View {
                 viewModel.showEditSheet = true
             } label: {
                 RoundedRectangle(cornerRadius: 30)
-                    .foregroundStyle(.white.opacity(0.06))
+                    .foregroundStyle(.huraiDarkGray)
                     .overlay {
                         VStack(alignment: .leading) {
                             HStack {
@@ -137,7 +137,7 @@ struct HomeView: View {
                                                 HStack(alignment: .bottom, spacing: 6) {
                                                     Text("\(ampmtimeFormatter.string(from: viewModel.startInterval))")
                                                         .pretendard(.medium, 14)
-                                                        .foregroundStyle(.white.opacity(0.4))
+                                                        .foregroundStyle(.white.opacity(0.3))
                                                     Text("\(timeFormatter.string(from: viewModel.startInterval))")
                                                         .pretendard(.semibold, 22)
                                                         .foregroundStyle(.white)
@@ -152,10 +152,10 @@ struct HomeView: View {
                                             
                                             Label {
                                                 HStack(alignment: .bottom, spacing: 6) {
-                                                    Text("\(ampmtimeFormatter.string(from: viewModel.startInterval))")
+                                                    Text("\(ampmtimeFormatter.string(from: viewModel.endInterval))")
                                                         .pretendard(.medium, 14)
-                                                        .foregroundStyle(.white.opacity(0.4))
-                                                    Text("\(timeFormatter.string(from: viewModel.startInterval))")
+                                                        .foregroundStyle(.white.opacity(0.3))
+                                                    Text("\(timeFormatter.string(from: viewModel.endInterval))")
                                                         .pretendard(.semibold, 22)
                                                         .foregroundStyle(.white)
                                                 }
@@ -175,32 +175,56 @@ struct HomeView: View {
                             
                             VStack {
                                 RoundedRectangle(cornerRadius: 20)
-                                    .foregroundStyle(.white.opacity(0.15))
+                                    .foregroundStyle(.huraiGray)
                                     .frame(height: 82)
                                     .padding(16)
                                     .overlay {
-                                        HStack(spacing: 8) {
-                                            ForEach(0...4, id: \.self) { index in
+                                        HStack {
+                                            ForEach(viewModel.returnApplicationTokens(), id: \.self) { token in
                                                 ZStack {
                                                     Image(.huraiSilhouette)
+                                                        .renderingMode(.template)
                                                         .resizable()
                                                         .frame(width: 43, height: 49)
+                                                        .foregroundStyle(.huraiDarkGray)
                                                     
-                                                    if index < viewModel.returnApplicationTokens().count {
-                                                        Label(viewModel.returnApplicationTokens()[index])
-                                                            .labelStyle(.iconOnly)
-                                                            .offset(y: 2)
-                                                    } else if index - viewModel.returnApplicationTokens().count < viewModel.returnWebDomainTokens().count {
-                                                        Label(viewModel.returnWebDomainTokens()[index - viewModel.returnApplicationTokens().count])
-                                                            .labelStyle(.iconOnly)
-                                                            .offset(y: 2)
-                                                    }
+                                                    Label(token)
+                                                        .labelStyle(.iconOnly)
+                                                        .offset(y: 2)
                                                 }
                                                 .frame(maxWidth: .infinity)
                                                 .layoutPriority(1)
                                             }
+                                            
+                                            ForEach(viewModel.returnWebDomainTokens(), id: \.self) { token in
+                                                ZStack {
+                                                    Image(.huraiSilhouette)
+                                                        .renderingMode(.template)
+                                                        .resizable()
+                                                        .frame(width: 43, height: 49)
+                                                        .foregroundStyle(.huraiDarkGray)
+                                                    
+                                                    Label(token)
+                                                        .labelStyle(.iconOnly)
+                                                        .offset(y: 2)
+                                                }
+                                                .frame(maxWidth: .infinity)
+                                                .layoutPriority(1)
+                                            }
+                                            
+                                            let count =  5 - (viewModel.returnApplicationTokens().count + viewModel.returnWebDomainTokens().count)
+
+                                            ForEach(0..<max(count, 0), id: \.self) { _ in
+                                                Image(.huraiSilhouette)
+                                                    .renderingMode(.template)
+                                                    .resizable()
+                                                    .frame(width: 43, height: 49)
+                                                    .foregroundStyle(.huraiDarkGray)
+                                                    .frame(maxWidth: .infinity)
+                                                    .layoutPriority(1)
+                                            }
                                         }
-                                        .padding(20)
+                                        .padding(30)
                                     }
                             }
                         }
