@@ -32,7 +32,7 @@ struct OnboardingTemplate: View {
             
             Text(subtitle)
                 .pretendard(.regular, 16)
-                .foregroundStyle(.huraiGray)
+                .foregroundStyle(.huraiLightGray)
                 .multilineTextAlignment(.center)
                 .lineSpacing(4)
         }

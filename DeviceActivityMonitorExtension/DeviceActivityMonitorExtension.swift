@@ -44,7 +44,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         if let interval = deviceActivityService.center.schedule(for: .activity)?.nextInterval {
             if !interval.contains(registeredAt) {
                 if repeatCount == 0 {
-                    missionState = 1
+                    missionState = 2
                 }
                 repeatCount = 0
             }

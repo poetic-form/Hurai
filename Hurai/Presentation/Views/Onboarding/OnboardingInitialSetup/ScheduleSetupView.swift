@@ -21,7 +21,7 @@ struct ScheduleSetupView: View {
                     
                     Text("설정한 수면시간 동안만\n사용시간 측정과 잠금기능이 실행돼요.")
                         .pretendard(.regular, 16)
-                        .foregroundStyle(.huraiGray)
+                        .foregroundStyle(.huraiLightGray)
                         .lineSpacing(4)
                 }
                 

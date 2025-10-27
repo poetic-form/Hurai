@@ -21,7 +21,7 @@ struct AppSelectionView: View {
                 
                 Text("최대 5개의 앱을 선택할 수 있어요.\n이후에도 선택한 앱을 삭제하거나 추가할 수 있어요.")
                     .pretendard(.regular, 16)
-                    .foregroundStyle(.huraiGray)
+                    .foregroundStyle(.huraiLightGray)
                     .lineSpacing(4)
                     .padding(.bottom, 10)
                 

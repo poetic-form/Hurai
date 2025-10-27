@@ -86,7 +86,7 @@ struct BugReportView: View {
                                 
                                 Text("\(viewModel.reportMessage.count)/300")
                                     .pretendard(.regular, 16)
-                                    .foregroundStyle(.huraiGray.opacity(0.8))
+                                    .foregroundStyle(.huraiLightGray.opacity(0.8))
                                     .padding(.trailing, 10)
                             }
                             VStack {

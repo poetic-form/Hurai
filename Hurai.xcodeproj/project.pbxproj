@@ -17,8 +17,6 @@
 		72233D782E4744B5005109D1 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D772E4744B5005109D1 /* MissionView.swift */; };
 		72233D7A2E4A7EC7005109D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D792E4A7EC7005109D1 /* AppDelegate.swift */; };
 		72233D802E549907005109D1 /* DeviceActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2482E3D379E00070291 /* DeviceActivityService.swift */; };
-		72233D822E549FC0005109D1 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72233D812E549FC0005109D1 /* Config.xcconfig */; };
-		72233D852E54A124005109D1 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72233D812E549FC0005109D1 /* Config.xcconfig */; };
 		72233D862E55F9CF005109D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72233D8B2E671005005109D1 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D8A2E671005005109D1 /* AppInfo.swift */; };
 		72233D8C2E671005005109D1 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D8A2E671005005109D1 /* AppInfo.swift */; };
@@ -59,13 +57,12 @@
 		7253D6962E77E598005AF13E /* MissionSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253D6952E77E598005AF13E /* MissionSuccessView.swift */; };
 		7253D6972E77F4C5005AF13E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D912E6710FD005109D1 /* Extensions.swift */; };
 		7253D6982E77F4C5005AF13E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233D912E6710FD005109D1 /* Extensions.swift */; };
-		7253D6992E77F84A005AF13E /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72233D812E549FC0005109D1 /* Config.xcconfig */; };
-		7253D69A2E77F84A005AF13E /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72233D812E549FC0005109D1 /* Config.xcconfig */; };
 		7253D69C2E77FDF7005AF13E /* UhBeeGmin2Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7253D69B2E77FDF7005AF13E /* UhBeeGmin2Bold.ttf */; };
 		728B99942E8A6E7100D12717 /* IntroduceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728B99932E8A6E7100D12717 /* IntroduceView.swift */; };
 		72D0A36D2E8A7E4A000C77B9 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0A36C2E8A7E4A000C77B9 /* GuideView.swift */; };
 		72D0A36F2E8A9BCA000C77B9 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0A36E2E8A9BCA000C77B9 /* PrivacyPolicyView.swift */; };
 		72D0A3712E8AA1B1000C77B9 /* BugReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0A3702E8AA1B1000C77B9 /* BugReportView.swift */; };
+		72D0A3732EAF9896000C77B9 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72D0A3722EAF9896000C77B9 /* Config.xcconfig */; };
 		72DDB04B2E73B4AB00A04B62 /* FamilyActivityPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDB04A2E73B4AB00A04B62 /* FamilyActivityPickerView.swift */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
@@ -138,7 +135,6 @@
 		72233D772E4744B5005109D1 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 		72233D792E4A7EC7005109D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72233D7B2E4A8B08005109D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		72233D812E549FC0005109D1 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		72233D8A2E671005005109D1 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		72233D912E6710FD005109D1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		72233D952E671319005109D1 /* BasicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewModel.swift; sourceTree = "<group>"; };
@@ -179,6 +175,7 @@
 		72D0A36C2E8A7E4A000C77B9 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		72D0A36E2E8A9BCA000C77B9 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		72D0A3702E8AA1B1000C77B9 /* BugReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugReportView.swift; sourceTree = "<group>"; };
+		72D0A3722EAF9896000C77B9 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		72DDB04A2E73B4AB00A04B62 /* FamilyActivityPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyActivityPickerView.swift; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
@@ -398,7 +395,7 @@
 			children = (
 				72F8F2002E3AC1AA00070291 /* HuraiApp.swift */,
 				72233D792E4A7EC7005109D1 /* AppDelegate.swift */,
-				72233D812E549FC0005109D1 /* Config.xcconfig */,
+				72D0A3722EAF9896000C77B9 /* Config.xcconfig */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -654,11 +651,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72233D822E549FC0005109D1 /* Config.xcconfig in Resources */,
 				72233DA22E6AB28A005109D1 /* Pretendard-Thin.otf in Resources */,
 				72233DA32E6AB28A005109D1 /* Pretendard-Medium.otf in Resources */,
 				72233DA42E6AB28A005109D1 /* Pretendard-Black.otf in Resources */,
 				72233DA52E6AB28A005109D1 /* Pretendard-Light.otf in Resources */,
+				72D0A3732EAF9896000C77B9 /* Config.xcconfig in Resources */,
 				72233DA62E6AB28A005109D1 /* Pretendard-ExtraLight.otf in Resources */,
 				72233DA72E6AB28A005109D1 /* Pretendard-Bold.otf in Resources */,
 				7253D69C2E77FDF7005AF13E /* UhBeeGmin2Bold.ttf in Resources */,
@@ -673,7 +670,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72233D852E54A124005109D1 /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,7 +677,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7253D6992E77F84A005AF13E /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,7 +684,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7253D69A2E77F84A005AF13E /* Config.xcconfig in Resources */,
 				72233D862E55F9CF005109D1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -803,7 +797,7 @@
 /* Begin XCBuildConfiguration section */
 		72180A612E3A5FB8007338DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72233D812E549FC0005109D1 /* Config.xcconfig */;
+			baseConfigurationReference = 72D0A3722EAF9896000C77B9 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -868,7 +862,7 @@
 		};
 		72180A622E3A5FB8007338DF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72233D812E549FC0005109D1 /* Config.xcconfig */;
+			baseConfigurationReference = 72D0A3722EAF9896000C77B9 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
