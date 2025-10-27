@@ -24,20 +24,21 @@ struct IntroduceView: View {
             HuraiNavigationBar(title: "")
             
             ScrollView {
-                VStack(spacing: 135) {
-                    VStack(spacing: 63) {
+                VStack(spacing: 90) {
+                    VStack(spacing: 40) {
                         VStack(spacing: 26) {
-                            Text("후라이")
-                                .uhbee(40)
-                            
-                            Text("“자장자장 잘도 잔다~”")
-                                .pretendard(.medium, 16)
+                            Text("당신의 수면시간 지킴이")
+                                .pretendard(.medium, 18)
                                 .foregroundStyle(.white)
+                            
+                            Text("Hurai")
+                                .uhbee(40)
+                                .foregroundStyle(.accent)
                         }
                         
-                        Image(.huraiPan)
+                        Image(.huraiGuide)
                             .resizable()
-                            .frame(width: 203, height: 146)
+                            .frame(width: 247, height: 222)
                         
                         VStack(alignment: .leading, spacing: 20) {
                             VStack(alignment: .leading, spacing: 16) {
@@ -64,16 +65,17 @@ struct IntroduceView: View {
                             }
                         }
                         .padding(20)
-                        .background {
-                            RoundedRectangle(cornerRadius: 20)
-                                .foregroundStyle(.white.opacity(0.1))
-                        }
                     }
                         
-                    VStack(spacing: 60) {
-                        Text("메이커스")
-                            .pretendard(.medium, 20)
-                        
+                    VStack(spacing: 50) {
+                        Text("Hurai 메이커즈")
+                            .pretendard(.semibold, 20)
+                            .padding(.horizontal, 23)
+                            .padding(.vertical, 10)
+                            .background {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.white.opacity(0.06))
+                            }
                         VStack(spacing: 40) {
                             HStack {
                                 VStack {
@@ -177,6 +179,7 @@ struct IntroduceView: View {
                                 .pretendard(.regular, 12)
                         }
                         .foregroundStyle(.white.opacity(0.6))
+                        .padding(.top, 40)
                     }
                 }
                 .padding(20)
