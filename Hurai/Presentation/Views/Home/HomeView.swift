@@ -18,10 +18,17 @@ struct HomeView: View {
     @AppStorage("missionState", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var missionState: Int = 0
     
+    private var ampmtimeFormatter: DateFormatter {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "en_US")
+        f.dateFormat = "a"
+        return f
+    }
+    
     private var timeFormatter: DateFormatter {
         let f = DateFormatter()
-        f.locale = Locale(identifier: "ko_KR")
-        f.dateFormat = "a hh : mm"
+        f.locale = Locale(identifier: "en_US")
+        f.dateFormat = "hh:mm"
         return f
     }
     
@@ -87,8 +94,121 @@ struct HomeView: View {
                     .ignoresSafeArea(edges: .top)
             }
             
-            RoundedRectangle(cornerRadius: 30)
-                .padding(16)
+            Button {
+                viewModel.showEditSheet = true
+            } label: {
+                RoundedRectangle(cornerRadius: 30)
+                    .foregroundStyle(.white.opacity(0.06))
+                    .overlay {
+                        VStack(alignment: .leading) {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 22) {
+                                    Label {
+                                        Text("오늘의 목표 시간")
+                                            .pretendard(.semibold, 15)
+                                            .foregroundStyle(.white)
+                                    } icon: {
+                                        Image(systemName: "flame")
+                                            .foregroundStyle(.accent)
+                                    }
+                                    
+                                    Text("\(viewModel.threshold)분")
+                                        .foregroundStyle(.white)
+                                        .pretendard(.semibold, 36)
+                                        .padding(.leading, 8)
+                                    
+                                    Spacer()
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .layoutPriority(1)
+                                
+                                VStack(alignment: .leading, spacing: 22) {
+                                    Text("수면 시간")
+                                        .pretendard(.semibold, 15)
+                                        .foregroundStyle(.white)
+                                    
+                                    HStack(spacing: 14) {
+                                        Divider()
+                                            .frame(width: 1)
+                                            .background(.accent)
+                                        
+                                        VStack(alignment: .leading) {
+                                            Label {
+                                                HStack(alignment: .bottom, spacing: 6) {
+                                                    Text("\(ampmtimeFormatter.string(from: viewModel.startInterval))")
+                                                        .pretendard(.medium, 14)
+                                                        .foregroundStyle(.white.opacity(0.4))
+                                                    Text("\(timeFormatter.string(from: viewModel.startInterval))")
+                                                        .pretendard(.semibold, 22)
+                                                        .foregroundStyle(.white)
+                                                }
+                                                .monospacedDigit()
+                                            } icon: {
+                                                Image(systemName: "moon.zzz.fill")
+                                            }
+                                            .labelStyle(HuraiHomeViewLabelStyle())
+                                            
+                                            Spacer()
+                                            
+                                            Label {
+                                                HStack(alignment: .bottom, spacing: 6) {
+                                                    Text("\(ampmtimeFormatter.string(from: viewModel.startInterval))")
+                                                        .pretendard(.medium, 14)
+                                                        .foregroundStyle(.white.opacity(0.4))
+                                                    Text("\(timeFormatter.string(from: viewModel.startInterval))")
+                                                        .pretendard(.semibold, 22)
+                                                        .foregroundStyle(.white)
+                                                }
+                                                .monospacedDigit()
+                                            } icon: {
+                                                Image(systemName: "sun.max.fill")
+                                            }
+                                            .labelStyle(HuraiHomeViewLabelStyle())
+                                        }
+                                    }
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .layoutPriority(1)
+                            }
+                            .padding(.top, 30)
+                            .padding(.horizontal, 16)
+                            
+                            VStack {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .foregroundStyle(.white.opacity(0.15))
+                                    .frame(height: 82)
+                                    .padding(16)
+                                    .overlay {
+                                        HStack(spacing: 8) {
+                                            ForEach(0...4, id: \.self) { index in
+                                                ZStack {
+                                                    Image(.huraiSilhouette)
+                                                        .resizable()
+                                                        .frame(width: 43, height: 49)
+                                                    
+                                                    if index < viewModel.returnApplicationTokens().count {
+                                                        Label(viewModel.returnApplicationTokens()[index])
+                                                            .labelStyle(.iconOnly)
+                                                            .offset(y: 2)
+                                                    } else if index - viewModel.returnApplicationTokens().count < viewModel.returnWebDomainTokens().count {
+                                                        Label(viewModel.returnWebDomainTokens()[index - viewModel.returnApplicationTokens().count])
+                                                            .labelStyle(.iconOnly)
+                                                            .offset(y: 2)
+                                                    }
+                                                }
+                                                .frame(maxWidth: .infinity)
+                                                .layoutPriority(1)
+                                            }
+                                        }
+                                        .padding(20)
+                                    }
+                            }
+                        }
+                    }
+                    .frame(maxHeight: 370)
+            }
+            .padding(16)
+            
             Spacer()
         }
         .background(.huraiBackground)
@@ -118,8 +238,6 @@ struct HuraiHomeViewLabelStyle: LabelStyle {
                 .foregroundStyle(.accent)
             
             configuration.title
-                .pretendard(.semibold, 22)
-                .foregroundStyle(.white)
                 .tracking(-1)
         }
     }
