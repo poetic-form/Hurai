@@ -76,10 +76,19 @@ struct BugReportView: View {
                         }
                         
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("내용")
-                                .pretendard(.semibold, 16)
-                                .foregroundStyle(.white)
-                                .padding(.leading, 10)
+                            HStack {
+                                Text("내용")
+                                    .pretendard(.semibold, 16)
+                                    .foregroundStyle(.white)
+                                    .padding(.leading, 10)
+                                
+                                Spacer()
+                                
+                                Text("\(viewModel.reportMessage.count)/300")
+                                    .pretendard(.regular, 16)
+                                    .foregroundStyle(.huraiGray.opacity(0.8))
+                                    .padding(.trailing, 10)
+                            }
                             VStack {
                                 TextEditor(text: $viewModel.reportMessage)
                                     .overlay(alignment:.topLeading) {
@@ -103,7 +112,11 @@ struct BugReportView: View {
                                     .scrollContentBackground(.hidden)
                                     .scrollDisabled(true)
                                     .focused($focusedField)
-                                
+                                    .onChange(of: viewModel.reportMessage) { newValue in
+                                        if newValue.count > 300 {
+                                            viewModel.reportMessage = String(newValue.prefix(300))
+                                        }
+                                    }
                                 Spacer()
                             }
                             .frame(height: 320)
@@ -114,8 +127,10 @@ struct BugReportView: View {
                 
                 HuraiButton(title: "오류 신고하기") {
                     focusedField = false
+                    viewModel.checkNetworkStatus()
                     viewModel.showLoading = true
                 }
+                .disabled(viewModel.reportMessage.isEmpty)
             }
         }
         .foregroundStyle(.white)
@@ -126,74 +141,66 @@ struct BugReportView: View {
         .background(.huraiBackground)
         .overlay {
             if viewModel.showLoading {
-                ZStack {
-                    Rectangle()
-                        .ignoresSafeArea()
-                        .foregroundStyle(.huraiBackground.opacity(0.85))
-                    
-                    Image(.huraiPan)
-                        .resizable()
-                        .frame(width: 214, height: 171)
-                    
-                    if viewModel.networkStatus == .satisfied {
-                        ZStack {
-                            Rectangle()
-                                .ignoresSafeArea()
-                                .foregroundStyle(.huraiBackground)
-                                .overlay(alignment: .bottom) {
-                                    HuraiButton(title: "확인") {
-                                        viewModel.resetSetting()
-                                        dismiss()
-                                    }
+                if viewModel.networkStatus == .satisfied {
+                    ZStack {
+                        Rectangle()
+                            .ignoresSafeArea()
+                            .foregroundStyle(.huraiBackground)
+                            .overlay(alignment: .bottom) {
+                                HuraiButton(title: "확인") {
+                                    viewModel.resetSetting()
+                                    dismiss()
                                 }
-                            
-                            VStack(spacing: 36) {
-                                Image(.huraiChiken)
-                                    .resizable()
-                                    .frame(width: 181, height: 130)
-                                
-                                Text("오류 신고가 완료되었어요")
-                                    .pretendard(.bold, 24)
-                                    .foregroundStyle(.white)
-                                
-                                Text("신고 내용을 확인한 후\n입력하신 이메일로 답변드릴게요")
-                                    .pretendard(.regular, 16)
-                                    .foregroundStyle(.white.opacity(0.5))
                             }
-                        }
-                        .onAppear {
-                            viewModel.sendDiscordWebhook()
-                        }
-                    } else if viewModel.networkStatus == .unsatisfied {
-                        ZStack {
-                            Rectangle()
-                                .ignoresSafeArea(
-                                )
-                                .foregroundStyle(.huraiBackground)
-                                .overlay(alignment: .bottom) {
-                                    HuraiButton(title: "확인") {
-                                        viewModel.showLoading = false
-                                    }
-                                }
+                        
+                        VStack(spacing: 36) {
+                            Image(.huraiReport)
+                                .resizable()
+                                .frame(width: 214, height: 171)
                             
-                            VStack(spacing: 36) {
-                                Image(.huraiChiken)
-                                    .resizable()
-                                    .frame(width: 181, height: 130)
-                                
-                                Text("인터넷 연결을 확인해주세요")
-                                    .pretendard(.bold, 24)
-                                    .foregroundStyle(.white)
-                                
-                                Text("응애")
-                                    .pretendard(.regular, 16)
-                                    .foregroundStyle(.white.opacity(0.5))
-                            }
+                            Text("오류 신고가 완료되었어요")
+                                .pretendard(.bold, 24)
+                                .foregroundStyle(.white)
+                            
+                            Text("신고 내용을 확인한 후\n입력하신 이메일로 답변드릴게요")
+                                .pretendard(.regular, 16)
+                                .foregroundStyle(.white.opacity(0.5))
                         }
                     }
-                }
-                .onAppear {
-                    viewModel.checkNetworkStatus()
+                    .onAppear {
+                        viewModel.sendDiscordWebhook()
+                    }
+                } else if viewModel.networkStatus == .unsatisfied {
+                    ZStack {
+                        Rectangle()
+                            .ignoresSafeArea()
+                            .foregroundStyle(.huraiBlack.opacity(0.9))
+                            .overlay(alignment: .topTrailing) {
+                                Button {
+                                    viewModel.showLoading = false
+                                    viewModel.networkStatus = nil
+                                } label: {
+                                    Image(systemName: "xmark")
+                                        .font(.system(size: 24))
+                                        .foregroundStyle(.white)
+                                        .padding(30)
+                                }
+                            }
+                        
+                        VStack(spacing: 36) {
+                            Image(.huraiFail)
+                                .resizable()
+                                .frame(width: 172, height: 190)
+                            
+                            Text("오류 신고에 실패했어요")
+                                .pretendard(.bold, 24)
+                                .foregroundStyle(.white)
+                            
+                            Text("인터넷 연결을 확인하고\n다시 한 번 오류를 신고해주세요")
+                                .pretendard(.regular, 16)
+                                .foregroundStyle(.white.opacity(0.5))
+                        }
+                    }
                 }
             }
         }
