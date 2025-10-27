@@ -33,7 +33,7 @@ struct HuraiApp: App {
                         .zIndex(1)
                 }
             }
-            .dynamicTypeSize(.xSmall)
+            .dynamicTypeSize(.medium)
             .onOpenURL { url in
                 if(url.scheme == "hurai" && url.host == "mission") {
                     missionVM.showMissionView = true
@@ -43,7 +43,7 @@ struct HuraiApp: App {
                 MissionView(
                     flipMotionService: .init(requiredHoldDuration: 3 * (repeatCount + 1))
                 )
-                .dynamicTypeSize(.xSmall)
+                .dynamicTypeSize(.medium)
             }
             .preferredColorScheme(.dark)
             .environmentObject(missionVM)

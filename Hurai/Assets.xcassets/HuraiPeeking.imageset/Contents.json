@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "image 32.png",
+      "filename" : "carrot_i7 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "image 33.png",
+      "filename" : "carrot_i7 2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "image 34.png",
+      "filename" : "carrot_i7 3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

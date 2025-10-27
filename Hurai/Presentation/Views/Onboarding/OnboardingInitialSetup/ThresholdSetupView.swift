@@ -20,7 +20,7 @@ struct ThresholdSetupView: View {
                         .foregroundStyle(.white)
                         .lineSpacing(8)
                     
-                    Text("선택한 모든 앱의 총 목표 사용시간을 설정해주세요.\n최소 2분부터 최대 60분까지 설정할 수 있어요.")
+                    Text("선택한 모든 앱의 총 목표 사용시간을 설정해주세요.")
                         .pretendard(.regular, 16)
                         .foregroundStyle(.huraiGray)
                         .lineSpacing(4)
@@ -30,11 +30,11 @@ struct ThresholdSetupView: View {
             }
             .padding(20)
             
-            Spacer().frame(height: 70)
+            Spacer().frame(height: 30)
             
-            Rectangle()
-                .frame(width: 150, height: 150)
-                .foregroundStyle(.gray)
+            Image(.huraiAlarm)
+                .resizable()
+                .frame(width: 300, height: 200)
             
             Spacer()
             

@@ -18,7 +18,7 @@ struct MissionView: View {
                     .frame(height: 100)
                 
                 VStack(spacing: 56) {
-                    Text("30초 동안 핸드폰 뒤집어놓기")
+                    Text("\(Int(flipMotionService.requiredHoldDuration))초 동안 핸드폰 뒤집어놓기")
                         .pretendard(.semibold, 16)
                         .foregroundStyle(.white.opacity(0.8))
                         .padding(.horizontal, 30)

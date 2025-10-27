@@ -23,8 +23,8 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
     var registeredAt: Date = .now
     @AppStorage("isDefered", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var isDefered: Bool = false
-    @AppStorage("imageNumber", store: UserDefaults(suiteName: Bundle.main.appGroupName))
-    var imageNumber: Int = 0
+    @AppStorage("missionState", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var missionState: Int = 0
     
     override func intervalDidStart(for activity: DeviceActivityName) {
         super.intervalDidStart(for: activity)
@@ -32,7 +32,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         // Handle the start of the interval.
         if let interval = deviceActivityService.center.schedule(for: .activity)?.nextInterval {
             if !interval.contains(registeredAt) {
-                imageNumber = 0
+                missionState = 0
             }
         }
     }
@@ -44,7 +44,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         if let interval = deviceActivityService.center.schedule(for: .activity)?.nextInterval {
             if !interval.contains(registeredAt) {
                 if repeatCount == 0 {
-                    imageNumber = 1
+                    missionState = 1
                 }
                 repeatCount = 0
             }

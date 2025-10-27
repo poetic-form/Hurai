@@ -15,7 +15,7 @@ struct MissionSuccessView: View {
     var repeatCount: TimeInterval = 0
     @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var registeredAt: Date = .now
-    @AppStorage("imageNumber", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    @AppStorage("missionState", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var imageNumber: Int = 0
     
     var body: some View {
@@ -24,7 +24,7 @@ struct MissionSuccessView: View {
                 Spacer()
                     .frame(height: 100)
                 
-                VStack(spacing: 64) {
+                VStack(spacing: 40) {
                     VStack(spacing: 56) {
                         Text("미션 완료")
                             .pretendard(.semibold, 16)
@@ -43,15 +43,14 @@ struct MissionSuccessView: View {
                             .multilineTextAlignment(.center)
                     }
                     
-                    Rectangle()
-                        .frame(width: 150, height: 150)
+                    Image(.huraiNewAlarm)
+                        .frame(width: 329, height: 185)
+    
+                    HuraiThresholdPickerView(threshold: $viewModel.threshold)
+                        .frame(height: 100)
                 }
                 
-                Spacer()
-                
-                HuraiThresholdPickerView(threshold: $viewModel.threshold)
-                    .frame(height: 100)
-                
+              
                 Spacer()
                 
                 HuraiButton(title: "설정 완료") {
