@@ -10,6 +10,7 @@ import SwiftUI
 struct OnboardingTemplate: View {
     var title: String = ""
     var subtitle: String = ""
+    var image: ImageResource
     
     var body: some View {
         VStack(spacing: 0) {
@@ -17,13 +18,14 @@ struct OnboardingTemplate: View {
                 .pretendard(.bold, 26)
                 .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
+                .lineSpacing(8)
             
             Spacer()
-                .frame(height: 45)
+                .frame(height: 36)
             
-            Rectangle()
+            Image(image)
+                .resizable()
                 .frame(width: 228, height: 250)
-                .foregroundStyle(.gray)
             
             Spacer()
                 .frame(height: 76)
@@ -32,10 +34,12 @@ struct OnboardingTemplate: View {
                 .pretendard(.regular, 16)
                 .foregroundStyle(.huraiGray)
                 .multilineTextAlignment(.center)
+                .lineSpacing(4)
         }
+        .frame(height: 476, alignment: .top)
     }
 }
 
-#Preview {
-    OnboardingTemplate()
-}
+//#Preview {
+//    OnboardingTemplate()
+//}
