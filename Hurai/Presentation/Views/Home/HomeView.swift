@@ -15,8 +15,8 @@ struct HomeView: View {
     @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var registeredAt: Date = .now
     
-    @AppStorage("imageNumber", store: UserDefaults(suiteName: Bundle.main.appGroupName))
-    var imageNumber: Int = 0
+    @AppStorage("missionState", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    var missionState: Int = 0
     
     private var timeFormatter: DateFormatter {
         let f = DateFormatter()
@@ -48,10 +48,22 @@ struct HomeView: View {
                 .padding(.vertical, 30)
                 
                 HStack {
-                    Text("오늘도\n병아리를 지켜주세요!")
-                        .pretendard(.bold, 26)
-                        .foregroundStyle(.white)
-                        .lineSpacing(8)
+                    if missionState == 0 {
+                        Text("오늘도\n병아리를 지켜주세요!")
+                            .pretendard(.bold, 26)
+                            .foregroundStyle(.white)
+                            .lineSpacing(8)
+                    } else if missionState == 1 {
+                        Text("병아리가\n후라이가 되었어요!")
+                            .pretendard(.bold, 26)
+                            .foregroundStyle(.white)
+                            .lineSpacing(8)
+                    } else if missionState == 2 {
+                        Text("어제는\n병아리를 지켜냈어요!")
+                            .pretendard(.bold, 26)
+                            .foregroundStyle(.white)
+                            .lineSpacing(8)
+                    }
                     
                     Spacer()
                 }
@@ -59,18 +71,21 @@ struct HomeView: View {
                 HStack {
                     Spacer()
                     
-                    if imageNumber == 0 {
-                        Image(.huraiChiken)
+                    if missionState == 0 {
+                        Image(.huraiEgg)
                             .resizable()
-                            .frame(width: 100, height: 110)
-                    } else if imageNumber == 1 {
-                        Image(.huraiPeeking)
+                            .frame(width: 217, height: 153)
+                            .offset(x: 20)
+                    } else if missionState == 1 {
+                        Image(.huraiCooked)
                             .resizable()
-                            .frame(width: 100, height: 110)
-                    } else if imageNumber == 2 {
-                        Image(.huraiWatch)
+                            .frame(width: 226, height: 153)
+                            .offset(x: 10)
+                    } else if missionState == 2 {
+                        Image(.huraiHatch)
                             .resizable()
-                            .frame(width: 100, height: 110)
+                            .frame(width: 222, height: 153)
+                            .offset(x: 15)
                     }
                 }
             }

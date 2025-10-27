@@ -15,7 +15,7 @@ struct MissionSuccessView: View {
     var repeatCount: TimeInterval = 0
     @AppStorage("registeredAt", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var registeredAt: Date = .now
-    @AppStorage("imageNumber", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    @AppStorage("missionState", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var imageNumber: Int = 0
     
     var body: some View {
