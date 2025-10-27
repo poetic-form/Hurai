@@ -9,6 +9,8 @@ import Foundation
 import ManagedSettings
 
 class HomeViewModel: BasicViewModel {
+    let appLockService: AppLockService = AppLockService()
+    
     @Published var showSelectionPicker: Bool = false
     @Published var showThresholdPicker: Bool = false
     @Published var showEditSheet: Bool = false

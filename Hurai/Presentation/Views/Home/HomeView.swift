@@ -237,7 +237,12 @@ struct HomeView: View {
                     .frame(maxHeight: 370)
             }
             .buttonStyle(.plain)
-            .disabled(viewModel.storage.isOnPause)
+            .disabled(
+                viewModel.storage.isOnPause ||
+                ((viewModel.appLockService.store.shield.applications?.count ?? 0) +
+                (viewModel.appLockService.store.shield.webDomains?.count ?? 0)
+                > 0)
+            )
             .padding(16)
             
             Spacer()
