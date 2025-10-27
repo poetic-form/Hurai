@@ -38,6 +38,7 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
     }
     
     func makeConfiguration() -> ShieldConfiguration {
+        let icon: UIImage = isDefered ? .huraiPeeking : .huraiUpside
         let title = ShieldConfiguration.Label(text: isDefered ? "목표한 시간만큼 사용했어요\n이제 자러 갈 시간!" : "조금 더 사용하려면\n위의 알림을 눌러주세요", color: .white)
         let subtitle = ShieldConfiguration.Label(text: isDefered ? "" : "알림이 오지 않는다면\n알림을 허용하거나 방해금지 모드를 확인해주세요", color: .huraiGray)
         let primaryButton = ShieldConfiguration.Label(text: "자러 가기", color: .huraiBlack)
@@ -45,7 +46,7 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
         
         return ShieldConfiguration(
             backgroundColor: .huraiBackground,
-            icon: .huraiPeeking,
+            icon: icon,
             title: title,
             subtitle: subtitle,
             primaryButtonLabel: isDefered ? primaryButton : nil,
