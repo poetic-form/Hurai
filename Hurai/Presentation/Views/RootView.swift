@@ -39,7 +39,7 @@ struct RootView: View {
                 
                 Image(systemName: "house.fill")
                     .font(.system(size: 36))
-                    .foregroundStyle(tag == 0 ? .accent : .gray)
+                    .foregroundStyle(tag == 0 ? .accent : .white.opacity(0.2))
                 
                 Spacer()
                     .frame(width: 60)
@@ -53,9 +53,11 @@ struct RootView: View {
                 Spacer()
                     .frame(width: 60)
                 
-                Image(systemName: "gear")
-                    .font(.system(size: 36))
-                    .foregroundStyle(tag == 1 ? .accent : .gray)
+                Image(.huraiSilhouette)
+                    .renderingMode(.template)
+                    .resizable()
+                    .frame(width: 37, height: 43)
+                    .foregroundStyle(tag == 1 ? .accent : .white.opacity(0.2))
                 
                 Spacer()
             }

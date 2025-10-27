@@ -34,18 +34,8 @@ struct HomeView: View {
                         .foregroundStyle(.white)
                     
                     Spacer()
-                    
-                    Button {
-                        viewModel.showEditSheet = true
-                    } label: {
-                        Image(systemName: "gearshape")
-                            .font(.system(size: 26))
-                            .foregroundStyle(.white)
-                    }
-                    .buttonStyle(.plain)
-                    .disabled(viewModel.storage.isOnPause)
                 }
-                .padding(.vertical, 30)
+                .padding(.bottom, 30)
                 
                 HStack {
                     if missionState == 0 {
@@ -97,109 +87,8 @@ struct HomeView: View {
                     .ignoresSafeArea(edges: .top)
             }
             
-            VStack(spacing: 26) {
-                HStack(spacing: 14) {
-                    Button {
-                        viewModel.showEditSheet = true
-                    } label: {
-                        RoundedRectangle(cornerRadius: 30)
-                            .overlay {
-                                VStack {
-                                    HStack {
-                                        VStack(alignment: .leading, spacing: 17) {
-                                            Label {
-                                                Text("오늘의 목표 시간")
-                                                    .pretendard(.semibold, 15)
-                                                    .foregroundStyle(.white)
-                                            } icon: {
-                                                Image(systemName: "flame")
-                                                    .foregroundStyle(.accent)
-                                            }
-                                            
-                                            Text("\(viewModel.threshold)분")
-                                                .foregroundStyle(.white)
-                                                .pretendard(.bold, 36)
-                                        }
-                                        
-                                        Spacer()
-                                    }
-                                    
-                                    Spacer()
-                                    
-                                    HStack {
-                                        Spacer()
-                                        
-                                        Image(.huraiWatch)
-                                            .resizable()
-                                            .frame(width: 63, height: 63)
-                                    }
-                                }
-                                .padding(20)
-                            }
-                    }
-                    .buttonStyle(.plain)
-                    .disabled(viewModel.storage.isOnPause)
-                    
-                    Button {
-                        viewModel.showEditSheet = true
-                    } label: {
-                        RoundedRectangle(cornerRadius: 30)
-                            .overlay {
-                                HStack {
-                                    VStack(alignment: .leading, spacing: 20) {
-                                        Text("수면 시간")
-                                            .pretendard(.semibold, 15)
-                                            .foregroundStyle(.white)
-                                        
-                                        HStack(spacing: 14) {
-                                            Divider()
-                                                .frame(width: 2)
-                                                .background(.accent)
-                                            
-                                            VStack(alignment: .leading) {
-                                                Label("\(timeFormatter.string(from: viewModel.startInterval))", systemImage: "moon.zzz.fill")
-                                                    .labelStyle(HuraiHomeViewLabelStyle())
-                                                    .monospacedDigit()
-                                                
-                                                Spacer()
-                                                
-                                                Label("\(timeFormatter.string(from: viewModel.endInterval))", systemImage: "sun.max.fill")
-                                                    .labelStyle(HuraiHomeViewLabelStyle())
-                                                    .monospacedDigit()
-                                            }
-                                        }
-                                    }
-                                    
-                                    Spacer()
-                                }
-                                .padding(20)
-                            }
-                    }
-                    .buttonStyle(.plain)
-                    .disabled(viewModel.storage.isOnPause)
-                }
-                
-                Button {
-                    viewModel.showEditSheet = true
-                } label: {
-                    RoundedRectangle(cornerRadius: 30)
-                        .frame(height: 92)
-                        .overlay {
-                            HStack(spacing: 30) {
-                                ForEach(Array(viewModel.storage.selections.applicationTokens).sorted(by: { $0.rawValue < $1.rawValue} ), id: \.self) { token in
-                                    Label(token)
-                                        .labelStyle(.iconOnly)
-                                }
-                            }
-                            .padding(.horizontal, 20)
-                        }
-                }
-                .buttonStyle(.plain)
-                .disabled(viewModel.storage.isOnPause)
-            }
-            .foregroundStyle(.white.opacity(0.06))
-            .padding(20)
-            
+            RoundedRectangle(cornerRadius: 30)
+                .padding(16)
             Spacer()
         }
         .background(.huraiBackground)
