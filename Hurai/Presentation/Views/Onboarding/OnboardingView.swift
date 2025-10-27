@@ -35,14 +35,20 @@ struct SplashView: View {
             .foregroundStyle(.huraiBackground)
             .ignoresSafeArea()
             .overlay {
-                Label("후라이 스플래시뷰", systemImage: "star.fill")
-                    .pretendard(.bold, 20)
-                    .foregroundStyle(.white)
+                Text("Hurai")
+                    .uhbee(50)
+                    .foregroundStyle(.accent)
+                    .overlay(alignment: .topTrailing) {
+                        Image(.huraiSplash)
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .offset(x:47, y:-68)
+                    }
             }
     }
 }
 
 //#Preview {
-//    OnboardingView()
+//    SplashView()
 //}
 
