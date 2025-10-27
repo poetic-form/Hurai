@@ -19,7 +19,7 @@ struct FamilyActivityPickerView: View {
                 } label: {
                     Text("취소")
                         .pretendard(.regular, 16)
-                        .foregroundStyle(.huraiGray)
+                        .foregroundStyle(.huraiLightGray)
                 }
                 
                 Spacer()
@@ -42,7 +42,7 @@ struct FamilyActivityPickerView: View {
             
             Text("최대 5개의 앱을 선택할 수 있어요.")
                 .pretendard(.regular, 16)
-                .foregroundStyle(.huraiGray)
+                .foregroundStyle(.huraiLightGray)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 10)
             

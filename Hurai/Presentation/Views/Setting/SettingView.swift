@@ -17,7 +17,7 @@ struct SettingView: View {
     var body: some View {
         VStack {
             List {
-                Section(footer: Text("잠깐 쉬는 동안에는 목표 사용시간을 초과해도 선택한 앱이 잠기지 않고, 설정을 변경할 수 없습니다.").pretendard(.regular, 14).foregroundStyle(.huraiGray).padding(.top, 14).padding(.leading, -10).padding(.bottom, 40)) {
+                Section(footer: Text("잠깐 쉬는 동안에는 목표 사용시간을 초과해도 선택한 앱이 잠기지 않고, 설정을 변경할 수 없습니다.").pretendard(.regular, 14).foregroundStyle(.huraiLightGray).padding(.top, 14).padding(.leading, -10).padding(.bottom, 40)) {
                     Toggle(isOn: $viewModel.isOnPause) {
                         Text("잠깐 쉴래요")
                             .pretendard(.semibold, 16)

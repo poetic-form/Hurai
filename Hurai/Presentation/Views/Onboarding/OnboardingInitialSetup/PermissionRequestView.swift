@@ -43,7 +43,7 @@ struct PermissionRequestView: View {
                         
                         Text("세가지 권한을 모두 허용해야만 휴대폰 사용시간 조절을\n도와드릴 수 있어요.")
                             .pretendard(.regular, 14)
-                            .foregroundStyle(.huraiGray)
+                            .foregroundStyle(.huraiLightGray)
                             .lineSpacing(4)
                     }
                     .padding(10)
@@ -66,7 +66,7 @@ struct PermissionRequestView: View {
                         
                         Text("미션을 하려면 알림 권한 허용이 필요해요.")
                             .pretendard(.regular, 14)
-                            .foregroundStyle(.huraiGray)
+                            .foregroundStyle(.huraiLightGray)
                             .lineSpacing(8)
                     }
                     .padding(10)

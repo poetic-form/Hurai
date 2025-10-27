@@ -22,7 +22,7 @@ struct ThresholdSetupView: View {
                     
                     Text("선택한 모든 앱의 총 목표 사용시간을 설정해주세요.")
                         .pretendard(.regular, 16)
-                        .foregroundStyle(.huraiGray)
+                        .foregroundStyle(.huraiLightGray)
                         .lineSpacing(4)
                 }
                 
@@ -68,7 +68,7 @@ struct HuraiThresholdPickerView: View {
             } label: {
                 RoundedRectangle(cornerRadius: 100)
                     .frame(width: 65, height: 34)
-                    .foregroundStyle(.huraiGray.opacity(0.18))
+                    .foregroundStyle(.huraiLightGray.opacity(0.18))
                     .overlay {
                        Label("5", systemImage: "minus")
                             .labelStyle(HuraiStepperLabelStyle())
@@ -103,7 +103,7 @@ struct HuraiThresholdPickerView: View {
             } label: {
                 RoundedRectangle(cornerRadius: 100)
                     .frame(width: 65, height: 34)
-                    .foregroundStyle(.huraiGray.opacity(0.18))
+                    .foregroundStyle(.huraiLightGray.opacity(0.18))
                     .overlay {
                         Label("5", systemImage: "plus")
                              .labelStyle(HuraiStepperLabelStyle())

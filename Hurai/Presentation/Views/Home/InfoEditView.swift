@@ -46,7 +46,7 @@ struct InfoEditView: View {
                         } icon: {
                             Image(systemName: "exclamationmark.circle")
                         }
-                        .foregroundStyle(.huraiGray)
+                        .foregroundStyle(.huraiLightGray)
                         
                         NavigationLink {
                             HomeAppSelectionView()
