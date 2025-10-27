@@ -78,3 +78,7 @@ extension Bundle {
         return value
     }
 }
+
+extension URL: @retroactive Identifiable {
+    public var id: String { absoluteString }
+}

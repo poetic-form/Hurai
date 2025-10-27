@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import SafariServices
 
 struct IntroduceView: View {
+    @State private var url: URL?
+    
     var attributedString: AttributedString {
         var string = AttributedString("잠들기 전 핸드폰 사용으로 수면을 방해하는 앱을 목표한 시간만큼만 사용하도록 돕는 서비스에요.")
         if let highlight = string.range(of: "수면을 방해") {
@@ -92,6 +95,9 @@ struct IntroduceView: View {
                                     }
                                 }
                                 .frame(width: 112)
+                                .onTapGesture {
+                                    url = URL(string: "https://github.com/poetic-form")
+                                }
                                
                                 VStack {
                                     Image(.dirini)
@@ -107,6 +113,9 @@ struct IntroduceView: View {
                                     }
                                 }
                                 .frame(width: 112)
+                                .onTapGesture {
+                                    url = URL(string: "https://www.linkedin.com/in/himin/")
+                                }
                                
                                 VStack {
                                     Image(.rin)
@@ -123,6 +132,9 @@ struct IntroduceView: View {
                                     }
                                 }
                                 .frame(width: 112)
+                                .onTapGesture {
+                                    url = URL(string: "https://www.linkedin.com/in/taerinkim-1109xftr/")
+                                }
                             }
                             
                             HStack {
@@ -139,6 +151,9 @@ struct IntroduceView: View {
                                     }
                                 }
                                 .frame(width: 112)
+                                .onTapGesture {
+                                    url = URL(string: "https://github.com/baabguui")
+                                }
                                
                                 VStack {
                                     Image(.snooq)
@@ -154,6 +169,9 @@ struct IntroduceView: View {
                                     }
                                 }
                                 .frame(width: 112)
+                                .onTapGesture {
+                                    url = URL(string: "https://www.linkedin.com/in/jiajang/")
+                                }
                                
                                 VStack {
                                     Image(.chan)
@@ -169,6 +187,9 @@ struct IntroduceView: View {
                                     }
                                 }
                                 .frame(width: 112)
+                                .onTapGesture {
+                                    url = URL(string: "https://www.linkedin.com/in/찬우-엄-639a4a30a/")
+                                }
                             }
                         }
                         
@@ -187,6 +208,9 @@ struct IntroduceView: View {
         }
         .background(.huraiBackground)
         .navigationBarBackButtonHidden()
+        .sheet(item: $url, onDismiss: { url = nil }) { URL in
+            SafariView(url: URL)
+        }
     }
 }
 
@@ -205,5 +229,17 @@ struct HuraiIntroduceLabelStyle: LabelStyle {
                 .foregroundStyle(.white)
                 .pretendard(.medium, 16)
         }
+    }
+}
+
+struct SafariView: UIViewControllerRepresentable {
+    let url: URL
+
+    func makeUIViewController(context: Context) -> SFSafariViewController {
+        return SFSafariViewController(url: url)
+    }
+
+    func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {
+
     }
 }
