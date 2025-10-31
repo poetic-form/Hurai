@@ -268,7 +268,7 @@ struct HuraiTimeLabelStyle: LabelStyle {
                 .foregroundStyle(.accent)
             configuration.title
                 .foregroundStyle(.white)
-                .pretendard(.medium, 21)
+                .pretendard(.medium, 18)
                 .monospacedDigit()
         }
     }

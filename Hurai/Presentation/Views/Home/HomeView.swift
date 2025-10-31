@@ -100,7 +100,7 @@ struct HomeView: View {
                 RoundedRectangle(cornerRadius: 30)
                     .foregroundStyle(.huraiDarkGray)
                     .overlay {
-                        VStack(alignment: .leading) {
+                        VStack(spacing: 4) {
                             HStack {
                                 VStack(alignment: .leading, spacing: 22) {
                                     Label {
@@ -110,6 +110,7 @@ struct HomeView: View {
                                     } icon: {
                                         Image(systemName: "flame")
                                             .foregroundStyle(.accent)
+                                            .font(.system(size: 14))
                                     }
                                     
                                     Text("\(viewModel.threshold)분")
@@ -234,7 +235,6 @@ struct HomeView: View {
                                 .foregroundStyle(.white.opacity(0.5))
                         }
                     }
-                    .frame(maxHeight: 370)
             }
             .buttonStyle(.plain)
             .disabled(

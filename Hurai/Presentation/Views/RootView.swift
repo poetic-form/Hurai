@@ -53,10 +53,8 @@ struct RootView: View {
                 Spacer()
                     .frame(width: 60)
                 
-                Image(.huraiSilhouette)
-                    .renderingMode(.template)
-                    .resizable()
-                    .frame(width: 37, height: 43)
+                Image(systemName: "gearshape")
+                    .font(.system(size: 36))
                     .foregroundStyle(tag == 1 ? .accent : .white.opacity(0.2))
                 
                 Spacer()
