@@ -6,6 +6,8 @@
 	<string>$(APP_GROUP_NAME)</string>
 	<key>WEBHOOK_URL</key>
 	<string>$(WEBHOOK_URL)</string>
+	<key>MIXPANEL_TOKEN</key>
+	<string>$(MIXPANEL_TOKEN)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

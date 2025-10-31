@@ -14,21 +14,23 @@ class MixpanelManager {
     private init() {}
     
     func initialize() {
-        guard let token = Bundle.main.object(forInfoDictionaryKey: "TOKEN") as? String else { return }
+        guard let token = Bundle.main.object(forInfoDictionaryKey: "MIXPANEL_TOKEN") as? String else { return }
         Mixpanel.initialize(token: token, trackAutomaticEvents: false)
     }
     
     func trackMissionStarted(selectedApps: Int, startInterval: Date, endInterval: Date, threshold: Int, screen: String) {
-        let isoFormatter = ISO8601DateFormatter()
-        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-
-        let startIntervalISO = isoFormatter.string(from: startInterval)
-        let endIntervalISO = isoFormatter.string(from: endInterval)
-
+        let timeFormatter = DateFormatter()
+        timeFormatter.locale = .current
+        timeFormatter.timeZone = .current
+        timeFormatter.dateFormat = "a h:mm"
+        
+        let startIntervalFormatted = timeFormatter.string(from: startInterval)
+        let endIntervalFormatted = timeFormatter.string(from: endInterval)
+        
         Mixpanel.mainInstance().track(event: "Create Schedule", properties: [
             "selected_app_count": selectedApps,
-            "start_interval": startIntervalISO,
-            "end_interval": endIntervalISO,
+            "start_interval": startIntervalFormatted,
+            "end_interval": endIntervalFormatted,
             "threshold": threshold,
             "screen_name": screen
         ])
@@ -50,5 +52,13 @@ class MixpanelManager {
         Mixpanel.mainInstance().track(event: "Recreate Schedule", properties: [
             "repeat_count": repeatCount
         ])
+    }
+    
+    func trackPauseOn() {
+        Mixpanel.mainInstance().track(event: "Pause On")
+    }
+    
+    func trackPauseOff() {
+        Mixpanel.mainInstance().track(event: "Pause Off")
     }
 }

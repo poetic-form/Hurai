@@ -81,9 +81,11 @@ struct SettingView: View {
             viewModel.updateIsOnPause()
             
             if newValue {
+                MixpanelManager.shared.trackPauseOn()
                 viewModel.stopMonitoring()
                 viewModel.registNotification()
             } else {
+                MixpanelManager.shared.trackPauseOff()
                 viewModel.startMonitoring()
                 viewModel.removeNotification()
             }
