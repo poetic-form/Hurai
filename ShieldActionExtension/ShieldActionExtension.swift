@@ -24,7 +24,7 @@ class ShieldActionExtension: ShieldActionDelegate {
             completionHandler(.close)
         case .secondaryButtonPressed:
             if isDefered {
-                notificationService.missionNotification(title: "후라이", body: "미션하러가기")
+                notificationService.missionNotification(title: "후라이", body: "조금 더 사용하려면 알림을 눌러주세요")
             }
             isDefered.toggle()
             completionHandler(.defer)

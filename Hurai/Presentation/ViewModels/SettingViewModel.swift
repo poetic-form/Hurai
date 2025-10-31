@@ -76,7 +76,7 @@ class SettingViewModel: BasicViewModel {
     }
     
     func registNotification() {
-        notificationService.scheduleDailyMorningNotification(title: "잠은 잘 잤나요?", body: "후라이가 비활성화 되어있어요")
+        notificationService.scheduleDailyMorningNotification(title: "후라이", body: "잠깐 쉴래요 기능을 꺼서 오늘 하루도 목표한 시간만큼만 사용해봐요")
     }
     
     func removeNotification() {

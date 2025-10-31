@@ -51,7 +51,7 @@ struct HomeView: View {
                             .foregroundStyle(.white)
                             .lineSpacing(8)
                     } else if missionState == 1 {
-                        Text("병아리가\n후라이가 되었어요!")
+                        Text("어제는\n후라이를 만들었군요..")
                             .pretendard(.bold, 26)
                             .foregroundStyle(.white)
                             .lineSpacing(8)
