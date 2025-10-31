@@ -20,6 +20,7 @@ struct HuraiApp: App {
     
     init() {
         UITabBar.appearance().isHidden = true
+        MixpanelManager.shared.initialize()
     }
     
     var body: some Scene {
@@ -37,6 +38,7 @@ struct HuraiApp: App {
             .onOpenURL { url in
                 if(url.scheme == "hurai" && url.host == "mission") {
                     missionVM.showMissionView = true
+                    MixpanelManager.shared.trackEnterMissionView()
                 }
             }
             .fullScreenCover(isPresented: $missionVM.showMissionView, onDismiss: homeVM.fetchAllInfos) {

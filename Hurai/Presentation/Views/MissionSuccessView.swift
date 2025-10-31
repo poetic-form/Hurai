@@ -59,6 +59,7 @@ struct MissionSuccessView: View {
                     viewModel.unlockApps()
                     viewModel.startMonitoring()
                     registeredAt = .now
+                    MixpanelManager.shared.trackRecreateSchedule(repeatCount: Int(repeatCount))
                     viewModel.showGoBackView = true
                 }
                 .disabled(viewModel.threshold == 0)
@@ -71,6 +72,7 @@ struct MissionSuccessView: View {
         .background(.huraiBackground)
         .onAppear {
             viewModel.fetchAllInfos()
+            MixpanelManager.shared.trackCompleteMission()
         }
         .onChange(of: viewModel.threshold) { newValue in
             viewModel.updateThreshold()

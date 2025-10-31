@@ -18,17 +18,17 @@ class MixpanelManager {
         Mixpanel.initialize(token: token, trackAutomaticEvents: false)
     }
     
-    func trackMissionStarted(selectedApps: Int, intervalStart: Date, intervalEnd: Date, threshold: Int, screen: String) {
+    func trackMissionStarted(selectedApps: Int, startInterval: Date, endInterval: Date, threshold: Int, screen: String) {
         let isoFormatter = ISO8601DateFormatter()
         isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
 
-        let intervalStartISO = isoFormatter.string(from: intervalStart)
-        let intervalEndISO = isoFormatter.string(from: intervalEnd)
+        let startIntervalISO = isoFormatter.string(from: startInterval)
+        let endIntervalISO = isoFormatter.string(from: endInterval)
 
         Mixpanel.mainInstance().track(event: "Create Schedule", properties: [
             "selected_app_count": selectedApps,
-            "interval_start": intervalStartISO,
-            "interval_end": intervalEndISO,
+            "start_interval": startIntervalISO,
+            "end_interval": endIntervalISO,
             "threshold": threshold,
             "screen_name": screen
         ])

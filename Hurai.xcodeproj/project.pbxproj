@@ -51,7 +51,6 @@
 		72233DEF2E71781E005109D1 /* ScheduleSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DEE2E71781E005109D1 /* ScheduleSetupView.swift */; };
 		72233DF12E717829005109D1 /* ThresholdSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DF02E717829005109D1 /* ThresholdSetupView.swift */; };
 		722D16A72E7BE0D2004865A8 /* InfoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D16A62E7BE0D2004865A8 /* InfoEditView.swift */; };
-		722D16AA2E7BE917004865A8 /* HomeTimeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D16A92E7BE917004865A8 /* HomeTimeSettingView.swift */; };
 		722D16AE2E7BEE15004865A8 /* HomeAppSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D16AD2E7BEE15004865A8 /* HomeAppSelectionView.swift */; };
 		7253D6942E77E53F005AF13E /* HuraiRoundProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253D6932E77E53F005AF13E /* HuraiRoundProgress.swift */; };
 		7253D6962E77E598005AF13E /* MissionSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253D6952E77E598005AF13E /* MissionSuccessView.swift */; };
@@ -168,7 +167,6 @@
 		72233DEE2E71781E005109D1 /* ScheduleSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSetupView.swift; sourceTree = "<group>"; };
 		72233DF02E717829005109D1 /* ThresholdSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdSetupView.swift; sourceTree = "<group>"; };
 		722D16A62E7BE0D2004865A8 /* InfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoEditView.swift; sourceTree = "<group>"; };
-		722D16A92E7BE917004865A8 /* HomeTimeSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTimeSettingView.swift; sourceTree = "<group>"; };
 		722D16AD2E7BEE15004865A8 /* HomeAppSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAppSelectionView.swift; sourceTree = "<group>"; };
 		7253D6932E77E53F005AF13E /* HuraiRoundProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiRoundProgress.swift; sourceTree = "<group>"; };
 		7253D6952E77E598005AF13E /* MissionSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionSuccessView.swift; sourceTree = "<group>"; };
@@ -324,7 +322,6 @@
 			children = (
 				72233D6C2E4342F0005109D1 /* HomeView.swift */,
 				722D16A62E7BE0D2004865A8 /* InfoEditView.swift */,
-				722D16A92E7BE917004865A8 /* HomeTimeSettingView.swift */,
 				722D16AD2E7BEE15004865A8 /* HomeAppSelectionView.swift */,
 			);
 			path = Home;
@@ -706,7 +703,6 @@
 			files = (
 				72F8F2472E3D300100070291 /* NotificationService.swift in Sources */,
 				72233D6D2E4342F0005109D1 /* HomeView.swift in Sources */,
-				722D16AA2E7BE917004865A8 /* HomeTimeSettingView.swift in Sources */,
 				72F8F2492E3D379E00070291 /* DeviceActivityService.swift in Sources */,
 				72233DEF2E71781E005109D1 /* ScheduleSetupView.swift in Sources */,
 				7253D6962E77E598005AF13E /* MissionSuccessView.swift in Sources */,
