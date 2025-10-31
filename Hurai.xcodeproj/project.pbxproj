@@ -51,7 +51,6 @@
 		72233DEF2E71781E005109D1 /* ScheduleSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DEE2E71781E005109D1 /* ScheduleSetupView.swift */; };
 		72233DF12E717829005109D1 /* ThresholdSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72233DF02E717829005109D1 /* ThresholdSetupView.swift */; };
 		722D16A72E7BE0D2004865A8 /* InfoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D16A62E7BE0D2004865A8 /* InfoEditView.swift */; };
-		722D16AA2E7BE917004865A8 /* HomeTimeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D16A92E7BE917004865A8 /* HomeTimeSettingView.swift */; };
 		722D16AE2E7BEE15004865A8 /* HomeAppSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D16AD2E7BEE15004865A8 /* HomeAppSelectionView.swift */; };
 		7253D6942E77E53F005AF13E /* HuraiRoundProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253D6932E77E53F005AF13E /* HuraiRoundProgress.swift */; };
 		7253D6962E77E598005AF13E /* MissionSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253D6952E77E598005AF13E /* MissionSuccessView.swift */; };
@@ -63,6 +62,8 @@
 		72D0A36F2E8A9BCA000C77B9 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0A36E2E8A9BCA000C77B9 /* PrivacyPolicyView.swift */; };
 		72D0A3712E8AA1B1000C77B9 /* BugReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0A3702E8AA1B1000C77B9 /* BugReportView.swift */; };
 		72D0A3732EAF9896000C77B9 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 72D0A3722EAF9896000C77B9 /* Config.xcconfig */; };
+		72D0A3762EB133B6000C77B9 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 72D0A3752EB133B6000C77B9 /* Mixpanel */; };
+		72D0A37C2EB133DE000C77B9 /* MixpanelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0A37A2EB133DE000C77B9 /* MixpanelManager.swift */; };
 		72DDB04B2E73B4AB00A04B62 /* FamilyActivityPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDB04A2E73B4AB00A04B62 /* FamilyActivityPickerView.swift */; };
 		72F8F2022E3AC1AA00070291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */; };
 		72F8F2042E3AC1AA00070291 /* HuraiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8F2002E3AC1AA00070291 /* HuraiApp.swift */; };
@@ -166,7 +167,6 @@
 		72233DEE2E71781E005109D1 /* ScheduleSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSetupView.swift; sourceTree = "<group>"; };
 		72233DF02E717829005109D1 /* ThresholdSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdSetupView.swift; sourceTree = "<group>"; };
 		722D16A62E7BE0D2004865A8 /* InfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoEditView.swift; sourceTree = "<group>"; };
-		722D16A92E7BE917004865A8 /* HomeTimeSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTimeSettingView.swift; sourceTree = "<group>"; };
 		722D16AD2E7BEE15004865A8 /* HomeAppSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAppSelectionView.swift; sourceTree = "<group>"; };
 		7253D6932E77E53F005AF13E /* HuraiRoundProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiRoundProgress.swift; sourceTree = "<group>"; };
 		7253D6952E77E598005AF13E /* MissionSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionSuccessView.swift; sourceTree = "<group>"; };
@@ -176,6 +176,7 @@
 		72D0A36E2E8A9BCA000C77B9 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		72D0A3702E8AA1B1000C77B9 /* BugReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugReportView.swift; sourceTree = "<group>"; };
 		72D0A3722EAF9896000C77B9 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		72D0A37A2EB133DE000C77B9 /* MixpanelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelManager.swift; sourceTree = "<group>"; };
 		72DDB04A2E73B4AB00A04B62 /* FamilyActivityPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyActivityPickerView.swift; sourceTree = "<group>"; };
 		72F8F1FE2E3AC1AA00070291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F8F2002E3AC1AA00070291 /* HuraiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuraiApp.swift; sourceTree = "<group>"; };
@@ -206,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72D0A3762EB133B6000C77B9 /* Mixpanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +322,6 @@
 			children = (
 				72233D6C2E4342F0005109D1 /* HomeView.swift */,
 				722D16A62E7BE0D2004865A8 /* InfoEditView.swift */,
-				722D16A92E7BE917004865A8 /* HomeTimeSettingView.swift */,
 				722D16AD2E7BEE15004865A8 /* HomeAppSelectionView.swift */,
 			);
 			path = Home;
@@ -375,6 +376,7 @@
 		72F8F2072E3AC1C400070291 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				72D0A37A2EB133DE000C77B9 /* MixpanelManager.swift */,
 				72233D942E67116E005109D1 /* Services */,
 				72F8F20A2E3AC20300070291 /* Storage */,
 			);
@@ -538,6 +540,7 @@
 			);
 			name = Hurai;
 			packageProductDependencies = (
+				72D0A3752EB133B6000C77B9 /* Mixpanel */,
 			);
 			productName = Hurai;
 			productReference = 72180A582E3A5FB7007338DF /* Hurai.app */;
@@ -633,6 +636,9 @@
 			);
 			mainGroup = 72180A4F2E3A5FB7007338DF;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				72D0A3742EB133B5000C77B9 /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 72180A592E3A5FB7007338DF /* Products */;
 			projectDirPath = "";
@@ -697,7 +703,6 @@
 			files = (
 				72F8F2472E3D300100070291 /* NotificationService.swift in Sources */,
 				72233D6D2E4342F0005109D1 /* HomeView.swift in Sources */,
-				722D16AA2E7BE917004865A8 /* HomeTimeSettingView.swift in Sources */,
 				72F8F2492E3D379E00070291 /* DeviceActivityService.swift in Sources */,
 				72233DEF2E71781E005109D1 /* ScheduleSetupView.swift in Sources */,
 				7253D6962E77E598005AF13E /* MissionSuccessView.swift in Sources */,
@@ -714,6 +719,7 @@
 				72233D782E4744B5005109D1 /* MissionView.swift in Sources */,
 				72233D7A2E4A7EC7005109D1 /* AppDelegate.swift in Sources */,
 				72233D752E4733F9005109D1 /* SettingViewModel.swift in Sources */,
+				72D0A37C2EB133DE000C77B9 /* MixpanelManager.swift in Sources */,
 				72233D6F2E4342F9005109D1 /* SettingView.swift in Sources */,
 				72233DE32E716ECF005109D1 /* ScreenTimeOverviewView.swift in Sources */,
 				72233DBB2E6D82CD005109D1 /* OnboardingInitialSetupView.swift in Sources */,
@@ -1199,6 +1205,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		72D0A3742EB133B5000C77B9 /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mixpanel/mixpanel-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		72D0A3752EB133B6000C77B9 /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72D0A3742EB133B5000C77B9 /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
+			productName = Mixpanel;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 72180A502E3A5FB7007338DF /* Project object */;
 }

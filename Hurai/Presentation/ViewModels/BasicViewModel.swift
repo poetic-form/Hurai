@@ -34,6 +34,10 @@ class BasicViewModel: ObservableObject {
         selections = storage.selections
     }
     
+    func numberOfSelections() -> Int {
+        return selections.applicationTokens.count + selections.webDomainTokens.count
+    }
+    
     func updateThreshold() {
         storage.threshold = threshold
     }

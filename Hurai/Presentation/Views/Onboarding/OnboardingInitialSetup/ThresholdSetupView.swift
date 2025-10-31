@@ -43,6 +43,14 @@ struct ThresholdSetupView: View {
             Spacer()
             
             HuraiButton(title: "후라이 시작하기") {
+                MixpanelManager.shared.trackMissionStarted(
+                    selectedApps: viewModel.numberOfSelections(),
+                    startInterval: viewModel.startInterval,
+                    endInterval: viewModel.endInterval,
+                    threshold: viewModel.threshold,
+                    screen: "온보딩"
+                )
+                MixpanelManager.shared.trackOnboardingComplete()
                 viewModel.showSetupView = false
                 isFirst = false
             }

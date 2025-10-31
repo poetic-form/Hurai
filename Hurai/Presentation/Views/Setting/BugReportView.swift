@@ -89,6 +89,7 @@ struct BugReportView: View {
                                     .foregroundStyle(.huraiLightGray.opacity(0.8))
                                     .padding(.trailing, 10)
                             }
+                            
                             VStack {
                                 TextEditor(text: $viewModel.reportMessage)
                                     .overlay(alignment:.topLeading) {
@@ -119,7 +120,7 @@ struct BugReportView: View {
                                     }
                                 Spacer()
                             }
-                            .frame(height: 320)
+                            .frame(height: 380)
                         }
                     }
                 }

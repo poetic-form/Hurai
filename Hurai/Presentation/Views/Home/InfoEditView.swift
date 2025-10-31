@@ -33,6 +33,14 @@ struct InfoEditView: View {
                         viewModel.startMonitoring()
                         print("\(viewModel.storage.selections)")
                         registeredAt = .now
+                        MixpanelManager.shared.trackMissionStarted(
+                            selectedApps: viewModel.numberOfSelections(),
+                            startInterval: viewModel.startInterval,
+                            endInterval: viewModel.endInterval,
+                            threshold: viewModel.threshold, 
+                            screen: "홈화면"
+                        )
+                        
                         viewModel.showEditSheet = false
                     } label: {
                         Text("확인")
