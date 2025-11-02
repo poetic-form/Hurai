@@ -238,6 +238,7 @@ struct HomeView: View {
                                 }
                             }
                     }
+                    .frame(height: 330)
                     .buttonStyle(.plain)
                     .disabled(
                         viewModel.storage.isOnPause ||
@@ -462,6 +463,7 @@ struct HomeView: View {
                             }
                         }
                 }
+                .frame(maxHeight: 340)
                 .buttonStyle(.plain)
                 .disabled(
                     viewModel.storage.isOnPause ||

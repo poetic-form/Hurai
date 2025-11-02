@@ -45,6 +45,7 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
         let secondaryButton = ShieldConfiguration.Label(text: isDefered ? "조금 더 사용하기" : "알림 다시 받기", color: .white)
         
         return ShieldConfiguration(
+            backgroundBlurStyle: .dark,
             backgroundColor: .huraiBackground,
             icon: icon,
             title: title,
