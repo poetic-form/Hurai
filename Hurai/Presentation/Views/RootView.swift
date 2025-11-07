@@ -53,7 +53,7 @@ struct RootView: View {
                 Spacer()
                     .frame(width: 60)
                 
-                Image(systemName: "gearshape")
+                Image(systemName: "gearshape.fill")
                     .font(.system(size: 36))
                     .foregroundStyle(tag == 1 ? .accent : .white.opacity(0.2))
                 

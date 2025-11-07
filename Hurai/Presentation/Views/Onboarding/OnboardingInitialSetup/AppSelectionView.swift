@@ -15,7 +15,7 @@ struct AppSelectionView: View {
         VStack {
             VStack(alignment: .leading, spacing: 20) {
                 Text("나의 수면시간을 방해하는 \n앱을 선택해주세요")
-                    .pretendard(.bold, 24)
+                    .pretendard(.semibold, 24)
                     .foregroundStyle(.white)
                     .lineSpacing(8)
                 

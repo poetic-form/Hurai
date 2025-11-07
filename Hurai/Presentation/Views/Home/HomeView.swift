@@ -28,7 +28,7 @@ struct HomeView: View {
     private var timeFormatter: DateFormatter {
         let f = DateFormatter()
         f.locale = Locale(identifier: "en_US")
-        f.dateFormat = "hh:mm"
+        f.dateFormat = "hh : mm"
         return f
     }
     
@@ -48,18 +48,18 @@ struct HomeView: View {
                         
                         HStack {
                             if missionState == 0 {
-                                Text("오늘도\n병아리를 지켜주세요!")
-                                    .pretendard(.bold, 26)
+                                Text("목표를 지키고\n병아리도 지켜주세요!")
+                                    .pretendard(.semibold, 26)
                                     .foregroundStyle(.white)
                                     .lineSpacing(8)
                             } else if missionState == 1 {
-                                Text("어제는\n후라이를 만들었군요..")
-                                    .pretendard(.bold, 26)
+                                Text("다음에는\n병아리를 지켜주세요!")
+                                    .pretendard(.semibold, 26)
                                     .foregroundStyle(.white)
                                     .lineSpacing(8)
                             } else if missionState == 2 {
-                                Text("어제는\n병아리를 지켜냈어요!")
-                                    .pretendard(.bold, 26)
+                                Text("오늘도\n병아리를 지켜냈어요!")
+                                    .pretendard(.semibold, 26)
                                     .foregroundStyle(.white)
                                     .lineSpacing(8)
                             }
@@ -273,18 +273,18 @@ struct HomeView: View {
                     
                     HStack {
                         if missionState == 0 {
-                            Text("오늘도\n병아리를 지켜주세요!")
-                                .pretendard(.bold, 26)
+                            Text("목표를 지키고\n병아리도 지켜주세요!")
+                                .pretendard(.semibold, 26)
                                 .foregroundStyle(.white)
                                 .lineSpacing(8)
                         } else if missionState == 1 {
-                            Text("어제는\n후라이를 만들었군요..")
-                                .pretendard(.bold, 26)
+                            Text("다음에는\n병아리를 지켜주세요!")
+                                .pretendard(.semibold, 26)
                                 .foregroundStyle(.white)
                                 .lineSpacing(8)
                         } else if missionState == 2 {
-                            Text("어제는\n병아리를 지켜냈어요!")
-                                .pretendard(.bold, 26)
+                            Text("오늘도\n병아리를 지켜냈어요!")
+                                .pretendard(.semibold, 26)
                                 .foregroundStyle(.white)
                                 .lineSpacing(8)
                         }

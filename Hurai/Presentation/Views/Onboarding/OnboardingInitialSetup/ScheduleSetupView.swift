@@ -15,7 +15,7 @@ struct ScheduleSetupView: View {
             HStack {
                 VStack(alignment: .leading, spacing: 20) {
                     Text("지키고 싶은\n나의 수면시간을 알려주세요")
-                        .pretendard(.bold, 24)
+                        .pretendard(.semibold, 24)
                         .foregroundStyle(.white)
                         .lineSpacing(8)
                     

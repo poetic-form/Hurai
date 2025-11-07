@@ -16,11 +16,11 @@ struct ThresholdSetupView: View {
             HStack {
                 VStack(alignment: .leading, spacing: 20) {
                     Text("선택한 앱의\n목표 사용시간을 선택해주세요")
-                        .pretendard(.bold, 24)
+                        .pretendard(.semibold, 24)
                         .foregroundStyle(.white)
                         .lineSpacing(8)
                     
-                    Text("선택한 모든 앱의 총 목표 사용시간을 설정해주세요.")
+                    Text("최소 2분부터 최대 60분까지 설정할 수 있어요.")
                         .pretendard(.regular, 16)
                         .foregroundStyle(.huraiLightGray)
                         .lineSpacing(4)
@@ -51,7 +51,7 @@ struct ThresholdSetupView: View {
                     screen: "온보딩"
                 )
                 MixpanelManager.shared.trackOnboardingComplete()
-                viewModel.showSetupView = false
+//                viewModel.showSetupView = false
                 isFirst = false
             }
             .disabled(viewModel.threshold == 0)

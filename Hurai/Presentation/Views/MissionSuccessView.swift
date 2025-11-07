@@ -36,7 +36,7 @@ struct MissionSuccessView: View {
                                     .foregroundStyle(.white.opacity(0.1))
                             }
                         
-                        Text("새로운 목표 사용시간을 \n설정해주세요")
+                        Text("새로운 목표 사용시간을\n설정해주세요")
                             .pretendard(.semibold, 22)
                             .foregroundStyle(.white)
                             .lineSpacing(8)

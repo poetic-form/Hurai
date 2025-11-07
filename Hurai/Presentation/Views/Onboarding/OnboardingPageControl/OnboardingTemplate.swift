@@ -14,21 +14,23 @@ struct OnboardingTemplate: View {
     
     var body: some View {
         VStack(spacing: 0) {
+            Spacer()
+                .frame(maxHeight: 30)
             Text(title)
-                .pretendard(.bold, 26)
+                .pretendard(.semibold, 28)
                 .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
                 .lineSpacing(8)
             
             Spacer()
-                .frame(height: 36)
+                .frame(height: 25)
             
             Image(image)
                 .resizable()
-                .frame(width: 228, height: 250)
+                .frame(width: 256, height: 280)
             
             Spacer()
-                .frame(height: 76)
+                .frame(height: 68)
             
             Text(subtitle)
                 .pretendard(.regular, 16)
@@ -36,7 +38,7 @@ struct OnboardingTemplate: View {
                 .multilineTextAlignment(.center)
                 .lineSpacing(4)
         }
-        .frame(height: 476, alignment: .top)
+        .frame(alignment: .top)
     }
 }
 
