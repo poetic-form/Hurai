@@ -111,7 +111,7 @@ struct PrivacyPolicyView: View {
                             .pretendard(.medium, 16)
                         
                         Label {
-                            Text("최종 업데이트: 2025년 8월 2일")
+                            Text("최종 업데이트: 2025년 11월 15일")
                         } icon: {
                             Text("•")
                         }
