@@ -78,7 +78,7 @@ struct PageControlIndicator: View {
 }
 
 #Preview {
-    OnboardingView()
+    OnboardingPageControlView()
         .environmentObject(OnboardingViewModel())
 }
 

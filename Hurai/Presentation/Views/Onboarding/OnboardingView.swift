@@ -42,7 +42,7 @@ struct SplashView: View {
                         Image(.huraiSplash)
                             .resizable()
                             .frame(width: 100, height: 100)
-                            .offset(x:47, y:-68)
+                            .offset(x:47, y:-65)
                     }
             }
     }

@@ -19,7 +19,7 @@ struct BugReportView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 30) {
                     Text("사용하면서 불편했던 점이나\n오류에 대해 알려주세요")
-                        .pretendard(.bold, 26)
+                        .pretendard(.semibold, 24)
                         .foregroundStyle(.white)
                     
                     VStack(alignment: .leading, spacing: 20) {
@@ -160,7 +160,7 @@ struct BugReportView: View {
                                 .frame(width: 214, height: 171)
                             
                             Text("오류 신고가 완료되었어요")
-                                .pretendard(.bold, 24)
+                                .pretendard(.semibold, 24)
                                 .foregroundStyle(.white)
                             
                             Text("신고 내용을 확인한 후\n입력하신 이메일로 답변드릴게요")
@@ -194,7 +194,7 @@ struct BugReportView: View {
                                 .frame(width: 172, height: 190)
                             
                             Text("오류 신고에 실패했어요")
-                                .pretendard(.bold, 24)
+                                .pretendard(.semibold, 24)
                                 .foregroundStyle(.white)
                             
                             Text("인터넷 연결을 확인하고\n다시 한 번 오류를 신고해주세요")

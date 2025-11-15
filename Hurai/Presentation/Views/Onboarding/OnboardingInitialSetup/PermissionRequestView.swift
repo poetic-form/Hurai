@@ -24,7 +24,7 @@ struct PermissionRequestView: View {
         VStack {
             VStack(alignment: .leading, spacing: 20) {
                 Text(attributedString)
-                    .pretendard(.bold, 24)
+                    .pretendard(.semibold, 24)
                     .foregroundStyle(.white)
                     .lineSpacing(8)
                 
@@ -41,7 +41,7 @@ struct PermissionRequestView: View {
                                 .foregroundStyle(.white)
                         }
                         
-                        Text("세가지 권한을 모두 허용해야만 휴대폰 사용시간 조절을\n도와드릴 수 있어요.")
+                        Text("앱 사용시간을 추적하려면 권한 허용이 필요해요")
                             .pretendard(.regular, 14)
                             .foregroundStyle(.huraiLightGray)
                             .lineSpacing(4)
@@ -64,7 +64,7 @@ struct PermissionRequestView: View {
                                 .foregroundStyle(.white)
                         }
                         
-                        Text("미션을 하려면 알림 권한 허용이 필요해요.")
+                        Text("권한 허용을 받아야 미션을 정상적으로 진행할 수 있어요")
                             .pretendard(.regular, 14)
                             .foregroundStyle(.huraiLightGray)
                             .lineSpacing(8)

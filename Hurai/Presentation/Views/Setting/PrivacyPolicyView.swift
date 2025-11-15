@@ -109,17 +109,6 @@ struct PrivacyPolicyView: View {
                         
                         Text("후라이는 본 개인정보처리방침을 수시로 변경할 수 있습니다. 변경 시 본 페이지 및 앱스토어 상세정보를 통해 고지됩니다.\n이용자는 정기적으로 본 방침을 검토하시기 바랍니다.".byCharWrapping)
                             .pretendard(.medium, 16)
-                    }
-                    
-                    Divider()
-                        .background(.white.opacity(0.2))
-                    
-                    VStack(alignment: .leading, spacing: 22) {
-                        Text("5. 개인정보처리방침의 변경")
-                            .pretendard(.bold, 16)
-                        
-                        Text("후라이는 본 개인정보처리방침을 수시로 변경할 수 있습니다. 변경 시 본 페이지 및 앱스토어 상세정보를 통해 고지됩니다.\n이용자는 정기적으로 본 방침을 검토하시기 바랍니다.".byCharWrapping)
-                            .pretendard(.medium, 16)
                         
                         Label {
                             Text("최종 업데이트: 2025년 8월 2일")

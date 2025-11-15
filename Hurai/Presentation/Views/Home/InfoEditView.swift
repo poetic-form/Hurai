@@ -57,6 +57,7 @@ struct InfoEditView: View {
                                 .pretendard(.medium, 14)
                         } icon: {
                             Image(systemName: "exclamationmark.circle")
+                                .foregroundStyle(.red)
                         }
                         .foregroundStyle(.huraiLightGray)
                         

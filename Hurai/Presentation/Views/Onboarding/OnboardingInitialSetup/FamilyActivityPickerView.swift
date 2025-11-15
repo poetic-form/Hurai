@@ -42,7 +42,7 @@ struct FamilyActivityPickerView: View {
             
             Text("최대 5개의 앱을 선택할 수 있어요.")
                 .pretendard(.regular, 16)
-                .foregroundStyle(.huraiLightGray)
+                .foregroundStyle(.accent)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 10)
             
