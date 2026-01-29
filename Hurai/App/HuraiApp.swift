@@ -43,7 +43,7 @@ struct HuraiApp: App {
             }
             .fullScreenCover(isPresented: $missionVM.showMissionView, onDismiss: homeVM.fetchAllInfos) {
                 MissionView(
-                    flipMotionService: .init(requiredHoldDuration: 3 * (repeatCount + 1))
+                    flipMotionService: .init(requiredHoldDuration: 30 * (repeatCount + 1))
                 )
                 .dynamicTypeSize(.medium)
             }
